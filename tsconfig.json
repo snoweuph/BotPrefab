@@ -1,0 +1,17 @@
+{
+    //outout folder to build
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES6",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "removeComments": true,
+        "outDir": "./build"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules/**/*"
+    ]
+}

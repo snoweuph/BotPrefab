@@ -1,0 +1,33 @@
+{
+  "name": "botprefab",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "nodemon src/index.ts",
+    "start": "node build/index.js",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snoweuph/BotPrefab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/snoweuph/BotPrefab/issues"
+  },
+  "homepage": "https://github.com/snoweuph/BotPrefab#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^3.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
