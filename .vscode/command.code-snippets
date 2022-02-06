@@ -1,0 +1,29 @@
+{
+	"Event": {
+		"prefix": "!event",
+		"scope": "javascript,typescript",
+		"body": [
+			"import { Client } from 'discord.js';",
+			"import BaseEvent from '../../base/classes/BaseEvent';",
+			"",
+			"export default class ${1:name}Event extends BaseEvent {",
+			"\tconstructor() {",
+			"\t\tsuper(${2:'messageCreate'});",
+			"\t}",
+			"",
+			"\tasync execute(client: Client<boolean>, ...args: any[]): Promise<void> {",
+			"\t\t//TODO: Write your code here",
+			"\t}",
+			"}"
+		],
+		"description": "the basic structure of a event"
+	},
+	"Command": {
+		"prefix": "!command",
+		"body": [
+			"test",
+			"123"
+		],
+		"description": "the basic structure of a command"
+	}
+}

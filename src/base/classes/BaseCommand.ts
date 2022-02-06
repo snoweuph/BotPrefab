@@ -1,5 +1,5 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { Client, MessageComponentInteraction, Options } from "discord.js";
+import { SlashCommandBuilder } from '@discordjs/builders';
+import { Client, MessageComponentInteraction, Options } from 'discord.js';
 
 export default abstract class BaseCommand {
     data: SlashCommandBuilder;
