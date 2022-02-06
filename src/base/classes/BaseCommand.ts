@@ -10,5 +10,5 @@ export default abstract class BaseCommand {
         this.category = category;
     }
 
-    abstract execute(client: Client<boolean>, message: MessageComponentInteraction, options: Options): Promise<void>;
+    abstract execute(client: Client<boolean>, interaction: MessageComponentInteraction, options: Options): Promise<void>;
 }

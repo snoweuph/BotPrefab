@@ -20,9 +20,25 @@
 	},
 	"Command": {
 		"prefix": "!command",
+		"scope": "javascript,typescript",
 		"body": [
-			"test",
-			"123"
+			"import { SlashCommandBuilder } from '@discordjs/builders';",
+			"import { Client, MessageComponentInteraction, CacheType, Options } from 'discord.js';",
+			"import BaseCommand from '../base/classes/BaseCommand';",
+			"",
+			"export default class ${1:name}Command extends BaseCommand {",
+			"\tconstructor() {",
+			"\t\tsuper(",
+			"\t\t\tnew SlashCommandBuilder()",
+			"\t\t\t\t.setName('${1/(.*)/${1:/downcase}/}'),",
+			"\t\t\t'${2:category}'",
+			"\t\t);",
+			"\t}",
+			"",
+			"\tasync execute(client: Client<boolean>, interaction: MessageComponentInteraction<CacheType>, options: Options): Promise<void> {",
+			"\t\t//TODO: Write your code here",
+			"\t}",
+			"}"
 		],
 		"description": "the basic structure of a command"
 	}
