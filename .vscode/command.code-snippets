@@ -3,7 +3,7 @@
 		"prefix": "!event",
 		"scope": "javascript,typescript",
 		"body": [
-			"import { Client } from 'discord.js';",
+			"import Client from '../../types/Client';",
 			"import BaseEvent from '../../base/classes/BaseEvent';",
 			"",
 			"export default class ${1:name}Event extends BaseEvent {",
@@ -11,7 +11,7 @@
 			"\t\tsuper(${2:'messageCreate'});",
 			"\t}",
 			"",
-			"\tasync execute(client: Client<boolean>, ...args: any[]): Promise<void> {",
+			"\tasync execute(client: Client, ...args: any[]): Promise<void> {",
 			"\t\t//TODO: Write your code here",
 			"\t}",
 			"}"

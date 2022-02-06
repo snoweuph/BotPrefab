@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { Client, MessageComponentInteraction, Options } from 'discord.js';
+import { Client, CommandInteraction, MessageComponentInteraction, Options } from 'discord.js';
 
 export default abstract class BaseCommand {
     data: SlashCommandBuilder;
@@ -10,5 +10,5 @@ export default abstract class BaseCommand {
         this.category = category;
     }
 
-    abstract execute(client: Client<boolean>, interaction: MessageComponentInteraction, options: Options): Promise<void>;
+    abstract execute(client: Client<boolean>, interaction: CommandInteraction, options: Options): Promise<void>;
 }
