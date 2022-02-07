@@ -19,10 +19,17 @@ const _commands = new Array();
     const rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN);
     try {
         console.log('[Register] Started refreshing Commands');
-        await rest.put(
-            Routes.applicationGuildCommands(process.env.BOT_ID, process.env.TEST_GUILD_ID),
-            { body: _commands },
-        );
+        if (process.env.TEST_GUILD_ID) {
+            await rest.put(
+                Routes.applicationGuildCommands(process.env.BOT_ID, process.env.TEST_GUILD_ID),
+                { body: _commands },
+            );
+        } else {
+            await rest.put(
+                Routes.applicationCommands(process.env.BOT_ID),
+                { body: _commands },
+            );
+        }
         console.log('[Register] Successfully refreshed Commands');
     } catch (error) {
         console.error(error);

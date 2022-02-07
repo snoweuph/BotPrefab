@@ -13,6 +13,7 @@ async function loadEvents(client: Client, dir: string) {
         if (stat.isDirectory()) await loadEvents(client, join(dir, file));
         if (!(file.endsWith('.ts') || file.endsWith('.js'))) continue;
         const Event = require(join(filePath, file)).default;
+        if (!Event) continue;
         if (Event.prototype instanceof BaseEvent) {
             const event: BaseEvent = new Event();
             client.client.on(event.event, event.execute.bind(event, client));
@@ -28,6 +29,7 @@ async function loadCommands(commands: Collection<string, BaseCommand>, commadCat
         if (stat.isDirectory()) await loadCommands(commands, commadCategories, join(dir, file));
         if (!(file.endsWith('.ts') || file.endsWith('.js'))) continue;
         const Command = require(join(filePath, file)).default;
+        if (!Command) continue;
         if (Command.prototype instanceof BaseCommand) {
             const command: BaseCommand = new Command();
             const category = command.category;

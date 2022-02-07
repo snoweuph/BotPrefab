@@ -1,14 +1,15 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { Client, CommandInteraction, MessageComponentInteraction, Options } from 'discord.js';
+import { CacheType, CommandInteraction, CommandInteractionOption } from 'discord.js';
+import Client from '../../types/Client';
 
 export default abstract class BaseCommand {
-    data: SlashCommandBuilder;
+    data: SlashCommandBuilder | Omit<SlashCommandBuilder, 'addSubcommandGroup' | 'addSubcommand'>;
     category: string;
 
-    constructor(data: SlashCommandBuilder, category: string) {
+    constructor(data: SlashCommandBuilder | Omit<SlashCommandBuilder, 'addSubcommandGroup' | 'addSubcommand'>, category: string) {
         this.data = data;
         this.category = category;
     }
 
-    abstract execute(client: Client<boolean>, interaction: CommandInteraction, options: Options): Promise<void>;
+    abstract execute(client: Client, interaction: CommandInteraction<CacheType>, options: Readonly<CommandInteractionOption<CacheType>[]>): Promise<void>;
 }

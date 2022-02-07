@@ -14,7 +14,7 @@ export default class CommandHandlerEvent extends BaseEvent {
         if (!command) return;
         try {
             const { options } = interaction;
-            await command.execute(client.client, interaction, options);
+            await command.execute(client, interaction, options.data);
         } catch (error) {
             console.log(`[CommandHandler] error: ${error}`);
             interaction.reply({ ephemeral: true, content: 'An error occured while executing this command.' });
