@@ -8,7 +8,7 @@
 			"",
 			"export default class ${1:name}Event extends BaseEvent {",
 			"\tconstructor() {",
-			"\t\tsuper(${2:'messageCreate'});",
+			"\t\tsuper('${2:messageCreate}');",
 			"\t}",
 			"",
 			"\tasync execute(client: Client, ...args: any[]): Promise<void> {",
@@ -43,5 +43,24 @@
 			"}"
 		],
 		"description": "the basic structure of a command"
+	},
+	"ButtonInteraction": {
+		"prefix": "!buttonInteraction",
+		"scope": "javascript,typescript",
+		"body": [
+			"import { ButtonInteraction, CacheType } from 'discord.js';",
+			"import BaseButtonInteraction from '../base/classes/BaseButtonInteraction';",
+			"import Client from '../types/Client';",
+			"",
+			"export default class ${1:name}ButtonInteraction extends BaseButtonInteraction {",
+			"\tconstructor() {",
+			"\t\tsuper(${'2:button-id}');",
+			"\t}",
+			"",
+			"\tasync execute(client: Client, interaction: ButtonInteraction<CacheType>): Promise<void> {",
+			"\t\t//TODO: Write your code here",
+			"\t}",
+			"}"
+		]
 	}
 }

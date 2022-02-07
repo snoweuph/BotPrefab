@@ -4,6 +4,7 @@ import BaseEvent from './classes/BaseEvent';
 import BaseCommand from './classes/BaseCommand';
 import { Client as DiscordClient, Collection } from 'discord.js';
 import Client from '../types/Client';
+import BaseButtonInteraction from './classes/BaseButtonInteraction';
 
 async function loadEvents(client: Client, dir: string) {
     const filePath = join(__dirname, dir);
@@ -39,4 +40,20 @@ async function loadCommands(commands: Collection<string, BaseCommand>, commadCat
     }
 }
 
-export { loadEvents, loadCommands };
+async function loadButtonInteractions(buttonInteractions: Collection<string, BaseButtonInteraction>, dir: string) {
+    const filePath = join(__dirname, dir);
+    const files = await fs.readdir(filePath);
+    for (const file of files) {
+        const stat = await fs.lstat(join(filePath, file));
+        if (stat.isDirectory()) await loadButtonInteractions(buttonInteractions, join(dir, file));
+        if (!(file.endsWith('.ts') || file.endsWith('.js'))) continue;
+        const ButtonInteraction = require(join(filePath, file)).default;
+        if (!ButtonInteraction) continue;
+        if (ButtonInteraction.prototype instanceof BaseButtonInteraction) {
+            const buttonInteraction: BaseButtonInteraction = new ButtonInteraction();
+            buttonInteractions.set(buttonInteraction.id, buttonInteraction);
+        }
+    }
+}
+
+export { loadEvents, loadCommands, loadButtonInteractions };
