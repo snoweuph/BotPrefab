@@ -13,7 +13,7 @@ export default class AddNewGuildEvent extends BaseEvent {
     async execute(client: Client, ...args: any[]): Promise<void> {
         try {
             await this.connection.query(
-                `INSERT INTO GuildSettings VALUES('${args[0].id}')`
+                `INSERT INTO GuildSettings (guildId) VALUES('${args[0].id}')`
             );
         } catch (error) {
             if (error.code == 'ER_DUP_ENTRY') return;
