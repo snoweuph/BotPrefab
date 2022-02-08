@@ -20,15 +20,30 @@ const _commands = new Array();
     try {
         console.log('[Register] Started refreshing Commands');
         if (process.env.TEST_GUILD_ID) {
-            await rest.put(
+            const result = await rest.put(
                 Routes.applicationGuildCommands(process.env.BOT_ID, process.env.TEST_GUILD_ID),
                 { body: _commands },
-            );
+            ) as Array<any>;
+            /*result.forEach((command) => {
+                //search for command in _command
+                if (Commands.find((c) => c.data.name === command.name).category == 'admin') {
+                    //TODO: add all commands that are inside the admin category to a list (ids) then make a put reqest to make them admin only
+                }
+            });
+            */
+
         } else {
-            await rest.put(
+            const result = await rest.put(
                 Routes.applicationCommands(process.env.BOT_ID),
                 { body: _commands },
-            );
+            ) as Array<any>;
+            /*result.forEach((command) => {
+                //search for command in _command
+                if (Commands.find((c) => c.data.name === command.name).category == 'admin') {
+                    //TODO: add all commands that are inside the admin category to a list (ids) then make a put reqest to make them admin only
+                }
+            });
+            */
         }
         console.log('[Register] Successfully refreshed Commands');
     } catch (error) {
