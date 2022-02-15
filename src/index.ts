@@ -13,10 +13,7 @@ const client = new Client(
             Intents.FLAGS.GUILD_MESSAGES,
             Intents.FLAGS.DIRECT_MESSAGES
         ]
-    }),
-    new Collection<string, BaseCommand>(),
-    new Array<string>(),
-    new Collection<string, BaseButtonInteraction>()
+    })
 );
 
 import StateManager from './base/StateManager';
@@ -28,7 +25,7 @@ async function main() {
     }
     await loadEvents(client, '../events');
     console.log('[Index] Loaded Events');
-    await loadCommands(client.commands, client.commadCategories, '../commands');
+    await loadCommands(client.commands, client.commandCategories, client.CategoryCommandsMap, '../commands');
     console.log('[Index] Loaded Commands');
     await loadButtonInteractions(client.buttonInteractions, '../buttonInteractions');
     console.log('[Index] Loaded ButtonInteractions');

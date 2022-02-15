@@ -4,13 +4,12 @@ import BaseCommand from '../../base/classes/BaseCommand';
 import { run } from '../../modules/PingModule';
 import Client from '../../types/Client';
 
-export default class nameCommand extends BaseCommand {
+export default class PingCommand extends BaseCommand {
     constructor() {
         super(
             new SlashCommandBuilder()
                 .setName('ping')
-                .setDescription('returns the latency of the bot.'),
-            'default'
+                .setDescription('returns the latency of the bot.')
         );
     }
 

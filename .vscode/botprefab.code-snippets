@@ -6,7 +6,7 @@
 			"import Client from '../../types/Client';",
 			"import BaseEvent from '../../base/classes/BaseEvent';",
 			"",
-			"export default class ${1:name}Event extends BaseEvent {",
+			"export default class ${1:Name}Event extends BaseEvent {",
 			"\tconstructor() {",
 			"\t\tsuper('${2:messageCreate}');",
 			"\t}",
@@ -27,7 +27,7 @@
 			"import BaseCommand from '../../base/classes/BaseCommand';",
 			"import Client from '../../types/Client';",
 			"",
-			"export default class ${1:name}Command extends BaseCommand {",
+			"export default class ${1:Name}Command extends BaseCommand {",
 			"\tconstructor() {",
 			"\t\tsuper(",
 			"\t\t\tnew SlashCommandBuilder()",
@@ -44,6 +44,22 @@
 		],
 		"description": "the basic structure of a command"
 	},
+	"CommandCategory": {
+		"prefix": "!command-category",
+		"scope": "javascript,typescript",
+		"body": [
+			"import BaseCommandCategory from '../../types/BaseCommandCategory'",
+			"",
+			"const Category: BaseCommandCategory = {",
+			"\tdisplayName: '${1:DisplayName}',",
+			"\tuniqueId: 'test',",
+			"\tpermissions: [${2:'ADMINISTRATOR'}],",
+			"}",
+			"",
+			"export default Category;"
+		],
+		"description": "the definition of a command category"
+	},
 	"ButtonInteraction": {
 		"prefix": "!buttonInteraction",
 		"scope": "javascript,typescript",
@@ -52,7 +68,7 @@
 			"import BaseButtonInteraction from '../base/classes/BaseButtonInteraction';",
 			"import Client from '../types/Client';",
 			"",
-			"export default class ${1:name}ButtonInteraction extends BaseButtonInteraction {",
+			"export default class ${1:Name}ButtonInteraction extends BaseButtonInteraction {",
 			"\tconstructor() {",
 			"\t\tsuper(${'2:button-id}');",
 			"\t}",

@@ -14,7 +14,7 @@ export default class CommandHandlerEvent extends BaseEvent {
         if (!interaction.isCommand()) return;
         const command = client.commands.get(interaction.commandName);
         if (!command) return;
-        if (command.category == 'admin' && !interaction.memberPermissions.has('ADMINISTRATOR')) return interaction.reply({ ephemeral: true, content: 'You don\'t have admin privileges' });
+        if (!interaction.memberPermissions.has(command.category.permissions)) return interaction.reply({ ephemeral: true, content: 'You don\'t have the permissions' });
         if (cooldownMap.has(interaction.guildId) && cooldownMap.get(interaction.guildId).has(interaction.user.id)) {
             const cooldownTimestamp = cooldownMap.get(interaction.guildId).get(interaction.user.id);
             if (interaction.createdTimestamp - cooldownTimestamp < command.cooldown) {

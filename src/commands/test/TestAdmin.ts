@@ -9,7 +9,6 @@ export default class TestAdminCommand extends BaseCommand {
             new SlashCommandBuilder()
                 .setName('testadmin')
                 .setDescription('a command to test admin privileges'),
-            'admin',
             5000
         );
     }

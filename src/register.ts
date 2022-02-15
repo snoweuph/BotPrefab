@@ -5,15 +5,34 @@ import { Routes } from 'discord-api-types/v9';
 import { Collection } from 'discord.js';
 import BaseCommand from './base/classes/BaseCommand';
 import { loadCommands } from './base/Load';
+import BaseCommandCategory from './types/BaseCommandCategory';
+import { SlashCommandStringOption } from '@discordjs/builders';
+import { SlashCommandBuilder } from '@discordjs/builders';
 
 const Commands = new Collection<string, BaseCommand>();
-const CommadCategories = new Array<string>();
+const CommadCategories = new Array<BaseCommandCategory>();
+const CommandsToCategoryMap = new Map<BaseCommandCategory, Array<BaseCommand>>();
 const _commands = new Array();
 
 (async () => {
-    await loadCommands(Commands, CommadCategories, '../commands');
+    await loadCommands(Commands, CommadCategories, CommandsToCategoryMap, '../commands');
     console.log('[Register] Loaded Commands');
     for (const command of Commands) {
+        if (command[0] === 'help') {
+            let options: [name: string, value: string][] = new Array();
+            for (const category of CommadCategories) {
+                options.push([category.displayName, category.uniqueId]);
+            }
+            (command[1].data as SlashCommandBuilder).addStringOption((option) =>
+                option
+                    .setName('category')
+                    .setRequired(true)
+                    .setDescription(
+                        'The category for which the commands should be displayed.'
+                    )
+                    .addChoices(options)
+            );
+        }
         _commands.push(command[1].data.toJSON());
     }
     const rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN);

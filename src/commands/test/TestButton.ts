@@ -8,8 +8,7 @@ export default class TestButtonCommand extends BaseCommand {
         super(
             new SlashCommandBuilder()
                 .setName('testbutton')
-                .setDescription('send a test button'),
-            'test'
+                .setDescription('send a test button')
         );
     }
 

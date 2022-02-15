@@ -11,53 +11,34 @@ export default class HelpCommand extends BaseCommand {
             new SlashCommandBuilder()
                 .setName('help')
                 .setDescription('gives a list of all command functions.')
-                .addStringOption((option) =>
-                    option
-                        .setName('category')
-                        .setRequired(true)
-                        .setDescription(
-                            'The category for which the commands should be displayed.'
-                        )
-                        .addChoices([
-                            ['Default', 'default']
-                        ])
-                ),
-            'default'
         );
     }
 
     async execute(client: Client, interaction: CommandInteraction<CacheType>, options: Readonly<CommandInteractionOption<CacheType>[]>): Promise<void> {
-        const category = options[0].value.toString();
-        if (!client.commadCategories.includes(category)) {
+        const category = client.commandCategories.find(c => c.uniqueId === options[0].value.toString());
+        if (!category) {
             interaction.reply({
                 content: 'This Category does not exist',
                 ephemeral: true,
             });
             return;
         }
-        let validCommandArray = [];
-        for (const command of client.commands) {
-            if (command[1].category == category) {
-                validCommandArray.push(command);
-            }
-        }
-        if (validCommandArray.length <= 0) {
+        if (client.CategoryCommandsMap.get(category).length <= 0) {
             interaction.reply({
                 content: 'There are no Commands for this Category.',
                 ephemeral: true,
             });
         }
         let fields: EmbedFieldData[] = [];
-        for (const command of validCommandArray) {
+        for (const command of client.CategoryCommandsMap.get(category)) {
             fields.push({
-                name: `__**${command[1].data.name}**__`,
-                value: `${command[1].data.description}`,
+                name: `__**${command.data.name}**__`,
+                value: `${command.data.description}`,
             });
         }
-        const TitleCategory = category.charAt(0).toUpperCase() + category.slice(1);
         const embed = await Embeds.medium(
             EmbedType.NORMAL,
-            `Help *-> ${TitleCategory}*`,
+            `Help *-> ${category.displayName}*`,
             fields,
             client.client.user.avatarURL()
         );

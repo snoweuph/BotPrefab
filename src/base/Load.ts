@@ -5,6 +5,7 @@ import BaseCommand from './classes/BaseCommand';
 import { Client as DiscordClient, Collection } from 'discord.js';
 import Client from '../types/Client';
 import BaseButtonInteraction from './classes/BaseButtonInteraction';
+import BaseCommandCategory, { isBaseCommandCategory } from '../types/BaseCommandCategory';
 
 async function loadEvents(client: Client, dir: string) {
     const filePath = join(__dirname, dir);
@@ -22,21 +23,40 @@ async function loadEvents(client: Client, dir: string) {
     }
 }
 
-async function loadCommands(commands: Collection<string, BaseCommand>, commadCategories: Array<string>, dir: string) {
+async function loadCommands(commands: Collection<string, BaseCommand>, commadCategories: Array<BaseCommandCategory>, categoryCommandsMap: Map<BaseCommandCategory, Array<BaseCommand>>, dir: string, CurrentCategory?: BaseCommandCategory) {
     const filePath = join(__dirname, dir);
     const files = await fs.readdir(filePath);
+    var folders = new Array<string>();
+    var commandFiles = new Array<string>();
+    let _currentCategory: any;
     for (const file of files) {
         const stat = await fs.lstat(join(filePath, file));
-        if (stat.isDirectory()) await loadCommands(commands, commadCategories, join(dir, file));
+        if (stat.isDirectory()) folders.push(join(dir, file));
         if (!(file.endsWith('.ts') || file.endsWith('.js'))) continue;
-        const Command = require(join(filePath, file)).default;
-        if (!Command) continue;
-        if (Command.prototype instanceof BaseCommand) {
-            const command: BaseCommand = new Command();
-            const category = command.category;
-            if (!commadCategories.includes(category)) commadCategories.push(category);
-            commands.set(command.data.name, command);
+        const RequiredFile = require(join(filePath, file)).default;
+        if (!RequiredFile) continue;
+        if (RequiredFile.prototype instanceof BaseCommand) {
+            commandFiles.push(join(filePath, file));
         }
+        if (isBaseCommandCategory(RequiredFile)) {
+            _currentCategory = RequiredFile;
+        }
+    }
+    for (const path of folders) {
+        await loadCommands(commands, commadCategories, categoryCommandsMap, path, _currentCategory);
+    }
+    if (!_currentCategory || CurrentCategory) return;
+    for (const file of commandFiles) {
+        const _RequiredFile = require(file).default;
+        const command: BaseCommand = new _RequiredFile();
+        command.category = _currentCategory || CurrentCategory;
+        if (!commadCategories.find(category => category.uniqueId === command.category.uniqueId)) {
+            commadCategories.push(command.category);
+        }
+        commands.set(command.data.name, command);
+        if (!categoryCommandsMap.has(command.category)) categoryCommandsMap.set(command.category, new Array<BaseCommand>());
+        categoryCommandsMap.get(command.category).push(command);
+        categoryCommandsMap
     }
 }
 
