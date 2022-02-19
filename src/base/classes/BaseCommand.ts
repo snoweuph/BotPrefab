@@ -1,7 +1,7 @@
 import { SlashCommandBuilder, SlashCommandSubcommandsOnlyBuilder } from '@discordjs/builders';
 import { CacheType, CommandInteraction, CommandInteractionOption } from 'discord.js';
-import Client from '../../types/Client';
-import BaseCommandCategory from '../../types/BaseCommandCategory';
+import Client from '../types/Client';
+import BaseCommandCategory from '../types/BaseCommandCategory';
 
 export default abstract class BaseCommand {
     data: SlashCommandBuilder | Omit<SlashCommandBuilder, 'addSubcommandGroup' | 'addSubcommand'> | SlashCommandSubcommandsOnlyBuilder;

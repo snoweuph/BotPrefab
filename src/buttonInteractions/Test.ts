@@ -1,7 +1,7 @@
 import { ButtonInteraction, CacheType, MessageActionRow } from 'discord.js';
 import BaseButtonInteraction from '../base/classes/BaseButtonInteraction';
 import { run } from '../modules/PingModule';
-import Client from '../types/Client';
+import Client from '../base/types/Client';
 
 export default class TestButtonInteraction extends BaseButtonInteraction {
     constructor() {

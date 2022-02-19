@@ -1,9 +1,9 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType, CommandInteractionOption, EmbedFieldData } from 'discord.js';
 import BaseCommand from '../../base/classes/BaseCommand';
-import Client from '../../types/Client';
+import Client from '../../base/types/Client';
 import Embeds from '../../utils/Embeds';
-import EmbedType from '../../types/EmbedTypes';
+import EmbedType from '../../base/types/EmbedTypes';
 
 export default class HelpCommand extends BaseCommand {
     constructor() {

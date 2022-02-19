@@ -1,4 +1,4 @@
-import BaseCommandCategory from '../../types/BaseCommandCategory'
+import BaseCommandCategory from '../../base/types/BaseCommandCategory'
 
 const Category: BaseCommandCategory = {
     displayName: 'Test',

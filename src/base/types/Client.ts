@@ -1,6 +1,6 @@
 import { Client as DiscordClient, Collection } from "discord.js";
-import BaseCommand from "../base/classes/BaseCommand";
-import BaseButtonInteraction from "../base/classes/BaseButtonInteraction";
+import BaseCommand from "../classes/BaseCommand";
+import BaseButtonInteraction from "../classes/BaseButtonInteraction";
 import BaseCommandCategory from "./BaseCommandCategory";
 
 export default class Client {

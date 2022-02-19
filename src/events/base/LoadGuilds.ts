@@ -1,4 +1,4 @@
-import Client from '../../types/Client';
+import Client from '../../base/types/Client';
 import BaseEvent from '../../base/classes/BaseEvent';
 import StateManager from '../../base/StateManager';
 import { Connection } from 'mysql2/promise';

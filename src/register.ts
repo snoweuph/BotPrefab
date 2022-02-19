@@ -5,7 +5,7 @@ import { Routes } from 'discord-api-types/v9';
 import { Collection } from 'discord.js';
 import BaseCommand from './base/classes/BaseCommand';
 import { loadCommands } from './base/Load';
-import BaseCommandCategory from './types/BaseCommandCategory';
+import BaseCommandCategory from './base/types/BaseCommandCategory';
 import { SlashCommandStringOption } from '@discordjs/builders';
 import { SlashCommandBuilder } from '@discordjs/builders';
 

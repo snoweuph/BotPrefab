@@ -1,4 +1,4 @@
-import Client from '../../types/Client';
+import Client from '../../base/types/Client';
 import BaseEvent from '../../base/classes/BaseEvent';
 import { ButtonInteraction } from 'discord.js';
 

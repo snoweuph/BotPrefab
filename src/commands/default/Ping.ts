@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType, CommandInteractionOption } from 'discord.js';
 import BaseCommand from '../../base/classes/BaseCommand';
 import { run } from '../../modules/PingModule';
-import Client from '../../types/Client';
+import Client from '../../base/types/Client';
 
 export default class PingCommand extends BaseCommand {
     constructor() {

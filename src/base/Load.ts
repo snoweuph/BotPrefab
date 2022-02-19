@@ -3,9 +3,9 @@ import { promises as fs } from 'fs';
 import BaseEvent from './classes/BaseEvent';
 import BaseCommand from './classes/BaseCommand';
 import { Client as DiscordClient, Collection } from 'discord.js';
-import Client from '../types/Client';
+import Client from './types/Client';
 import BaseButtonInteraction from './classes/BaseButtonInteraction';
-import BaseCommandCategory, { isBaseCommandCategory } from '../types/BaseCommandCategory';
+import BaseCommandCategory, { isBaseCommandCategory } from './types/BaseCommandCategory';
 
 async function loadEvents(client: Client, dir: string) {
     const filePath = join(__dirname, dir);

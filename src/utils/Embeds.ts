@@ -1,5 +1,5 @@
 import { EmbedFieldData, MessageEmbed } from "discord.js";
-import EmbedType from "../types/EmbedTypes";
+import EmbedType from "../base/types/EmbedTypes";
 
 class Embeds {
     static async short(type: EmbedType, title: string, message: string): Promise<MessageEmbed> {

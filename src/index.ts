@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 config();
-import Client from './types/Client';
+import Client from './base/types/Client';
 import { Client as DiscordClient, Collection, Intents } from 'discord.js';
 import { loadEvents, loadCommands, loadButtonInteractions } from './base/Load';
 import BaseCommand from './base/classes/BaseCommand';

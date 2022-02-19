@@ -1,5 +1,5 @@
 import { ButtonInteraction, Client, CommandInteraction, EmbedFieldData, Interaction, Message } from "discord.js";
-import EmbedType from "../types/EmbedTypes";
+import EmbedType from "../base/types/EmbedTypes";
 import Embeds from "../utils/Embeds";
 
 async function run(client: Client, interaction: CommandInteraction | ButtonInteraction) {

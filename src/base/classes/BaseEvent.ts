@@ -1,5 +1,5 @@
 import { ClientEvents } from 'discord.js';
-import Client from '../../types/Client';
+import Client from '../types/Client';
 
 export default abstract class BaseEvent {
     event: keyof ClientEvents;
