@@ -3,7 +3,6 @@ config();
 import Client from './base/types/Client';
 import { Client as DiscordClient, Collection, Intents } from 'discord.js';
 import { loadEvents, loadCommands, loadButtonInteractions } from './base/Load';
-import BaseCommand from './base/classes/BaseCommand';
 
 const client = new Client(
     new DiscordClient({
@@ -16,21 +15,20 @@ const client = new Client(
     })
 );
 
-import StateManager from './base/StateManager';
-import BaseButtonInteraction from './base/classes/BaseButtonInteraction';
+import StateManager from '../base/StateManager';
 
 async function main() {
     while (typeof (StateManager.connection) == 'undefined') {
         await new Promise(r => setTimeout(r, 500));
     }
     await loadEvents(client, '../events');
-    console.log('[Index] Loaded Events');
+    console.log('[Bot] Loaded Events');
     await loadCommands(client.commands, client.commandCategories, client.CategoryCommandsMap, '../commands');
-    console.log('[Index] Loaded Commands');
+    console.log('[Bot] Loaded Commands');
     await loadButtonInteractions(client.buttonInteractions, '../buttonInteractions');
-    console.log('[Index] Loaded ButtonInteractions');
+    console.log('[Bot] Loaded ButtonInteractions');
     await client.client.login(process.env.BOT_TOKEN);
-    console.log(`[Index] Logged in as ${client.client.user.tag}`);
+    console.log(`[Bot] Logged in as ${client.client.user.tag}`);
 }
 
-main();
+export default main;

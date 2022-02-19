@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "nodemon src/index.ts",
-    "start": "node build/index.js",
-    "build": "tsc"
+    "test": "nodemon src/Index.ts",
+    "start": "node build/Index.js",
+    "build": "ts-node build.ts"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
+    "express": "^4.17.3",
     "mysql2": "^2.3.3",
     "node-fetch": "^3.2.0"
   },

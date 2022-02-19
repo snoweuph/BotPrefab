@@ -6,7 +6,6 @@ import { Collection } from 'discord.js';
 import BaseCommand from './base/classes/BaseCommand';
 import { loadCommands } from './base/Load';
 import BaseCommandCategory from './base/types/BaseCommandCategory';
-import { SlashCommandStringOption } from '@discordjs/builders';
 import { SlashCommandBuilder } from '@discordjs/builders';
 
 const Commands = new Collection<string, BaseCommand>();
