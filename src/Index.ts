@@ -1,11 +1,16 @@
 import { config } from 'dotenv';
 config();
-import Bot from './bot/Bot';
-import Dashboard, { main } from './dashboard/App';
+import StateManager from './base/StateManager';
+import bot from './bot/Bot';
+import Dashboard, { main as dashboard } from './dashboard/App';
 
-Bot();
-
-main();
-Dashboard.listen(process.env.DASHBOARD_PORT || 3000, () => {
-    console.log('Server on port', process.env.DASHBOARD_PORT || 3000);
-});
+(async () => {
+    while (typeof (StateManager.connection) == 'undefined') {
+        await new Promise(r => setTimeout(r, 500));
+    }
+    await bot();
+    await dashboard();
+    Dashboard.listen(process.env.DASHBOARD_PORT || 3000, () => {
+        console.log('[Dashboard] running on port ', process.env.DASHBOARD_PORT || 3000);
+    });
+})();

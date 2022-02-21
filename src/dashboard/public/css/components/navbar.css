@@ -1,5 +1,5 @@
 .navbar{
-    background-color: var(--color-gray);
+    background-color: var(--color-gray-blue);
     height: 3rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -11,7 +11,14 @@
     display: flex;
     align-items: center;
     margin-left: auto;
+    padding: 0 0.25rem 0 0.5rem;
     height: 100%;
+    gap: 0.25rem;
+    background-color: var(--color-gray);
+    transition-duration: 100ms;
+}
+.navbar-user:hover{
+    transform: scale(1.1) translate(0, 0.1rem);
 }
 .navbar-username{
     font-size: 1.5rem;
@@ -27,4 +34,13 @@
 .navbar-userlogo{
     height: 100%;
     width: 100%;
+}
+
+@media (max-width: 500px){
+    .navbar-user{
+        padding-left: 0.25rem;
+    }
+    .navbar-username{
+        display: none;
+    }
 }

@@ -15,12 +15,9 @@ const client = new Client(
     })
 );
 
-import StateManager from '../base/StateManager';
+
 
 async function main() {
-    while (typeof (StateManager.connection) == 'undefined') {
-        await new Promise(r => setTimeout(r, 500));
-    }
     await loadEvents(client, '../events');
     console.log('[Bot] Loaded Events');
     await loadCommands(client.commands, client.commandCategories, client.CategoryCommandsMap, '../commands');

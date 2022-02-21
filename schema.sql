@@ -1,2 +1,6 @@
 use discordDB;
 CREATE TABLE GuildSettings (guildId VARCHAR(64) NOT NULL PRIMARY KEY);
+CREATE TABLE Users(
+  userId VARCHAR(64) NOT NULL PRIMARY KEY,
+  avatarHash VARCHAR(64),
+);
