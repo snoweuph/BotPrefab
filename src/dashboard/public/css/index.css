@@ -1,0 +1,95 @@
+:root{
+    /* Black to White*/
+    --color-black: #000000;
+    --color-dark-gray1: #151515;
+    --color-dark-gray2: #18191a;
+    --color-gray-blue: #22313b;
+    --color-gray: #597585;
+    --color-light-gray1: #b2cdd4;
+    --color-light-gray2: #dfeef0;
+    --color-white: #ffffff;
+    /* Blue Tones */
+    --color-dark-blue1: #0b0b57;
+    --color-dark-blue2: #121a5c;
+    --color-blue1: #1e2d8f;
+    --color-blue2: #2d5dbd;
+    --color-light-blue1: #3b89e3;
+    --color-light-blue2: #59a1ff;
+    --color-cyan: #7fceff;
+    /* Green Tones */
+    --color-dark-green1: #072913;
+    --color-dark-green2: #0a4023;
+    --color-green1: #126126;
+    --color-green2: #2f8a21;
+    --color-lime1: #a0d43f;
+    --color-lime2: #c9f562;
+    --color-white-lime: #f6ffb2;
+    /* Orange/Yellow Tones */
+    --color-orange: #e08320;
+    --color-light-orange: #f5c13d;
+    --color-yellow: #f5e03d;
+    --color-light-yellow: #ffff63;
+    --color-white-yellow: #fffdc4;
+    /* Brown Tones */
+    --color-dark-brown: #7d2614;
+    --color-brown: #a14115;
+    /* Red-Purple Tones */
+    --color-dark-purple: #310536;
+    --color-dark-blue-purple: #311891;
+    --color-dark-red-purple: #570b3a;
+    --color-purple: #7325cc;
+    --color-red-purple: #8f0b42;
+    --color-red: #c21146;
+    --color-orange-red: #f53d4d;
+    --color-light-purple1: #b246f0;
+    --color-light-purple2: #e96bff;
+    --color-light-red: #ff7a7c;
+    --color-pink: #ffbfc3;
+    --color-white-pink: #faadff;
+}
+:root, html, body{
+    background-color: var(--color-dark-gray2);
+}
+:root, html, body, a, p, div, h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: var(--color-light-gray2);
+}
+h1{
+    font-size: 2rem;
+    font-weight: 500;
+}
+h2{
+    font-size: 2.5rem;
+}
+h3{
+    font-size: 2.25rem;
+}
+h4{
+    font-size: 2rem;
+}
+h5{
+    font-size: 1.75rem;
+}
+h6{
+    font-size: 1.5rem;
+}
+a{
+    font-size: 1rem;
+    color: var(--color-cyan);
+    text-decoration: underline;
+}
+p{
+    font-size: 1rem;
+}
+div{
+    background-color: transparent;
+}
+
+.wrapper-center{
+    width: fit-content;
+    margin: 0 auto;
+}
