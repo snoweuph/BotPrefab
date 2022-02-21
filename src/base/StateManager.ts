@@ -8,7 +8,7 @@ class StateManager extends EventEmitter {
         super(opts);
         Database.then((connection: Connection) => {
             this.connection = connection;
-            console.log('[StateManager] Connected to Database');
+            console.log('[StateManager] Connected to SQL Database');
         });
     }
 }

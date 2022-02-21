@@ -6,11 +6,17 @@ import session from 'express-session';
 import passport from 'passport';
 import path from 'path'
 import Routes from './routes/Index';
+import mongoose from 'mongoose';
 require('./strategies/Discord');
 
 const app = express();
 
 async function main() {
+    // connect to mongose for user data
+    await mongoose.connect(process.env.DB_MONGO_CONNECTION).then(() => {
+        console.log('[Dashboard] Connected to MongoDB');
+    });
+
     //*setting up middleware
     //express itself and express-session
     app.use(express.json());

@@ -8,6 +8,5 @@ passport.use(new Strategy({
     callbackURL: process.env.DASHBOARD_CALLBACK_URI,
     scope: ['identify', 'guilds'],
 }, async (accesToken: string, refreshToken: string, profile: Profile, done: VerifyCallback) => {
-    console.log(accesToken, refreshToken);
-    console.log(profile);
+
 }));
