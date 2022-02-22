@@ -12,7 +12,6 @@ passport.deserializeUser(async (id: string, done) => {
         const user = await User.findById(id);
         return user ? done(null, user) : done(null, null);
     } catch (error) {
-        console.log(error);
         return done(error, null);
     }
 });
@@ -34,7 +33,6 @@ passport.use(new Strategy({
         const newUser = await new User({ discordId, accesToken, refreshToken }).save();
         return done(null, newUser);
     } catch (error) {
-        console.log(error);
         return done(error as any, undefined)
     }
 

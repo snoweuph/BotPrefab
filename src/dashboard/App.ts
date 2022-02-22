@@ -4,6 +4,7 @@ import express from 'express';
 import cors from 'cors'
 import session from 'express-session';
 import passport from 'passport';
+import store from 'connect-mongo';
 import path from 'path'
 import Routes from './routes/Index';
 import mongoose from 'mongoose';
@@ -17,7 +18,7 @@ async function main() {
         console.log('[Dashboard] Connected to MongoDB');
     });
 
-    //*setting up middleware
+    //*setting up middlewares
     //express itself and express-session
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
@@ -27,7 +28,8 @@ async function main() {
         saveUninitialized: false,
         cookie: {
             maxAge: 60000 * 60 * 24 * 7 // 1 week
-        }
+        },
+        store: store.create({ mongoUrl: process.env.DB_MONGO_CONNECTION })
     }));
     //cors
     app.use(cors({
@@ -42,7 +44,7 @@ async function main() {
     app.set('views', path.join(__dirname, 'views'));
 
     //set public folder
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use('/static', express.static(path.join(__dirname, 'public')));
 
     //import routes
     app.use(Routes);

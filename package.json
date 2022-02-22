@@ -22,6 +22,7 @@
   "dependencies": {
     "@discordjs/builders": "^0.12.0",
     "@discordjs/rest": "^0.3.0",
+    "connect-mongo": "^4.6.0",
     "cors": "^2.8.5",
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.6.0",
