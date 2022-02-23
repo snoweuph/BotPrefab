@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="<%= relPath %>static/css/components/navbar.css">
 <nav class="navbar">
     <a class="navbar-title" href="<%= relPath %>">Dashboard</a>
@@ -7,14 +6,35 @@
         <a class="navbar-object" href="<%= relPath %>status">Status</a>
         <a class="navbar-object">Support</a>
     </div>
-    <div class="navbar-user">
-        <% if (false) { %>
-            
-        <% }else { %>
-            <p class="navbar-username">Login</p>
-            <button class="navbar-user-button">
+    <% if (true) { %>
+        <input type="checkbox" id="navbar-user-dropdown-checkbox">
+        <label class="navbar-user navbar-user-logged-in" for="navbar-user-dropdown-checkbox">
+            <p class="navbar-username unselectable">Snoweuph</p>
+            <p class="navbar-usertag unselectable">#9953</p>
+            <div class="navbar-userlogo-wrapper unselectable">
                 <img class="navbar-userlogo" src="<%= relPath %>static/img/account_circle.svg">
-            </button>
-        <% } %>
-    </div>
+            </div>
+        </label>
+        <ul class="navbar-user-dropdown">
+            <li class="navbar-user-dropdown-item">
+                <img src="<%= relPath %>static/img/account_circle.svg">
+                Profile
+            </li>
+            <li class="navbar-user-dropdown-item">
+                <img src="<%= relPath %>static/img/settings.svg">
+                Settings
+            </li>
+            <li class="navbar-user-dropdown-item">
+                <img src="<%= relPath %>static/img/logout.svg">
+                Log out
+            </li>
+        </ul>
+    <% }else { %>
+        <a class="navbar-user" href="<%= relPath %>api/auth/discord">
+            <p class="navbar-username">Login</p>
+            <div class="navbar-userlogo-wrapper">
+                <img class="navbar-userlogo" src="<%= relPath %>static/img/account_circle.svg">
+            </div>
+        </a>
+    <% } %>
 </nav>

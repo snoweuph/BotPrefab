@@ -1,11 +1,14 @@
 .navbar{
     background-color: var(--color-gray-blue);
-    height: 3rem;
+    --navbar-height: 3rem;
+    height: var(--navbar-height);
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 200;
+    box-shadow: 0px 0px 1rem 0px rgba(0,0,0,0.75);
 }
 .navbar-title{
     font-size: 2rem;
@@ -36,30 +39,68 @@
     align-items: center;
     margin-left: auto;
     padding: 0 0.25rem 0 0.5rem;
-    height: 100%;
-    gap: 0.25rem;
-    background-color: var(--color-gray);
+    height: 80%;
+    background-color: var(--color-red);
+    text-decoration: none;
     cursor: pointer;
+    z-index: 100;
+    border-radius: 0.75rem;
+}
+.navbar-user-logged-in{
+    background-color: var(--color-green2);
 }
 .navbar-user:hover{
-    transform: scale(1.1) translate(0, 0.1rem);
+    transform: scale(1.05);
 }
 .navbar-username{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 500;
 }
-.navbar-user-button{
+.navbar-usertag{
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-light-gray2);
+}
+.navbar-userlogo-wrapper{
     height: 100%;
     aspect-ratio: 1;
-    padding: 0;
-    border: none;
-    background-color: transparent;
 }
 .navbar-userlogo{
     height: 100%;
     width: 100%;
 }
-
+#navbar-user-dropdown-checkbox{
+    display: none;
+}
+.navbar input[type="checkbox"]:checked + label + .navbar-user-dropdown{
+    display: block;
+}
+.navbar-user-dropdown{
+    display: none;
+    position: absolute;
+    margin: 0;
+    padding: 0.5rem 0;
+    top: var(--navbar-height);
+    right: 0.5rem;
+    background-color: var(--color-gray-blue);
+    border-bottom-left-radius: 0.35rem;
+    border-bottom-right-radius: 0.35rem;
+    /* boxshadown with inset on the top of 1rem*/
+    box-shadow: inset 0px 1rem 1rem -1rem rgba(0,0,0,0.75);
+}
+.navbar-user-dropdown-item{
+    list-style: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.navbar-user-dropdown-item:hover{
+    background-color: var(--color-light-gray1);
+    transform: scale(1.05);
+}
 @media (max-width: 500px){
     .navbar-user{
         padding-left: 0.25rem;
