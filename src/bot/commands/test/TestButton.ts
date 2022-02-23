@@ -21,6 +21,6 @@ export default class TestButtonCommand extends BaseCommand {
                     .setStyle('PRIMARY'),
             );
 
-        await interaction.reply({ content: 'Test!', components: [row] });
+        await interaction.reply({ content: 'One Time PingButton', components: [row] });
     }
 }
