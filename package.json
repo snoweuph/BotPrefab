@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "nodemon src/Index.ts",
+    "test:register": "ts-node src/bot/Register.ts",
     "start": "node build/Index.js",
     "build": "ts-node build.ts"
   },

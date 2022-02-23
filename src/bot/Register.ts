@@ -39,7 +39,7 @@ const _commands = new Array();
         console.log('[Register] Started refreshing Commands');
         if (process.env.TEST_GUILD_ID) {
             const result = await rest.put(
-                Routes.applicationGuildCommands(process.env.BOT_ID, process.env.TEST_GUILD_ID),
+                Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.TEST_GUILD_ID),
                 { body: _commands },
             ) as Array<any>;
             /*result.forEach((command) => {
@@ -52,7 +52,7 @@ const _commands = new Array();
 
         } else {
             const result = await rest.put(
-                Routes.applicationCommands(process.env.BOT_ID),
+                Routes.applicationCommands(process.env.CLIENT_ID),
                 { body: _commands },
             ) as Array<any>;
             /*result.forEach((command) => {
