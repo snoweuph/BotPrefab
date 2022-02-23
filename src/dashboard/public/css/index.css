@@ -58,10 +58,10 @@
     font-family: sans-serif;
     font-weight: 600;
     color: var(--color-light-gray2);
+    transition-duration: 100ms;
 }
 h1{
-    font-size: 2rem;
-    font-weight: 500;
+    font-size: 3rem;
 }
 h2{
     font-size: 2.5rem;
@@ -80,8 +80,12 @@ h6{
 }
 a{
     font-size: 1rem;
-    color: var(--color-cyan);
+    color: var(--color-light-blue1);
     text-decoration: underline;
+    cursor: pointer;
+}
+a:hover{
+    color: var(--color-cyan);
 }
 p{
     font-size: 1rem;

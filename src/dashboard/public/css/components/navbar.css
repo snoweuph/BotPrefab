@@ -7,6 +7,30 @@
     align-items: center;
     justify-content: space-between;
 }
+.navbar-title{
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-light-gray2);
+    text-decoration: none;
+    padding-right: 1rem;
+}
+.navbar-objects{
+    background-color: var(--color-gray-blue);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+.navbar-object{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-light-gray2);
+    text-decoration: none;
+}
+.navbar-object:hover{
+    transform: translate(0, 0.05rem);
+}
 .navbar-user{
     display: flex;
     align-items: center;
@@ -15,7 +39,7 @@
     height: 100%;
     gap: 0.25rem;
     background-color: var(--color-gray);
-    transition-duration: 100ms;
+    cursor: pointer;
 }
 .navbar-user:hover{
     transform: scale(1.1) translate(0, 0.1rem);

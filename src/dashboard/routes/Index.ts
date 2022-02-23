@@ -3,7 +3,12 @@ const router = Router();
 
 router.get('/', (req, res) => {
     res.render('sites/index', {
-        relPath: './static'
+        relPath: './'
+    });
+});
+router.get('/status', (req, res) => {
+    res.render('sites/status', {
+        relPath: '../'
     });
 });
 
@@ -17,7 +22,6 @@ router.get('*', (req, res) => {
     routes.forEach(route => {
         relPath += '../'
     });
-    relPath += 'static';
     res.render('sites/errors/404', {
         relPath: relPath
     });

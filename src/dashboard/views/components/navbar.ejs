@@ -1,15 +1,20 @@
 
-<link rel="stylesheet" href="<%= relPath %>/css/components/navbar.css">
-<div class="navbar">
-    <h1>Dashboard</h1>
+<link rel="stylesheet" href="<%= relPath %>static/css/components/navbar.css">
+<nav class="navbar">
+    <a class="navbar-title" href="<%= relPath %>">Dashboard</a>
+    <div class="navbar-objects">
+        <a class="navbar-object">Invite</a>
+        <a class="navbar-object" href="<%= relPath %>status">Status</a>
+        <a class="navbar-object">Support</a>
+    </div>
     <div class="navbar-user">
         <% if (false) { %>
             
         <% }else { %>
             <p class="navbar-username">Login</p>
             <button class="navbar-user-button">
-                <img class="navbar-userlogo" src="<%= relPath %>/img/account_circle.svg">
+                <img class="navbar-userlogo" src="<%= relPath %>static/img/account_circle.svg">
             </button>
         <% } %>
     </div>
-</div>
+</nav>
