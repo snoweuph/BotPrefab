@@ -2,9 +2,18 @@
 <nav class="navbar">
     <a class="navbar-title" href="<%= relPath %>">Dashboard</a>
     <div class="navbar-objects">
-        <a class="navbar-object">Invite</a>
-        <a class="navbar-object" href="<%= relPath %>status">Status</a>
-        <a class="navbar-object">Support</a>
+        <a class="navbar-object">
+            <img src="<%= relPath %>static/img/add.svg" alt="">
+            <p>Invite</p>
+        </a>
+        <a class="navbar-object" href="<%= relPath %>status">
+            <img src="<%= relPath %>static/img/status.svg" alt="">
+            <p>Status</p>
+        </a>
+        <a class="navbar-object">
+            <img src="<%= relPath %>static/img/discord.svg" alt="">
+            <p>Support</p>
+        </a>
     </div>
     <% if (true) { %>
         <input type="checkbox" id="navbar-user-dropdown-checkbox">

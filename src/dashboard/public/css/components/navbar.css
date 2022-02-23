@@ -23,15 +23,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: 0.75rem;
 }
 .navbar-object{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.navbar-object p {
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--color-light-gray2);
-    text-decoration: none;
 }
-.navbar-object:hover{
+.navbar-object:hover p{
+    color: var(--color-cyan);
     transform: translate(0, 0.05rem);
 }
 .navbar-user{
