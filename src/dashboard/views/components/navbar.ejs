@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="css/components/navbar.css">
+<link rel="stylesheet" href="<%= relPath %>/css/components/navbar.css">
 <div class="navbar">
     <h1>Dashboard</h1>
     <div class="navbar-user">
@@ -8,7 +8,7 @@
         <% }else { %>
             <p class="navbar-username">Login</p>
             <button class="navbar-user-button">
-                <img class="navbar-userlogo" src="img/account_circle.svg" alt="">
+                <img class="navbar-userlogo" src="<%= relPath %>/img/account_circle.svg">
             </button>
         <% } %>
     </div>

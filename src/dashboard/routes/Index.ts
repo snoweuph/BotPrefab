@@ -2,7 +2,9 @@ import { Router } from 'express';
 const router = Router();
 
 router.get('/', (req, res) => {
-    res.render('sites/index');
+    res.render('sites/index', {
+        relPath: './static'
+    });
 });
 
 import apiRouter from './api/Index';
@@ -15,9 +17,8 @@ router.get('*', (req, res) => {
     routes.forEach(route => {
         relPath += '../'
     });
-    relPath += 'static/';
+    relPath += 'static';
     res.render('sites/errors/404', {
-        page: req.url,
         relPath: relPath
     });
 });
