@@ -3,8 +3,11 @@
 <body>
     <%- include('../components/navbar.ejs') %>
     <div class="wrapper-center">
-        <h2>Index</h2>
+        <% if (user) { %>
+            <h2>UserID: <%= user.discordId %></h2>
+        <% } else { %>
+            <h2>No user</h2>
+        <% } %>
         <h3>this website does not exist yet</h3>
-
     </div>
 </body>

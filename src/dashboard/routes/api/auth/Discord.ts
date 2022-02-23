@@ -7,7 +7,7 @@ router.get('/', passport.authenticate('discord'), (req, res) => {
     res.send(200);
 });
 router.get('/redirect', passport.authenticate('discord'), (req, res) => {
-    res.send({ msg: 'Succes' });
+    res.redirect('/');
 });
 
 export default router;
