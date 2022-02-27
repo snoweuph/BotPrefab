@@ -16,9 +16,6 @@ router.get('/status', (req, res) => {
 import apiRouter from './api/Index';
 router.use('/api', apiRouter);
 
-import guildsRouter from './guilds/Index';
-router.use('/guilds', guildsRouter);
-
 router.get('*', (req, res) => {
     const routes = req.url.split('/');
     routes.shift();
