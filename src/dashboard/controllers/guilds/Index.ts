@@ -1,13 +1,20 @@
 import { Request, Response } from "express";
-import { getBotGuildsService } from "../../services/guilds/Index";
+import { User } from "../../../base/schemas/User";
+import { getBotGuildsService, getUserGuildsService } from "../../services/guilds/Index";
 
 export async function getGuildsController(req: Request, res: Response) {
+    const user = req.user as User;
+    console.log(user);
     try {
-        const { data } = await getBotGuildsService();
-        res.send(data);
+        const { data: botGuilds } = await getBotGuildsService();
+        const { data: userGuilds } = await getUserGuildsService(user.id);
+        res.send({
+            botGuilds,
+            userGuilds
+        });
     } catch (err) {
         console.log(err);
-        res.status(400).send(200);
+        res.sendStatus(400).sendStatus(200);
     }
 
 }
