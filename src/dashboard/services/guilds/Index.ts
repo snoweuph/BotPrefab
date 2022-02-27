@@ -17,3 +17,11 @@ export async function getUserGuildsService(id: ObjectId) {
         headers: { Authorization: `Bearer ${user.accesToken}` }
     })
 }
+
+export async function getMenuGuildsService(id: ObjectId) {
+    const { data: botGuilds } = await getBotGuildsService();
+    const { data: userGuilds } = await getUserGuildsService(id);
+
+    const adminUserGuilds = userGuilds.filter(({ permissions }) => ((parseInt(permissions) & 0x8) === 0x8));
+    return adminUserGuilds.filter((botGuild) => botGuilds.some((botGuild) => botGuild.id === botGuild.id));
+}
