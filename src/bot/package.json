@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "build": "",
     "dev": "",
     "test": "",
-    "build": ""
+    "lint": ""
   },
   "repository": {
     "type": "git",

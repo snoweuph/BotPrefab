@@ -3,15 +3,18 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
+    "build": "",
+    "build:bot": "",
+    "build:dashboard": "",
     "dev": "",
     "dev:bot": "",
     "dev:dashboard": "",
     "test": "",
     "test:bot": "",
     "test:dashboard": "",
-    "build": "",
-    "build:bot": "",
-    "build:dashboard": ""
+    "lint": "",
+    "lint:bot": "",
+    "lint:dashboard": ""
   },
   "repository": {
     "type": "git",
@@ -19,5 +22,9 @@
   },
   "keywords": [],
   "author": "Snoweuph",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "stylelint": "^14.5.3"
+  }
 }
