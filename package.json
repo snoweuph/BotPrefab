@@ -1,0 +1,23 @@
+{
+  "name": "botprefab",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "dev": "",
+    "dev:bot": "",
+    "dev:dashboard": "",
+    "test": "",
+    "test:bot": "",
+    "test:dashboard": "",
+    "build": "",
+    "build:bot": "",
+    "build:dashboard": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snoweuph/BotPrefab.git"
+  },
+  "keywords": [],
+  "author": "Snoweuph",
+  "license": "UNLICENSED"
+}
