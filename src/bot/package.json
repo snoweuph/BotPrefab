@@ -6,9 +6,7 @@
   "scripts": {
     "build": "",
     "dev": "",
-    "test": "",
-    "lint": "",
-    "lint:fix": ""
+    "test": ""
   },
   "repository": {
     "type": "git",
