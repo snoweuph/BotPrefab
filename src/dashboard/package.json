@@ -6,7 +6,8 @@
   "scripts": {
     "build": "",
     "dev": "",
-    "test": ""
+    "test": "npm run test:lint && npm run xyz",
+    "test:lint": "npx eslint ."
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,13 @@
   "keywords": [],
   "author": "Snoweuph",
   "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
   "devDependencies": {
-    "sass": "^1.49.9"
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "eslint": "^8.10.0",
+    "nodemon": "^2.0.15"
   }
 }
