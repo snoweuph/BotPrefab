@@ -6,8 +6,9 @@
   "scripts": {
     "build": "",
     "dev": "",
-    "test": "npm run test:lint && npm run xyz",
-    "test:lint": "npx eslint ."
+    "test": "npm run lint && npm run xyz",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint --fix ."
   },
   "repository": {
     "type": "git",

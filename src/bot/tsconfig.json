@@ -1,5 +1,4 @@
 {
-    //outout folder to build
     "compilerOptions": {
         "module": "commonjs",
         "target": "ESNext",

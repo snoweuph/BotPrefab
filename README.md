@@ -4,6 +4,6 @@ New Version is in Dev
 
 - Typescript
 - Discord.js
-- Vue.js
+- Next.js
 - Express
 - Sass
