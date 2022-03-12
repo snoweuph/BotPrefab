@@ -1,0 +1,18 @@
+{
+    "CommandCategory": {
+        "prefix": "commandCategory",
+        "scope": "javascript,typescript",
+        "body": [
+            "import BaseCommandCategory from '../../base/types/baseCommandCategory';",
+            "",
+            "const Category: BaseCommandCategory = {",
+            "\tdisplayName: '${1:DisplayName}',",
+            "\tuniqueId: '${1/(.*)/${1:/downcase}/}',",
+            "\tpermissions: [${2:'ADMINISTRATOR'}],",
+            "}",
+            "",
+            "export default Category;",
+            ""
+        ]
+    }
+}

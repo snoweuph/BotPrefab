@@ -1,16 +1,19 @@
 import { Client as DiscordClient, Collection } from 'discord.js';
-import CommandClass from '../classes/baseCommand';
-import ButtonInteractionClass from '../classes/baseButtonInteraction';
+import BaseCommand from '../classes/baseCommand';
+import BaseCommandCategory from './baseCommandCategory';
+import BaseButtonInteraction from '../classes/baseButtonInteraction';
 
 export default class Bot {
 	client: DiscordClient<boolean>;
-	commands: Collection<string, CommandClass>;
-	commadCategories: Array<string>;
-	buttonInteractions: Collection<string, ButtonInteractionClass>;
-	constructor(client: DiscordClient<boolean>, commands: Collection<string, CommandClass>, commandCategories: Array<string>, buttonInteractions: Collection<string, ButtonInteractionClass>) {
+	commands: Collection<string, BaseCommand>;
+	commandCategories: Array<BaseCommandCategory>;
+	CategoryCommandsMap: Map<BaseCommandCategory, Array<BaseCommand>>;
+	buttonInteractions: Collection<string, BaseButtonInteraction>;
+	constructor(client: DiscordClient<boolean>) {
 		this.client = client;
-		this.commands = commands;
-		this.commadCategories = commandCategories;
-		this.buttonInteractions = buttonInteractions;
+		this.commands = new Collection<string, BaseCommand>();
+		this.commandCategories = new Array<BaseCommandCategory>();
+		this.CategoryCommandsMap = new Map<BaseCommandCategory, Array<BaseCommand>>();
+		this.buttonInteractions = new Collection<string, BaseButtonInteraction>();
 	}
 }

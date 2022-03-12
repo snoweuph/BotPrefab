@@ -8,5 +8,5 @@ export default abstract class BaseEvent {
 		this.event = event;
 	}
 
-	abstract execute(bot: Bot, ...args: []): Promise<void>;
+	abstract execute(bot: Bot, ...args: any[]): Promise<void>;
 }

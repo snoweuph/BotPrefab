@@ -1,0 +1,19 @@
+{
+    "Event": {
+        "prefix": "event",
+        "scope": "javascript,typescript",
+        "body": [
+            "import Bot from '../../base/types/bot';",
+            "import BaseEvent from '../../base/classes/baseEvent';",
+            "",
+            "export default class ${1:Name}Event extends BaseEvent {",
+            "\tconstructor() {",
+            "\t\tsuper('${2:messageCreate}');",
+            "\t}",
+            "\tasync execute(bot: Bot, ...args: any[]): Promise<void> {",
+            "\t\t//TODO: Write your code here",
+            "\t}",
+            "}",
+        ]
+    }
+}
