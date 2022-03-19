@@ -11,5 +11,6 @@ export default abstract class BaseButtonInteraction {
 		this.cooldown = cooldown || 0;
 		this.permissions = permissions || [];
 	}
+
 	abstract execute(bot: Bot, interaction: ButtonInteraction<CacheType>): Promise<void>;
 }

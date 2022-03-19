@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 config();
 import Bot from './base/types/bot';
-import { loadEvents, loadCommands, loadButtonInteractions } from './base/load';
+import { loadEvents, loadCommands, loadButtonInteractions, loadAutocompleteInteractions } from './base/load';
 import { Client as DiscordClient, Intents } from 'discord.js';
 
 const bot = new Bot(
@@ -27,6 +27,8 @@ async function main() {
 	console.log('[Index] Loaded commands');
 	await loadButtonInteractions(bot.buttonInteractions, '../interactions/buttons');
 	console.log('[Index] Loaded button interactions');
+	await loadAutocompleteInteractions(bot.autocompleteInteractions, '../interactions/autocomplete');
+	console.log('[Index] Loaded autocomplete interactions');
 	await bot.client.login(process.env.DISCORD_BOT_TOKEN);
 	console.log(`[Index] Logged in as ${bot.client.user.tag}`);
 }

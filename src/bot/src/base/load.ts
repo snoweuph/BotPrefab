@@ -6,6 +6,7 @@ import { Collection } from 'discord.js';
 import Bot from './types/bot';
 import BaseButtonInteraction from './classes/baseButtonInteraction';
 import BaseCommandCategory, { isBaseCommandCategory } from './types/baseCommandCategory';
+import BaseAutocompleteInteraction from './classes/baseAutocompleteInteraction';
 
 async function loadEvents(bot: Bot, dir: string) {
 	const filePath = join(__dirname, dir);
@@ -80,4 +81,21 @@ async function loadButtonInteractions(buttonInteractions: Collection<string, Bas
 	}
 }
 
-export { loadEvents, loadCommands, loadButtonInteractions };
+async function loadAutocompleteInteractions(autocompleteInteractions: Collection<string, BaseAutocompleteInteraction>, dir: string) {
+	const filePath = join(__dirname, dir);
+	const files = await fs.readdir(filePath);
+	for (const file of files) {
+		const stat = await fs.lstat(join(filePath, file));
+		if (stat.isDirectory()) await loadAutocompleteInteractions(autocompleteInteractions, join(dir, file));
+		if (!(file.endsWith('.ts') || file.endsWith('.js'))) continue;
+		/* eslint-disable-next-line */
+		const AutocompleteInteraction = require(join(filePath, file)).default;
+		if (!AutocompleteInteraction) continue;
+		if (AutocompleteInteraction.prototype instanceof BaseAutocompleteInteraction) {
+			const autocompleteInteraction: BaseAutocompleteInteraction = new AutocompleteInteraction();
+			autocompleteInteractions.set(autocompleteInteraction.commandName, autocompleteInteraction);
+		}
+	}
+}
+
+export { loadEvents, loadCommands, loadButtonInteractions, loadAutocompleteInteractions };

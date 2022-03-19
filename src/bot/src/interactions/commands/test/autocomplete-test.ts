@@ -7,12 +7,12 @@ export default class AutocompleteCommand extends BaseCommand {
 	constructor() {
 		super(
 			new SlashCommandBuilder()
-				.setName('autocomplete')
+				.setName('autocomplete-test')
 				.setDescription('a simple command to test the auto completion feature')
 				.addStringOption((option) =>
 					option
 						.setName('some-string')
-						.setDescription('a string option with autocompletion')
+						.setDescription('a string option with custom autocompletion')
 						.setRequired(true)
 						.setAutocomplete(true)
 				),
@@ -20,6 +20,8 @@ export default class AutocompleteCommand extends BaseCommand {
 	}
 
 	async execute(bot: bot, interaction: CommandInteraction<CacheType>, options: ReadonlyArray<CommandInteractionOption<CacheType>>): Promise<void> {
-		//TODO: Write your code here
+		interaction.reply({
+			content: `The send value of the option you chose was: ${options[0].value}`,
+		})
 	}
 }

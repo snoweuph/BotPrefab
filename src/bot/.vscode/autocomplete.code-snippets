@@ -1,0 +1,21 @@
+{
+    "Autocomplete": {
+        "prefix": "autocomplete",
+        "scope": "javascript,typescript",
+        "body": [
+            "import { AutocompleteInteraction, CacheType } from 'discord.js';",
+            "import BaseAutocompleteInteraction from '../../base/classes/baseAutocompleteInteraction';",
+            "import bot from '../../base/types/bot';",
+            "",
+            "export default class ${1:Name}AutocompleteInteraction extends BaseAutocompleteInteraction {",
+            "\tconstructor() {",
+            "\t\tsuper('${2:commandName}');",
+            "\t}",
+            "",
+            "\tasync execute(bot: bot, interaction: AutocompleteInteraction<CacheType>): Promise<void> {",
+            "\t\t//TODO: Write your code here",
+            "\t}",
+            "}"
+        ]
+    }
+}
