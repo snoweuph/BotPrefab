@@ -13,6 +13,19 @@ export default class LoadGuildsEvent extends BaseEvent {
 
 	/* eslint-disable-next-line */
 	async execute(bot: Bot, ...args: Array<any>): Promise<void> {
+		//insert guilds where the bot is on, but has no database entry yet for some reason
+		bot.client.guilds.cache.forEach(guild => {
+			StateManager.connection.query(
+				`SELECT guildId FROM GuildSettings WHERE guildId = '${guild.id}'`
+			).then(result => {
+				if (!result[0][0]) {
+					this.connection.query(
+						`INSERT INTO GuildSettings (guildId) VALUES('${guild.id}')`
+					);
+				}
+			}).catch(error => { console.log(error) });
+		});
+
 		//settings to enable/disable specific commands
 		loadFromDatabase(bot, 'enableCommandHelp');
 		loadFromDatabase(bot, 'enableCommandPing');

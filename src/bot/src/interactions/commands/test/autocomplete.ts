@@ -8,7 +8,14 @@ export default class AutocompleteCommand extends BaseCommand {
 		super(
 			new SlashCommandBuilder()
 				.setName('autocomplete')
-				.setDescription('a simple command to test the auto completion feature'),
+				.setDescription('a simple command to test the auto completion feature')
+				.addStringOption((option) =>
+					option
+						.setName('some-string')
+						.setDescription('a string option with autocompletion')
+						.setRequired(true)
+						.setAutocomplete(true)
+				),
 		);
 	}
 

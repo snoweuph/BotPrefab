@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "build": "",
-    "dev": "",
+    "dev": "nodemon src/index.ts",
+    "dev:register": "ts-node src/register.ts",
     "test": "npm run lint && npm run xyz",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint --fix ."

@@ -21,11 +21,11 @@ async function main() {
 	while (typeof (StateManager.connection) == 'undefined') {
 		await new Promise(r => setTimeout(r, 500));
 	}
-	await loadEvents(bot, './events');
+	await loadEvents(bot, '../events');
 	console.log('[Index] Loaded events');
-	await loadCommands(bot.commands, bot.commandCategories, bot.CategoryCommandsMap, './interactions/commands');
+	await loadCommands(bot.commands, bot.commandCategories, bot.CategoryCommandsMap, '../interactions/commands');
 	console.log('[Index] Loaded commands');
-	await loadButtonInteractions(bot.buttonInteractions, './interactions/buttons');
+	await loadButtonInteractions(bot.buttonInteractions, '../interactions/buttons');
 	console.log('[Index] Loaded button interactions');
 	await bot.client.login(process.env.DISCORD_BOT_TOKEN);
 	console.log(`[Index] Logged in as ${bot.client.user.tag}`);

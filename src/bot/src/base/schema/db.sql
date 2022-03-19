@@ -1,7 +1,7 @@
 use discordDB;
 CREATE TABLE GuildSettings (
   # Primary key to identify the guild
-  guildId UNSIGNED BIGINT NOT NULL PRIMARY KEY,
+  guildId VARCHAR(32) NOT NULL PRIMARY KEY,
   # settings to enable/disable specific commands
   enableCommandHelp BOOLEAN NOT NULL DEFAULT TRUE,
   enableCommandPing BOOLEAN NOT NULL DEFAULT TRUE,
@@ -9,8 +9,8 @@ CREATE TABLE GuildSettings (
   enableFeatureWelcomeMessage BOOLEAN NOT NULL DEFAULT FALSE,
   enableFeatureGoodbyeMessage BOOLEAN NOT NULL DEFAULT FALSE,
   # configuration for channels
-  welcomeMessageChannelId UNSIGNED BIGINT,
-  goodbyeMessageChannelId UNSIGNED BIGINT,
+  welcomeMessageChannelId VARCHAR(32),
+  goodbyeMessageChannelId VARCHAR(32),
   ########################################
   ##   FEATURE SPECIFIC CONFIGURATION   ##
   ########################################
@@ -27,5 +27,5 @@ CREATE TABLE GuildSettings (
   goodbyeMessageColor VARCHAR(7) NOT NULL DEFAULT '#0099ff',
   goodbyeMessageImageEnabled BOOLEAN NOT NULL DEFAULT TRUE,
   goodbyeMessageImageUrl VARCHAR(512),
-  goodbyeMessageImageAccentColor VARCHAR(7) NOT NULL DEFAULT 'rainbow',
-)
+  goodbyeMessageImageAccentColor VARCHAR(7) NOT NULL DEFAULT 'rainbow'
+);
