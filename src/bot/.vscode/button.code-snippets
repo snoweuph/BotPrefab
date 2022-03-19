@@ -1,0 +1,14 @@
+{
+    "Button": {
+        "prefix": "button",
+        "scope": "javascript,typescript",
+        "body": [
+            "import { MessageButton } from 'discord.js';",
+            "",
+            "export default new MessageButton()",
+            "\t.setCustomId('${1:customId}')",
+            "\t.setLabel('${2:label}')",
+            "\t.setStyle('${3:PRIMARY}')",
+        ]
+    }
+}

@@ -1,9 +1,9 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType, CommandInteractionOption, EmbedFieldData } from 'discord.js';
-import BaseCommand from '../../base/classes/baseCommand';
-import bot from '../../base/types/bot';
-import EmbdType from '../../base/types/embdTypes';
-import Embds from '../../base/utils/embds';
+import BaseCommand from '../../../base/classes/baseCommand';
+import bot from '../../../base/types/bot';
+import EmbdType from '../../../base/types/embdTypes';
+import Embds from '../../../base/utils/embds';
 
 export default class HelpCommand extends BaseCommand {
 	constructor() {
@@ -14,7 +14,7 @@ export default class HelpCommand extends BaseCommand {
 		);
 	}
 
-	async execute(bot: bot, interaction: CommandInteraction<CacheType>, options: readonly CommandInteractionOption<CacheType>[]): Promise<void> {
+	async execute(bot: bot, interaction: CommandInteraction<CacheType>, options: ReadonlyArray<CommandInteractionOption<CacheType>>): Promise<void> {
 		const category = bot.commandCategories.find(c => c.uniqueId === options[0].value.toString());
 		if (!category) {
 			interaction.reply({
@@ -29,7 +29,7 @@ export default class HelpCommand extends BaseCommand {
 				ephemeral: true,
 			});
 		}
-		const fields: EmbedFieldData[] = [];
+		const fields: Array<EmbedFieldData> = [];
 		for (const command of bot.CategoryCommandsMap.get(category)) {
 			fields.push({
 				name: `__**${command.data.name}**__`,

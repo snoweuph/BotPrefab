@@ -15,5 +15,5 @@ export default abstract class BaseCommand {
 		this.permissions = permissions || [];
 	}
 
-	abstract execute(bot: Bot, interaction: CommandInteraction<CacheType>, options: Readonly<CommandInteractionOption<CacheType>[]>): Promise<void>;
+	abstract execute(bot: Bot, interaction: CommandInteraction<CacheType>, options: Readonly<Array<CommandInteractionOption<CacheType>>>): Promise<void>;
 }

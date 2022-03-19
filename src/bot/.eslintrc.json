@@ -27,6 +27,12 @@
         "quotes": [
             "error",
             "single"
+        ],
+        "@typescript-eslint/array-type": [
+            "warn",
+            {
+                "default": "generic"
+            }
         ]
     }
 }

@@ -14,11 +14,11 @@ const CommandsToCategoryMap = new Map<BaseCommandCategory, Array<BaseCommand>>()
 const _commands = [];
 
 (async () => {
-	await loadCommands(Commands, CommadCategories, CommandsToCategoryMap, '../commands');
+	await loadCommands(Commands, CommadCategories, CommandsToCategoryMap, '../interactions/commands');
 	console.log('[Register] Loaded Commands');
 	for (const command of Commands) {
 		if (command[0] === 'help') {
-			const options: [name: string, value: string][] = [];
+			const options: Array<[name: string, value: string]> = [];
 			for (const category of CommadCategories) {
 				options.push([category.displayName, category.uniqueId]);
 			}
@@ -38,30 +38,32 @@ const _commands = [];
 	try {
 		console.log('[Register] Started refreshing Commands');
 		if (process.env.DISCORD_BOT_TEST_GUILD_ID) {
+			/* eslint-disable-next-line */
 			const result = await rest.put(
 				Routes.applicationGuildCommands(process.env.DISCORD_BOT_ID, process.env.DISCORD_BOT_TEST_GUILD_ID),
 				{ body: _commands },
-			) as Array<any>;
+			) as Array<unknown>;
 			/*result.forEach((command) => {
-                //search for command in _command
-                if (Commands.find((c) => c.data.name === command.name).category == 'admin') {
-                    //TODO: add all commands that are inside the admin category to a list (ids) then make a put reqest to make them admin only
-                }
-            });
-            */
+				//search for command in _command
+				if (Commands.find((c) => c.data.name === command.name).category == 'admin') {
+					//TODO: add all commands that are inside the admin category to a list (ids) then make a put reqest to make them admin only
+				}
+			});
+			*/
 
 		} else {
+			/* eslint-disable-next-line */
 			const result = await rest.put(
 				Routes.applicationCommands(process.env.DISCORD_BOT_ID),
 				{ body: _commands },
-			) as Array<any>;
+			) as Array<unknown>;
 			/*result.forEach((command) => {
-                //search for command in _command
-                if (Commands.find((c) => c.data.name === command.name).category == 'admin') {
-                    //TODO: add all commands that are inside the admin category to a list (ids) then make a put reqest to make them admin only
-                }
-            });
-            */
+				//search for command in _command
+				if (Commands.find((c) => c.data.name === command.name).category == 'admin') {
+					//TODO: add all commands that are inside the admin category to a list (ids) then make a put reqest to make them admin only
+				}
+			});
+			*/
 		}
 		console.log('[Register] Successfully refreshed Commands');
 	} catch (error) {

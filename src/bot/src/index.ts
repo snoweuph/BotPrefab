@@ -23,7 +23,7 @@ async function main() {
 	}
 	await loadEvents(bot, './events');
 	console.log('[Index] Loaded events');
-	await loadCommands(bot.commands, bot.commandCategories, bot.CategoryCommandsMap, './commands');
+	await loadCommands(bot.commands, bot.commandCategories, bot.CategoryCommandsMap, './interactions/commands');
 	console.log('[Index] Loaded commands');
 	await loadButtonInteractions(bot.buttonInteractions, './interactions/buttons');
 	console.log('[Index] Loaded button interactions');
