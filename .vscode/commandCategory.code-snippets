@@ -1,6 +1,6 @@
 {
     "CommandCategory": {
-        "prefix": "commandCategory",
+        "prefix": "!commandCategory",
         "scope": "javascript,typescript",
         "body": [
             "import BaseCommandCategory from '../../../base/types/baseCommandCategory';",

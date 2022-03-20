@@ -1,6 +1,6 @@
 {
     "Event": {
-        "prefix": "event",
+        "prefix": "!event",
         "scope": "javascript,typescript",
         "body": [
             "import Bot from '../../base/types/bot';",

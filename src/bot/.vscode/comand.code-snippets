@@ -1,6 +1,6 @@
 {
     "Command": {
-        "prefix": "command",
+        "prefix": "!command",
         "scope": "javascript,typescript",
         "body": [
             "import { SlashCommandBuilder } from '@discordjs/builders';",

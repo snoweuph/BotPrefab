@@ -1,6 +1,6 @@
 {
-    "Button": {
-        "prefix": "button",
+    "ButtonPrefab": {
+        "prefix": "!buttonPrefab",
         "scope": "javascript,typescript",
         "body": [
             "import { MessageButton } from 'discord.js';",
@@ -9,6 +9,25 @@
             "\t.setCustomId('${1:customId}')",
             "\t.setLabel('${2:label}')",
             "\t.setStyle('${3:PRIMARY}')",
+        ]
+    },
+    "ButtonInteraction": {
+        "prefix": "!buttonInteraction",
+        "scope": "javascript,typescript",
+        "body": [
+            "import { ButtonInteraction, CacheType } from 'discord.js';",
+            "import BaseButtonInteraction from '../../base/classes/baseButtonInteraction';",
+            "import bot from '../../base/types/bot';",
+            "",
+            "export default class ${1:Name}ButtonInteraction extends BaseButtonInteraction {",
+            "\tconstructor() {",
+            "\t\tsuper('${2:id}', ${3:0});",
+            "\t}",
+            "",
+            "\tasync execute(bot: bot, interaction: ButtonInteraction<CacheType>): Promise<void> {",
+            "\t\t//TODO: Write your code here",
+            "\t}",
+            "}"
         ]
     }
 }

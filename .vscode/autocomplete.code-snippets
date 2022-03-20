@@ -1,6 +1,6 @@
 {
     "Autocomplete": {
-        "prefix": "autocomplete",
+        "prefix": "!autocompleteInteraction",
         "scope": "javascript,typescript",
         "body": [
             "import { AutocompleteInteraction, CacheType } from 'discord.js';",
