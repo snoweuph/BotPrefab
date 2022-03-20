@@ -6,6 +6,7 @@ export default class TestEvent extends BaseEvent {
 	constructor() {
 		super('interactionCreate');
 	}
+
 	/* eslint-disable-next-line */
 	async execute(bot: Bot, ...args: any[]): Promise<void> {
 		const interaction: AutocompleteInteraction = args[0];

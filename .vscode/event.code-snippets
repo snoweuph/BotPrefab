@@ -10,6 +10,7 @@
             "\tconstructor() {",
             "\t\tsuper('${2:messageCreate}');",
             "\t}",
+            "",
             "\t/* eslint-disable-next-line */",
             "\tasync execute(bot: Bot, ...args: any[]): Promise<void> {",
             "\t\t//TODO: Write your code here",

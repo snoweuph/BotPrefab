@@ -2,19 +2,19 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType, MessageActionRow } from 'discord.js';
 import BaseCommand from '../../../base/classes/baseCommand';
 import bot from '../../../base/types/bot';
-import helloWorldButton from '../../../prefabs/buttons/helloWorld';
+import helloWorldButton from '../../buttons/helloWorld';
 
-export default class TestButtonCommand extends BaseCommand {
+export default class HelloButtonCommand extends BaseCommand {
 	constructor() {
 		super(
 			new SlashCommandBuilder()
-				.setName('testbutton')
+				.setName('hellobutton')
 				.setDescription('sends a simple button for testing'),
 		);
 	}
 
 	async execute(bot: bot, interaction: CommandInteraction<CacheType>): Promise<void> {
-		const row = new MessageActionRow().addComponents(helloWorldButton);
+		const row = new MessageActionRow().addComponents(helloWorldButton.prototype.button);
 		await interaction.reply({ components: [row] });
 	}
 }

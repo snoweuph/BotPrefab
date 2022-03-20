@@ -1,10 +1,16 @@
-import { ButtonInteraction, CacheType } from 'discord.js';
-import BaseButtonInteraction from '../../base/classes/baseButtonInteraction';
+import { ButtonInteraction, CacheType, MessageButton } from 'discord.js';
+import BaseButton from '../../base/classes/baseButton';
 import Bot from '../../base/types/bot';
 
-export default class HelloWorldButtonInteraction extends BaseButtonInteraction {
+export default class HelloWorldButtonInteraction extends BaseButton {
 	constructor() {
-		super('hello-world', 3);
+		super(
+			new MessageButton()
+				.setCustomId('hello-world')
+				.setLabel('Get a Hello World!')
+				.setStyle('PRIMARY'),
+			3
+		);
 	}
 
 	async execute(bot: Bot, interaction: ButtonInteraction<CacheType>): Promise<void> {

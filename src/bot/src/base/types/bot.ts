@@ -1,7 +1,7 @@
 import { Client as DiscordClient, Collection } from 'discord.js';
 import BaseCommand from '../classes/baseCommand';
 import BaseCommandCategory from './baseCommandCategory';
-import BaseButtonInteraction from '../classes/baseButtonInteraction';
+import BaseButton from '../classes/baseButton';
 import BaseAutocompleteInteraction from '../classes/baseAutocompleteInteraction';
 
 export default class Bot {
@@ -9,14 +9,14 @@ export default class Bot {
 	commands: Collection<string, BaseCommand>;
 	commandCategories: Array<BaseCommandCategory>;
 	CategoryCommandsMap: Map<BaseCommandCategory, Array<BaseCommand>>;
-	buttonInteractions: Collection<string, BaseButtonInteraction>;
+	buttonInteractions: Collection<string, BaseButton>;
 	autocompleteInteractions: Collection<string, BaseAutocompleteInteraction>;
 	constructor(client: DiscordClient<boolean>) {
 		this.client = client;
 		this.commands = new Collection<string, BaseCommand>();
 		this.commandCategories = new Array<BaseCommandCategory>();
 		this.CategoryCommandsMap = new Map<BaseCommandCategory, Array<BaseCommand>>();
-		this.buttonInteractions = new Collection<string, BaseButtonInteraction>();
+		this.buttonInteractions = new Collection<string, BaseButton>();
 		this.autocompleteInteractions = new Collection<string, BaseAutocompleteInteraction>();
 	}
 }

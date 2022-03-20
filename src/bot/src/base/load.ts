@@ -4,7 +4,7 @@ import BaseEvent from './classes/baseEvent';
 import BaseCommand from './classes/baseCommand';
 import { Collection } from 'discord.js';
 import Bot from './types/bot';
-import BaseButtonInteraction from './classes/baseButtonInteraction';
+import BaseButton from './classes/baseButton';
 import BaseCommandCategory, { isBaseCommandCategory } from './types/baseCommandCategory';
 import BaseAutocompleteInteraction from './classes/baseAutocompleteInteraction';
 
@@ -64,7 +64,7 @@ async function loadCommands(commands: Collection<string, BaseCommand>, commadCat
 	}
 }
 
-async function loadButtonInteractions(buttonInteractions: Collection<string, BaseButtonInteraction>, dir: string) {
+async function loadButtonInteractions(buttonInteractions: Collection<string, BaseButton>, dir: string) {
 	const filePath = join(__dirname, dir);
 	const files = await fs.readdir(filePath);
 	for (const file of files) {
@@ -74,8 +74,8 @@ async function loadButtonInteractions(buttonInteractions: Collection<string, Bas
 		/* eslint-disable-next-line */
 		const ButtonInteraction = require(join(filePath, file)).default;
 		if (!ButtonInteraction) continue;
-		if (ButtonInteraction.prototype instanceof BaseButtonInteraction) {
-			const buttonInteraction: BaseButtonInteraction = new ButtonInteraction();
+		if (ButtonInteraction.prototype instanceof BaseButton) {
+			const buttonInteraction: BaseButton = new ButtonInteraction();
 			buttonInteractions.set(buttonInteraction.id, buttonInteraction);
 		}
 	}
