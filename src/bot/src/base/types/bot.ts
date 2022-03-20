@@ -3,6 +3,8 @@ import BaseCommand from '../classes/baseCommand';
 import BaseCommandCategory from './baseCommandCategory';
 import BaseButton from '../classes/baseButton';
 import BaseSelectMenu from '../classes/baseSelectMenu';
+import { BaseUserContextMenu } from '../classes/baseUserContextMenu';
+import { BaseMessageContextMenu } from '../classes/baseMessageContextMenu ';
 import BaseAutocompleteInteraction from '../classes/baseAutocompleteInteraction';
 
 export default class Bot {
@@ -12,6 +14,8 @@ export default class Bot {
 	categoryCommandsMap: Map<BaseCommandCategory, Array<BaseCommand>>;
 	buttons: Collection<string, BaseButton>;
 	selectMenus: Collection<string, BaseSelectMenu>;
+	userContextMenus: Collection<string, BaseUserContextMenu>;
+	messageContextMenus: Collection<string, BaseMessageContextMenu>;
 	autocompleteInteractions: Collection<string, BaseAutocompleteInteraction>;
 	constructor(client: DiscordClient<boolean>) {
 		this.client = client;
@@ -20,6 +24,8 @@ export default class Bot {
 		this.categoryCommandsMap = new Map<BaseCommandCategory, Array<BaseCommand>>();
 		this.buttons = new Collection<string, BaseButton>();
 		this.selectMenus = new Collection<string, BaseSelectMenu>();
+		this.userContextMenus = new Collection<string, BaseUserContextMenu>();
+		this.messageContextMenus = new Collection<string, BaseMessageContextMenu>();
 		this.autocompleteInteractions = new Collection<string, BaseAutocompleteInteraction>();
 	}
 }

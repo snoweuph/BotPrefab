@@ -9,7 +9,7 @@ export default class HelloWorldButtonInteraction extends BaseButton {
 				.setCustomId('hello-world')
 				.setLabel('Get a Hello World!')
 				.setStyle('PRIMARY'),
-			3
+			3000
 		);
 	}
 

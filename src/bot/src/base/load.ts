@@ -8,6 +8,8 @@ import BaseButton from './classes/baseButton';
 import BaseCommandCategory, { isBaseCommandCategory } from './types/baseCommandCategory';
 import BaseAutocompleteInteraction from './classes/baseAutocompleteInteraction';
 import BaseSelectMenu from './classes/baseSelectMenu';
+import { BaseUserContextMenu } from './classes/baseUserContextMenu';
+import { BaseMessageContextMenu } from './classes/baseMessageContextMenu ';
 
 async function loadEvents(bot: Bot, dir: string) {
 	const filePath = join(__dirname, dir);
@@ -99,6 +101,40 @@ async function loadSelectMenus(selectMenus: Collection<string, BaseSelectMenu>, 
 	}
 }
 
+async function loadUserContextMenus(userContextMenus: Collection<string, BaseUserContextMenu>, dir: string) {
+	const filePath = join(__dirname, dir);
+	const files = await fs.readdir(filePath);
+	for (const file of files) {
+		const stat = await fs.lstat(join(filePath, file));
+		if (stat.isDirectory()) await loadUserContextMenus(userContextMenus, join(dir, file));
+		if (!(file.endsWith('.ts') || file.endsWith('.js'))) continue;
+		/* eslint-disable-next-line */
+		const ContextMenu = require(join(filePath, file)).default;
+		if (!ContextMenu) continue;
+		if (ContextMenu.prototype instanceof BaseUserContextMenu) {
+			const contextMenu: BaseUserContextMenu = new ContextMenu();
+			userContextMenus.set(contextMenu.data.name, contextMenu);
+		}
+	}
+}
+
+async function loadMessageContextMenus(messageContextMenus: Collection<string, BaseMessageContextMenu>, dir: string) {
+	const filePath = join(__dirname, dir);
+	const files = await fs.readdir(filePath);
+	for (const file of files) {
+		const stat = await fs.lstat(join(filePath, file));
+		if (stat.isDirectory()) await loadMessageContextMenus(messageContextMenus, join(dir, file));
+		if (!(file.endsWith('.ts') || file.endsWith('.js'))) continue;
+		/* eslint-disable-next-line */
+		const ContextMenu = require(join(filePath, file)).default;
+		if (!ContextMenu) continue;
+		if (ContextMenu.prototype instanceof BaseMessageContextMenu) {
+			const contextMenu: BaseMessageContextMenu = new ContextMenu();
+			messageContextMenus.set(contextMenu.data.name, contextMenu);
+		}
+	}
+}
+
 async function loadAutocompleteInteractions(autocompleteInteractions: Collection<string, BaseAutocompleteInteraction>, dir: string) {
 	const filePath = join(__dirname, dir);
 	const files = await fs.readdir(filePath);
@@ -116,4 +152,4 @@ async function loadAutocompleteInteractions(autocompleteInteractions: Collection
 	}
 }
 
-export { loadEvents, loadCommands, loadButtons, loadSelectMenus, loadAutocompleteInteractions };
+export { loadEvents, loadCommands, loadButtons, loadSelectMenus, loadUserContextMenus, loadMessageContextMenus, loadAutocompleteInteractions };
