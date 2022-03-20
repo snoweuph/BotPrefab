@@ -39,7 +39,7 @@ async function loadCommands(commands: Collection<string, BaseCommand>, commadCat
 		if (stat.isDirectory()) folders.push(join(dir, file));
 		if (!(file.endsWith('.ts') || file.endsWith('.js'))) continue;
 		/* eslint-disable-next-line */
-		const RequiredFile = require(join(filePath, file)).default;
+		const RequiredFile = await require(join(filePath, file)).default;
 		if (!RequiredFile) continue;
 		if (RequiredFile.prototype instanceof BaseCommand) {
 			commandFiles.push(join(filePath, file));
@@ -49,9 +49,9 @@ async function loadCommands(commands: Collection<string, BaseCommand>, commadCat
 		}
 	}
 	for (const path of folders) {
-		await loadCommands(commands, commadCategories, categoryCommandsMap, path, _currentCategory);
+		await loadCommands(commands, commadCategories, categoryCommandsMap, path, _currentCategory || CurrentCategory);
 	}
-	if (!_currentCategory || CurrentCategory) return;
+	if (!_currentCategory && !CurrentCategory) return;
 	for (const file of commandFiles) {
 		/* eslint-disable-next-line */
 		const _RequiredFile = require(file).default;
@@ -63,7 +63,6 @@ async function loadCommands(commands: Collection<string, BaseCommand>, commadCat
 		commands.set(command.data.name, command);
 		if (!categoryCommandsMap.has(command.category)) categoryCommandsMap.set(command.category, new Array<BaseCommand>());
 		categoryCommandsMap.get(command.category).push(command);
-		categoryCommandsMap
 	}
 }
 
