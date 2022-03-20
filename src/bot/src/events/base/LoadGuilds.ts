@@ -25,17 +25,12 @@ export default class LoadGuildsEvent extends BaseEvent {
 				}
 			}).catch(error => { console.log(error) });
 		});
-
-		//settings to enable/disable specific commands
-		loadFromDatabase(bot, 'enableCommandHelp');
-		loadFromDatabase(bot, 'enableCommandPing');
 		//settings to enable/disable features
-		loadFromDatabase(bot, 'enableFeatureWelcomeMessage');
-		loadFromDatabase(bot, 'enableFeatureGoodbyeMessage');
+		loadFromDatabase(bot, 'enableFeatureWelcomeMessage', true);
+		loadFromDatabase(bot, 'enableFeatureGoodbyeMessage', true);
 		//configuration for channels
 		loadFromDatabase(bot, 'welcomeMessageChannelId');
 		loadFromDatabase(bot, 'goodbyeMessageChannelId');
-
 
 		//welcome message
 		loadFromDatabase(bot, 'welcomeMessageTitle');
@@ -52,7 +47,6 @@ export default class LoadGuildsEvent extends BaseEvent {
 		loadFromDatabase(bot, 'goodbyeMessageImageEnabled');
 		loadFromDatabase(bot, 'goodbyeMessageImageUrl');
 		loadFromDatabase(bot, 'goodbyeMessageImageAccentColor');
-
 
 	}
 }

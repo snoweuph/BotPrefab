@@ -12,4 +12,4 @@ class StateManager extends EventEmitter {
 		});
 	}
 }
-export default new StateManager();
+export default new StateManager() as StateManager;
