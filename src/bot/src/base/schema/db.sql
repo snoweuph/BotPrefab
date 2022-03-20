@@ -2,9 +2,6 @@ use discordDB;
 CREATE TABLE GuildSettings (
   # Primary key to identify the guild
   guildId VARCHAR(32) NOT NULL PRIMARY KEY,
-  # settings to enable/disable specific commands
-  enableCommandHelp BOOLEAN NOT NULL DEFAULT TRUE,
-  enableCommandPing BOOLEAN NOT NULL DEFAULT TRUE,
   # settings to enable/disable features
   enableFeatureWelcomeMessage BOOLEAN NOT NULL DEFAULT FALSE,
   enableFeatureGoodbyeMessage BOOLEAN NOT NULL DEFAULT FALSE,
