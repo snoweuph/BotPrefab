@@ -2,10 +2,10 @@
   "name": "bot",
   "version": "0.0.1",
   "description": "",
-  "main": "index.ts",
+  "main": "bot.ts",
   "scripts": {
     "build": "",
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon src/bot.ts",
     "dev:register": "ts-node src/register.ts",
     "test": "npm run lint && npm run xyz",
     "lint": "npx eslint .",
