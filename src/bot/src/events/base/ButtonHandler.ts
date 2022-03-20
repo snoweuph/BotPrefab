@@ -13,7 +13,7 @@ export default class ButtonHandlerEvent extends BaseEvent {
 	async execute(bot: Bot, ...args: Array<any>): Promise<void> {
 		const interaction: ButtonInteraction = args[0];
 		if (!interaction.isButton()) return;
-		const button = bot.buttonInteractions.get(interaction.customId);
+		const button = bot.buttons.get(interaction.customId);
 		if (!button) return;
 		if (!interaction.memberPermissions.has(button.permissions)) return interaction.reply({ ephemeral: true, content: 'You don\'t have the permissions' });
 		if (cooldownMap.has(interaction.guildId) && cooldownMap.get(interaction.guildId).has(interaction.user.id)) {

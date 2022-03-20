@@ -23,14 +23,14 @@ export default class HelpCommand extends BaseCommand {
 			});
 			return;
 		}
-		if (bot.CategoryCommandsMap.get(category).length <= 0) {
+		if (bot.categoryCommandsMap.get(category).length <= 0) {
 			interaction.reply({
 				content: 'There are no Commands for this Category.',
 				ephemeral: true,
 			});
 		}
 		const fields: Array<EmbedFieldData> = [];
-		for (const command of bot.CategoryCommandsMap.get(category)) {
+		for (const command of bot.categoryCommandsMap.get(category)) {
 			fields.push({
 				name: `__**${command.data.name}**__`,
 				value: `${command.data.description}`,

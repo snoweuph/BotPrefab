@@ -7,6 +7,7 @@ import Bot from './types/bot';
 import BaseButton from './classes/baseButton';
 import BaseCommandCategory, { isBaseCommandCategory } from './types/baseCommandCategory';
 import BaseAutocompleteInteraction from './classes/baseAutocompleteInteraction';
+import BaseSelectMenu from './classes/baseSelectMenu';
 
 async function loadEvents(bot: Bot, dir: string) {
 	const filePath = join(__dirname, dir);
@@ -64,19 +65,36 @@ async function loadCommands(commands: Collection<string, BaseCommand>, commadCat
 	}
 }
 
-async function loadButtonInteractions(buttonInteractions: Collection<string, BaseButton>, dir: string) {
+async function loadButtons(buttons: Collection<string, BaseButton>, dir: string) {
 	const filePath = join(__dirname, dir);
 	const files = await fs.readdir(filePath);
 	for (const file of files) {
 		const stat = await fs.lstat(join(filePath, file));
-		if (stat.isDirectory()) await loadButtonInteractions(buttonInteractions, join(dir, file));
+		if (stat.isDirectory()) await loadButtons(buttons, join(dir, file));
 		if (!(file.endsWith('.ts') || file.endsWith('.js'))) continue;
 		/* eslint-disable-next-line */
 		const ButtonInteraction = require(join(filePath, file)).default;
 		if (!ButtonInteraction) continue;
 		if (ButtonInteraction.prototype instanceof BaseButton) {
 			const buttonInteraction: BaseButton = new ButtonInteraction();
-			buttonInteractions.set(buttonInteraction.id, buttonInteraction);
+			buttons.set(buttonInteraction.id, buttonInteraction);
+		}
+	}
+}
+
+async function loadSelectMenus(selectMenus: Collection<string, BaseSelectMenu>, dir: string) {
+	const filePath = join(__dirname, dir);
+	const files = await fs.readdir(filePath);
+	for (const file of files) {
+		const stat = await fs.lstat(join(filePath, file));
+		if (stat.isDirectory()) await loadSelectMenus(selectMenus, join(dir, file));
+		if (!(file.endsWith('.ts') || file.endsWith('.js'))) continue;
+		/* eslint-disable-next-line */
+		const SelectMenu = require(join(filePath, file)).default;
+		if (!SelectMenu) continue;
+		if (SelectMenu.prototype instanceof BaseSelectMenu) {
+			const selectMenu: BaseSelectMenu = new SelectMenu();
+			selectMenus.set(selectMenu.id, selectMenu);
 		}
 	}
 }
@@ -98,4 +116,4 @@ async function loadAutocompleteInteractions(autocompleteInteractions: Collection
 	}
 }
 
-export { loadEvents, loadCommands, loadButtonInteractions, loadAutocompleteInteractions };
+export { loadEvents, loadCommands, loadButtons, loadSelectMenus, loadAutocompleteInteractions };

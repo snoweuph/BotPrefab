@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 config();
 import Bot from './base/types/bot';
-import { loadEvents, loadCommands, loadButtonInteractions, loadAutocompleteInteractions } from './base/load';
+import { loadEvents, loadCommands, loadButtons, loadSelectMenus, loadAutocompleteInteractions } from './base/load';
 import { Client as DiscordClient, Intents } from 'discord.js';
 
 const bot = new Bot(
@@ -23,10 +23,12 @@ async function main() {
 	}
 	await loadEvents(bot, '../events');
 	console.log('[Index] Loaded events');
-	await loadCommands(bot.commands, bot.commandCategories, bot.CategoryCommandsMap, '../interactions/commands');
+	await loadCommands(bot.commands, bot.commandCategories, bot.categoryCommandsMap, '../interactions/commands');
 	console.log('[Index] Loaded commands');
-	await loadButtonInteractions(bot.buttonInteractions, '../interactions/buttons');
-	console.log('[Index] Loaded button interactions');
+	await loadButtons(bot.buttons, '../interactions/buttons');
+	console.log('[Index] Loaded buttons');
+	await loadSelectMenus(bot.selectMenus, '../interactions/selectMenus');
+	console.log('[Index] Loaded select menus');
 	await loadAutocompleteInteractions(bot.autocompleteInteractions, '../interactions/autocomplete');
 	console.log('[Index] Loaded autocomplete interactions');
 	await bot.client.login(process.env.DISCORD_BOT_TOKEN);
