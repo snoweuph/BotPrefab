@@ -17,6 +17,6 @@ export default class AutocompleteTestAutocompleteInteraction extends BaseAutocom
 				name: 'Number of Members on the Server',
 				value: `${interaction.guild.memberCount}`,
 			}
-		])
+		]);
 	}
 }

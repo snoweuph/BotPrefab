@@ -3,7 +3,7 @@ import { Connection } from 'mysql2/promise';
 import Database from './database';
 
 class StateManager extends EventEmitter {
-	connection: Connection
+	connection: Connection;
 	constructor(opts?) {
 		super(opts);
 		Database.then((connection: Connection) => {

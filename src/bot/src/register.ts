@@ -44,10 +44,10 @@ const _commands = [];
 		_commands.push(command[1].data.toJSON());
 	}
 	for (const contextMenu of UserContextMenus) {
-		_commands.push(contextMenu[1].data.toJSON())
+		_commands.push(contextMenu[1].data.toJSON());
 	}
 	for (const contextMenu of MessageContextMenus) {
-		_commands.push(contextMenu[1].data.toJSON())
+		_commands.push(contextMenu[1].data.toJSON());
 	}
 	const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_BOT_TOKEN);
 	try {

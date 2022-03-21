@@ -22,6 +22,6 @@ export default class AutocompleteCommand extends BaseCommand {
 	async execute(bot: bot, interaction: CommandInteraction<CacheType>, options: ReadonlyArray<CommandInteractionOption<CacheType>>): Promise<void> {
 		interaction.reply({
 			content: `The send value of the option you chose was: ${options[0].value}`,
-		})
+		});
 	}
 }

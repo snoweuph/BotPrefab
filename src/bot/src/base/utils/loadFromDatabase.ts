@@ -15,6 +15,6 @@ export default async function loadValue(bot: Bot, variableName: string, isBool?:
 					StateManager.emit(`${variableName}Fetched`, guild.id, variable);
 				}
 			}
-		}).catch(error => { console.log(error) });
+		}).catch(error => { console.log(error); });
 	});
 }

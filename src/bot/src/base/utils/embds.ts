@@ -12,10 +12,10 @@ class Embds {
 		const Embed = new MessageEmbed()
 			.setColor(type)
 			.setTitle(title)
-			.addFields(fields)
-		if (thumbnail) Embed.setThumbnail(thumbnail)
-		if (img) Embed.setImage(img)
-		if (timestamp) Embed.setTimestamp()
+			.addFields(fields);
+		if (thumbnail) Embed.setThumbnail(thumbnail);
+		if (img) Embed.setImage(img);
+		if (timestamp) Embed.setTimestamp();
 		return Embed;
 	}
 }

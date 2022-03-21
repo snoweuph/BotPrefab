@@ -23,7 +23,7 @@ export default class LoadGuildsEvent extends BaseEvent {
 						`INSERT INTO GuildSettings (guildId) VALUES('${guild.id}')`
 					);
 				}
-			}).catch(error => { console.log(error) });
+			}).catch(error => { console.log(error); });
 		});
 		//settings to enable/disable features
 		loadFromDatabase(bot, 'enableFeatureWelcomeMessage', true);

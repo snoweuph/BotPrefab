@@ -26,8 +26,8 @@ export default class TestSelectMenu extends BaseSelectMenu {
 						value: 'option3',
 					}
 				])
-				.setMaxValues(3),
-		)
+				.setMaxValues(3)
+		);
 	}
 
 	async execute(bot: bot, interaction: SelectMenuInteraction<CacheType>, values: Array<string>): Promise<void> {

@@ -13,7 +13,7 @@ const bot = new Bot(
 			Intents.FLAGS.DIRECT_MESSAGES
 		]
 	})
-)
+);
 
 import StateManager from './base/stateManager';
 
