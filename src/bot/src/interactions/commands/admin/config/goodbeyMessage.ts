@@ -3,7 +3,7 @@ import { ChannelType } from 'discord-api-types/v9';
 import { CommandInteraction, CacheType, CommandInteractionOption } from 'discord.js';
 import BaseCommand from '../../../../base/classes/baseCommand';
 import bot from '../../../../base/types/bot';
-import StateManager from '../../../../base/stateManager';
+import StateManager from '../../../../base/StateManager';
 import Embds from '../../../../base/utils/embds';
 import EmbdType from '../../../../base/types/embdTypes';
 
@@ -30,7 +30,7 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 								.setName('channel')
 								.setDescription('the channel where the welome message will be sent')
 								.setRequired(true)
-							// @ts-expect-error | @discordjs/builders is using a older version of discord-api-types, Instead of this, we could downgrade, but during reinstalling packages that can get out of sync
+								// @ts-expect-error | @discordjs/builders is using a older version of discord-api-types, Instead of this, we could downgrade, but during reinstalling packages that can get out of sync
 								.addChannelType(ChannelType.GuildText)
 						)
 				)
@@ -108,92 +108,92 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 		let isNewValue = true;
 		let variableName: string;
 		switch (options[0].name) {
-		case 'channel':
-			newValue = options[0].options[0].value as string;
-			if (goodbeyMessageChannelIds.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbeyMessageChannelId';
-			}
-			break;
-		case 'title':
-			newValue = options[0].options[0].value as string;
-			if (newValue.length > 128) newValue = newValue.substring(0, 128);
-			if (goodbeyMessageTitles.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbeyMessageTitle';
-			}
-			break;
-		case 'body':
-			newValue = options[0].options[0].value as string;
-			if (newValue.length > 2048) newValue = newValue.substring(0, 2048);
-			if (goodbeyMessageBodys.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbeyMessageBody';
-			}
-			break;
-		case 'color':
-			newValue = options[0].options[0].value as string;
-			if (newValue.length !== 7 || newValue.charAt(0) !== '#') {
-				const embd = await Embds.short(
-					EmbdType.WARNING,
-					'**The Value Could Not Be Changed**',
-					'The value provided isnt in the right format, please use #000000'
-				);
-				interaction.reply({ ephemeral: true, embeds: [embd] });
-				return;
-			}
-			if (goodbeyMessageColors.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbeyMessageColor';
-			}
-			break;
-		case 'image-enabled':
-			newValue = options[0].options[0].value as boolean;
-			if (goodbeyMessageImageEnableds.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbeyMessageImageEnabled';
-			}
-			break;
-		case 'image-url':
-			newValue = options[0].options[0].value as string;
-			if (!newValue.startsWith('http') && !newValue.endsWith('.png')) {
-				const embd = await Embds.short(
-					EmbdType.WARNING,
-					'**The Value Could Not Be Changed**',
-					'The value provided isnt in the right format, please use a valid url'
-				);
-				interaction.reply({ ephemeral: true, embeds: [embd] });
-				return;
-			}
-			if (newValue.length > 512) newValue = newValue.substring(0, 512);
-			if (goodbeyMessageImageUrls.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbeyMessageImageUrl';
-			}
-			break;
-		case 'image-accent-color':
-			newValue = options[0].options[0].value as string;
-			if (newValue.length !== 7 || newValue.charAt(0) !== '#') {
-				const embd = await Embds.short(
-					EmbdType.WARNING,
-					'**The Value Could Not Be Changed**',
-					'The value provided isnt in the right format, please use #000000'
-				);
-				interaction.reply({ ephemeral: true, embeds: [embd] });
-				return;
-			}
-			if (goodbeyMessageImageAccentColors.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbeyMessageImageAccentColor';
-			}
-			break;
+			case 'channel':
+				newValue = options[0].options[0].value as string;
+				if (goodbeyMessageChannelIds.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbeyMessageChannelId';
+				}
+				break;
+			case 'title':
+				newValue = options[0].options[0].value as string;
+				if (newValue.length > 128) newValue = newValue.substring(0, 128);
+				if (goodbeyMessageTitles.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbeyMessageTitle';
+				}
+				break;
+			case 'body':
+				newValue = options[0].options[0].value as string;
+				if (newValue.length > 2048) newValue = newValue.substring(0, 2048);
+				if (goodbeyMessageBodys.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbeyMessageBody';
+				}
+				break;
+			case 'color':
+				newValue = options[0].options[0].value as string;
+				if (newValue.length !== 7 || newValue.charAt(0) !== '#') {
+					const embd = await Embds.short(
+						EmbdType.WARNING,
+						'**The Value Could Not Be Changed**',
+						'The value provided isnt in the right format, please use #000000'
+					);
+					interaction.reply({ ephemeral: true, embeds: [embd] });
+					return;
+				}
+				if (goodbeyMessageColors.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbeyMessageColor';
+				}
+				break;
+			case 'image-enabled':
+				newValue = options[0].options[0].value as boolean;
+				if (goodbeyMessageImageEnableds.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbeyMessageImageEnabled';
+				}
+				break;
+			case 'image-url':
+				newValue = options[0].options[0].value as string;
+				if (!newValue.startsWith('http') && !newValue.endsWith('.png')) {
+					const embd = await Embds.short(
+						EmbdType.WARNING,
+						'**The Value Could Not Be Changed**',
+						'The value provided isnt in the right format, please use a valid url'
+					);
+					interaction.reply({ ephemeral: true, embeds: [embd] });
+					return;
+				}
+				if (newValue.length > 512) newValue = newValue.substring(0, 512);
+				if (goodbeyMessageImageUrls.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbeyMessageImageUrl';
+				}
+				break;
+			case 'image-accent-color':
+				newValue = options[0].options[0].value as string;
+				if (newValue.length !== 7 || newValue.charAt(0) !== '#') {
+					const embd = await Embds.short(
+						EmbdType.WARNING,
+						'**The Value Could Not Be Changed**',
+						'The value provided isnt in the right format, please use #000000'
+					);
+					interaction.reply({ ephemeral: true, embeds: [embd] });
+					return;
+				}
+				if (goodbeyMessageImageAccentColors.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbeyMessageImageAccentColor';
+				}
+				break;
 		}
 		if (!isNewValue) {
 			const embd = await Embds.short(

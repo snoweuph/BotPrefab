@@ -1,6 +1,6 @@
 import Bot from '../../base/types/bot';
 import BaseEvent from '../../base/classes/baseEvent';
-import StateManager from '../../base/stateManager';
+import StateManager from '../../base/StateManager';
 import { Connection } from 'mysql2/promise';
 
 export default class AddNewGuildEvent extends BaseEvent {

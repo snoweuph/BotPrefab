@@ -15,7 +15,7 @@ const bot = new Bot(
 	})
 );
 
-import StateManager from './base/stateManager';
+import StateManager from './base/StateManager';
 
 async function main() {
 	while (typeof (StateManager.connection) == 'undefined') {

@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType, CommandInteractionOption } from 'discord.js';
 import BaseCommand from '../../../../base/classes/baseCommand';
-import StateManager from '../../../../base/stateManager';
+import StateManager from '../../../../base/StateManager';
 import bot from '../../../../base/types/bot';
 import EmbdType from '../../../../base/types/embdTypes';
 import Embds from '../../../../base/utils/embds';
@@ -38,14 +38,14 @@ export default class FeatureEnableCommand extends BaseCommand {
 	async execute(bot: bot, interaction: CommandInteraction<CacheType>, options: ReadonlyArray<CommandInteractionOption<CacheType>>): Promise<void> {
 		let noChanges = false;
 		switch (options[0].value) {
-		case 'enableFeatureWelcomeMessage':
-			if (enableWelcomeMessageFeature.get(interaction.guild.id) === options[1].value) noChanges = true;
-			break;
-		case 'enableFeatureGoodbyeMessage':
-			if (enableGoodbyeMessageFeature.get(interaction.guild.id) === options[1].value) noChanges = true;
-			break;
-		default:
-			return;
+			case 'enableFeatureWelcomeMessage':
+				if (enableWelcomeMessageFeature.get(interaction.guild.id) === options[1].value) noChanges = true;
+				break;
+			case 'enableFeatureGoodbyeMessage':
+				if (enableGoodbyeMessageFeature.get(interaction.guild.id) === options[1].value) noChanges = true;
+				break;
+			default:
+				return;
 		}
 
 		if (noChanges) {
