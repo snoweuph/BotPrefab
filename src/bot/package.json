@@ -25,8 +25,7 @@
     "discord-api-types": "^0.29.0",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
-    "mysql2": "^2.3.3",
-    "node-fetch": "^3.2.2"
+    "mysql2": "^2.3.3"
   },
   "devDependencies": {
     "@types/events": "^3.0.0",
