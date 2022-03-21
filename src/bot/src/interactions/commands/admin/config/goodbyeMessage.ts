@@ -7,24 +7,24 @@ import StateManager from '../../../../base/StateManager';
 import Embds from '../../../../base/utils/embds';
 import EmbdType from '../../../../base/types/embdTypes';
 
-const goodbeyMessageChannelIds = new Map<string, string>();
-const goodbeyMessageTitles = new Map<string, string>();
-const goodbeyMessageBodys = new Map<string, string>();
-const goodbeyMessageColors = new Map<string, string>();
-const goodbeyMessageImageEnableds = new Map<string, boolean>();
-const goodbeyMessageImageUrls = new Map<string, string>();
-const goodbeyMessageImageAccentColors = new Map<string, string>();
+const goodbyeMessageChannelIds = new Map<string, string>();
+const goodbyeMessageTitles = new Map<string, string>();
+const goodbyeMessageBodys = new Map<string, string>();
+const goodbyeMessageColors = new Map<string, string>();
+const goodbyeMessageImageEnableds = new Map<string, boolean>();
+const goodbyeMessageImageUrls = new Map<string, string>();
+const goodbyeMessageImageAccentColors = new Map<string, string>();
 
-export default class GoodbeyMessageCommand extends BaseCommand {
+export default class GoodbyeMessageCommand extends BaseCommand {
 	constructor() {
 		super(
 			new SlashCommandBuilder()
-				.setName('config-goodbey')
-				.setDescription('used to configure the goodbey message')
+				.setName('config-goodbye')
+				.setDescription('used to configure the goodbye message')
 				.addSubcommand((subcommand) =>
 					subcommand
 						.setName('channel')
-						.setDescription('sets the channel for the goodbey message')
+						.setDescription('sets the channel for the goodbye message')
 						.addChannelOption((option) =>
 							option
 								.setName('channel')
@@ -37,7 +37,7 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 				.addSubcommand((subcommand) =>
 					subcommand
 						.setName('title')
-						.setDescription('sets the title for the goodbey message')
+						.setDescription('sets the title for the goodbye message')
 						.addStringOption((option) =>
 							option
 								.setName('title')
@@ -48,7 +48,7 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 				.addSubcommand((subcommand) =>
 					subcommand
 						.setName('body')
-						.setDescription('sets the body for the goodbey message')
+						.setDescription('sets the body for the goodbye message')
 						.addStringOption((option) =>
 							option
 								.setName('body')
@@ -59,7 +59,7 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 				.addSubcommand((subcommand) =>
 					subcommand
 						.setName('color')
-						.setDescription('sets the embed color for the goodbey message')
+						.setDescription('sets the embed color for the goodbye message')
 						.addStringOption((option) =>
 							option
 								.setName('color')
@@ -70,7 +70,7 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 				.addSubcommand((subcommand) =>
 					subcommand
 						.setName('image-enabled')
-						.setDescription('used to enable or disable the image for the goodbey message')
+						.setDescription('used to enable or disable the image for the goodbye message')
 						.addBooleanOption((option) =>
 							option
 								.setName('enabled')
@@ -81,7 +81,7 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 				.addSubcommand((subcommand) =>
 					subcommand
 						.setName('image-url')
-						.setDescription('sets the image for the goodbey message')
+						.setDescription('sets the image for the goodbye message')
 						.addStringOption((option) =>
 							option
 								.setName('image-url')
@@ -92,7 +92,7 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 				.addSubcommand((subcommand) =>
 					subcommand
 						.setName('image-accent-color')
-						.setDescription('sets the accent color for the image for the goodbey message')
+						.setDescription('sets the accent color for the image for the goodbye message')
 						.addStringOption((option) =>
 							option
 								.setName('image-accent-color')
@@ -110,28 +110,28 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 		switch (options[0].name) {
 			case 'channel':
 				newValue = options[0].options[0].value as string;
-				if (goodbeyMessageChannelIds.get(interaction.guild.id) === newValue) {
+				if (goodbyeMessageChannelIds.get(interaction.guild.id) === newValue) {
 					isNewValue = false;
 				} else {
-					variableName = 'goodbeyMessageChannelId';
+					variableName = 'goodbyeMessageChannelId';
 				}
 				break;
 			case 'title':
 				newValue = options[0].options[0].value as string;
 				if (newValue.length > 128) newValue = newValue.substring(0, 128);
-				if (goodbeyMessageTitles.get(interaction.guild.id) === newValue) {
+				if (goodbyeMessageTitles.get(interaction.guild.id) === newValue) {
 					isNewValue = false;
 				} else {
-					variableName = 'goodbeyMessageTitle';
+					variableName = 'goodbyeMessageTitle';
 				}
 				break;
 			case 'body':
 				newValue = options[0].options[0].value as string;
 				if (newValue.length > 2048) newValue = newValue.substring(0, 2048);
-				if (goodbeyMessageBodys.get(interaction.guild.id) === newValue) {
+				if (goodbyeMessageBodys.get(interaction.guild.id) === newValue) {
 					isNewValue = false;
 				} else {
-					variableName = 'goodbeyMessageBody';
+					variableName = 'goodbyeMessageBody';
 				}
 				break;
 			case 'color':
@@ -145,23 +145,23 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 					interaction.reply({ ephemeral: true, embeds: [embd] });
 					return;
 				}
-				if (goodbeyMessageColors.get(interaction.guild.id) === newValue) {
+				if (goodbyeMessageColors.get(interaction.guild.id) === newValue) {
 					isNewValue = false;
 				} else {
-					variableName = 'goodbeyMessageColor';
+					variableName = 'goodbyeMessageColor';
 				}
 				break;
 			case 'image-enabled':
 				newValue = options[0].options[0].value as boolean;
-				if (goodbeyMessageImageEnableds.get(interaction.guild.id) === newValue) {
+				if (goodbyeMessageImageEnableds.get(interaction.guild.id) === newValue) {
 					isNewValue = false;
 				} else {
-					variableName = 'goodbeyMessageImageEnabled';
+					variableName = 'goodbyeMessageImageEnabled';
 				}
 				break;
 			case 'image-url':
 				newValue = options[0].options[0].value as string;
-				if (!newValue.startsWith('http') && !newValue.endsWith('.png')) {
+				if (!newValue.startsWith('http') && !newValue.endsWith('.png') && newValue !== 'default') {
 					const embd = await Embds.short(
 						EmbdType.WARNING,
 						'**The Value Could Not Be Changed**',
@@ -171,15 +171,15 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 					return;
 				}
 				if (newValue.length > 512) newValue = newValue.substring(0, 512);
-				if (goodbeyMessageImageUrls.get(interaction.guild.id) === newValue) {
+				if (goodbyeMessageImageUrls.get(interaction.guild.id) === newValue) {
 					isNewValue = false;
 				} else {
-					variableName = 'goodbeyMessageImageUrl';
+					variableName = 'goodbyeMessageImageUrl';
 				}
 				break;
 			case 'image-accent-color':
 				newValue = options[0].options[0].value as string;
-				if (newValue.length !== 7 || newValue.charAt(0) !== '#') {
+				if ((newValue.length !== 7 || newValue.charAt(0) !== '#') && newValue !== 'rainbow') {
 					const embd = await Embds.short(
 						EmbdType.WARNING,
 						'**The Value Could Not Be Changed**',
@@ -188,10 +188,10 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 					interaction.reply({ ephemeral: true, embeds: [embd] });
 					return;
 				}
-				if (goodbeyMessageImageAccentColors.get(interaction.guild.id) === newValue) {
+				if (goodbyeMessageImageAccentColors.get(interaction.guild.id) === newValue) {
 					isNewValue = false;
 				} else {
-					variableName = 'goodbeyMessageImageAccentColor';
+					variableName = 'goodbyeMessageImageAccentColor';
 				}
 				break;
 		}
@@ -226,24 +226,24 @@ export default class GoodbeyMessageCommand extends BaseCommand {
 	}
 }
 
-StateManager.on('goodbeyMessageChannelId' + 'Fetched', (guildId: string, goodbeyMessageChannelId: string) => {
-	goodbeyMessageChannelIds.set(guildId, goodbeyMessageChannelId);
+StateManager.on('goodbyeMessageChannelId' + 'Fetched', (guildId: string, goodbyeMessageChannelId: string) => {
+	goodbyeMessageChannelIds.set(guildId, goodbyeMessageChannelId);
 });
-StateManager.on('goodbeyMessageTitle' + 'Fetched', (guildId: string, goodbeyMessageTitle: string) => {
-	goodbeyMessageTitles.set(guildId, goodbeyMessageTitle);
+StateManager.on('goodbyeMessageTitle' + 'Fetched', (guildId: string, goodbyeMessageTitle: string) => {
+	goodbyeMessageTitles.set(guildId, goodbyeMessageTitle);
 });
-StateManager.on('goodbeyMessageBody' + 'Fetched', (guildId: string, goodbeyMessageBody: string) => {
-	goodbeyMessageBodys.set(guildId, goodbeyMessageBody);
+StateManager.on('goodbyeMessageBody' + 'Fetched', (guildId: string, goodbyeMessageBody: string) => {
+	goodbyeMessageBodys.set(guildId, goodbyeMessageBody);
 });
-StateManager.on('goodbeyMessageColor' + 'Fetched', (guildId: string, goodbeyMessageColor: string) => {
-	goodbeyMessageColors.set(guildId, goodbeyMessageColor);
+StateManager.on('goodbyeMessageColor' + 'Fetched', (guildId: string, goodbyeMessageColor: string) => {
+	goodbyeMessageColors.set(guildId, goodbyeMessageColor);
 });
-StateManager.on('goodbeyMessageImageEnabled' + 'Fetched', (guildId: string, goodbeyMessageImageEnabled: boolean) => {
-	goodbeyMessageImageEnableds.set(guildId, goodbeyMessageImageEnabled);
+StateManager.on('goodbyeMessageImageEnabled' + 'Fetched', (guildId: string, goodbyeMessageImageEnabled: boolean) => {
+	goodbyeMessageImageEnableds.set(guildId, goodbyeMessageImageEnabled);
 });
-StateManager.on('goodbeyMessageImageUrl' + 'Fetched', (guildId: string, goodbeyMessageImageUrl: string) => {
-	goodbeyMessageImageUrls.set(guildId, goodbeyMessageImageUrl);
+StateManager.on('goodbyeMessageImageUrl' + 'Fetched', (guildId: string, goodbyeMessageImageUrl: string) => {
+	goodbyeMessageImageUrls.set(guildId, goodbyeMessageImageUrl);
 });
-StateManager.on('goodbeyMessageImageAccentColor' + 'Fetched', (guildId: string, goodbeyMessageImageAccentColor: string) => {
-	goodbeyMessageImageAccentColors.set(guildId, goodbeyMessageImageAccentColor);
+StateManager.on('goodbyeMessageImageAccentColor' + 'Fetched', (guildId: string, goodbyeMessageImageAccentColor: string) => {
+	goodbyeMessageImageAccentColors.set(guildId, goodbyeMessageImageAccentColor);
 });

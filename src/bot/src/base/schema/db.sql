@@ -12,17 +12,17 @@ CREATE TABLE GuildSettings (
   ##   FEATURE SPECIFIC CONFIGURATION   ##
   ########################################
   # welcome message
-  welcomeMessageTitle VARCHAR(128) NOT NULL DEFAULT 'Welcome to {server} {username}',
+  welcomeMessageTitle VARCHAR(128) NOT NULL DEFAULT 'Welcome to {server} {tag}',
   welcomeMessageBody VARCHAR(2048) NOT NULL DEFAULT 'Hello {user}, welcome to {server}!',
   welcomeMessageColor VARCHAR(7) NOT NULL DEFAULT '#0099ff',
   welcomeMessageImageEnabled BOOLEAN NOT NULL DEFAULT TRUE,
-  welcomeMessageImageUrl VARCHAR(512),
+  welcomeMessageImageUrl VARCHAR(512) NOT NULL DEFAULT 'default',
   welcomeMessageImageAccentColor VARCHAR(7) NOT NULL DEFAULT 'rainbow',
   # goodbye message
-  goodbyeMessageTitle VARCHAR(128) NOT NULL DEFAULT 'Goodbye from {server} {username}',
+  goodbyeMessageTitle VARCHAR(128) NOT NULL DEFAULT 'Goodbye from {server} {tag}',
   goodbyeMessageBody VARCHAR(2048) NOT NULL DEFAULT 'Goodbye {user}, we hope to see you again!',
   goodbyeMessageColor VARCHAR(7) NOT NULL DEFAULT '#0099ff',
   goodbyeMessageImageEnabled BOOLEAN NOT NULL DEFAULT TRUE,
-  goodbyeMessageImageUrl VARCHAR(512),
+  goodbyeMessageImageUrl VARCHAR(512) NOT NULL DEFAULT 'default',
   goodbyeMessageImageAccentColor VARCHAR(7) NOT NULL DEFAULT 'rainbow'
 );

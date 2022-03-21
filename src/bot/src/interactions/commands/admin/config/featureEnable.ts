@@ -6,8 +6,8 @@ import bot from '../../../../base/types/bot';
 import EmbdType from '../../../../base/types/embdTypes';
 import Embds from '../../../../base/utils/embds';
 
-const enableWelcomeMessageFeature = new Map<string, boolean>();
-const enableGoodbyeMessageFeature = new Map<string, boolean>();
+const enableWelcomeMessageFeatures = new Map<string, boolean>();
+const enableGoodbyeMessageFeatures = new Map<string, boolean>();
 
 export default class FeatureEnableCommand extends BaseCommand {
 	constructor() {
@@ -39,10 +39,10 @@ export default class FeatureEnableCommand extends BaseCommand {
 		let noChanges = false;
 		switch (options[0].value) {
 			case 'enableFeatureWelcomeMessage':
-				if (enableWelcomeMessageFeature.get(interaction.guild.id) === options[1].value) noChanges = true;
+				if (enableWelcomeMessageFeatures.get(interaction.guild.id) === options[1].value) noChanges = true;
 				break;
 			case 'enableFeatureGoodbyeMessage':
-				if (enableGoodbyeMessageFeature.get(interaction.guild.id) === options[1].value) noChanges = true;
+				if (enableGoodbyeMessageFeatures.get(interaction.guild.id) === options[1].value) noChanges = true;
 				break;
 			default:
 				return;
@@ -82,8 +82,8 @@ export default class FeatureEnableCommand extends BaseCommand {
 }
 
 StateManager.on('enableFeatureWelcomeMessageFetched', (guildId, enabled) => {
-	enableWelcomeMessageFeature.set(guildId, enabled);
+	enableWelcomeMessageFeatures.set(guildId, enabled);
 });
 StateManager.on('enableFeatureGoodbyeMessageFetched', (guildId, enabled) => {
-	enableGoodbyeMessageFeature.set(guildId, enabled);
+	enableGoodbyeMessageFeatures.set(guildId, enabled);
 });
