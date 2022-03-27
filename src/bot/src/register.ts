@@ -1,3 +1,4 @@
+import './utils/paths'
 import { config } from 'dotenv';
 config();
 import { REST } from '@discordjs/rest';

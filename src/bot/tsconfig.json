@@ -9,8 +9,17 @@
         "baseUrl": ".",
         "paths": {
             "@base/*": [
-                "./src/base/*"
-            ]
+                "src/base/*"
+            ],
+            "@types/*": [
+                "src/types/*"
+            ],
+            "@interactions/*": [
+                "src/interactions/*"
+            ],
+            "@utils/*": [
+                "src/utils/*"
+            ],
         }
     },
     "include": [
