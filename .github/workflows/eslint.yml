@@ -1,4 +1,4 @@
-name: Eslint Bott
+name: Eslint Bot
 on: [push, pull_request]
 
 defaults:
@@ -6,7 +6,7 @@ defaults:
     working-directory: ./src/bot
 
 jobs:
-  Fix Linting:
+  FixLinting:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
