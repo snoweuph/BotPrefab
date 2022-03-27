@@ -1,8 +1,8 @@
 import { ContextMenuCommandBuilder } from '@discordjs/builders';
 import { ApplicationCommandType } from 'discord-api-types/v9';
 import { CacheType, MessageContextMenuInteraction, PermissionResolvable } from 'discord.js';
-import Bot from '../types/bot';
-import BaseContextMenu from './baseContextMenu';
+import Bot from '@baseTypes/bot';
+import BaseContextMenu from '@classes/baseContextMenu';
 
 export abstract class BaseMessageContextMenu extends BaseContextMenu {
 

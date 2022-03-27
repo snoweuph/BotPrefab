@@ -1,5 +1,5 @@
-import Bot from '../types/bot';
-import StateManager from '../StateManager';
+import Bot from '@baseTypes/bot';
+import StateManager from '@base/StateManager';
 
 export default async function loadValue(bot: Bot, variableName: string, isBool?: boolean): Promise<void> {
 	bot.client.guilds.cache.forEach(guild => {

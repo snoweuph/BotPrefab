@@ -1,15 +1,15 @@
 import { join } from 'path';
 import { promises as fs } from 'fs';
-import BaseEvent from './classes/baseEvent';
-import BaseCommand from './classes/baseCommand';
+import BaseEvent from '@classes/baseEvent';
+import BaseCommand from '@classes/baseCommand';
 import { Collection } from 'discord.js';
-import Bot from './types/bot';
-import BaseButton from './classes/baseButton';
-import BaseCommandCategory, { isBaseCommandCategory } from './types/baseCommandCategory';
-import BaseAutocompleteInteraction from './classes/baseAutocompleteInteraction';
-import BaseSelectMenu from './classes/baseSelectMenu';
-import { BaseUserContextMenu } from './classes/baseUserContextMenu';
-import { BaseMessageContextMenu } from './classes/baseMessageContextMenu ';
+import Bot from '@baseTypes/bot';
+import BaseButton from '@classes/baseButton';
+import BaseCommandCategory, { isBaseCommandCategory } from '@baseTypes/baseCommandCategory';
+import BaseAutocompleteInteraction from '@classes/baseAutocompleteInteraction';
+import BaseSelectMenu from '@classes/baseSelectMenu';
+import { BaseUserContextMenu } from '@classes/baseUserContextMenu';
+import { BaseMessageContextMenu } from '@classes/baseMessageContextMenu ';
 
 async function loadEvents(bot: Bot, dir: string) {
 	const filePath = join(__dirname, dir);

@@ -1,5 +1,5 @@
 import { SelectMenuInteraction, CacheType, MessageSelectMenu } from 'discord.js';
-import Bot from '../types/bot';
+import Bot from '@baseTypes/bot';
 
 export default abstract class BaseSelectMenu {
 	menu: MessageSelectMenu;

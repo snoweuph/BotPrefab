@@ -1,5 +1,5 @@
 import { AutocompleteInteraction, CacheType } from 'discord.js';
-import Bot from '../types/bot';
+import Bot from '@baseTypes/bot';
 
 export default abstract class BaseAutocompleteInteraction {
 	commandName: string;

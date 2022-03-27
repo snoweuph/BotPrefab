@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
 import { Connection } from 'mysql2/promise';
-import Database from './database';
+import Database from '@base/database';
 
 class StateManager extends EventEmitter {
 	connection: Connection;

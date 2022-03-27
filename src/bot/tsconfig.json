@@ -11,14 +11,23 @@
             "@base/*": [
                 "src/base/*"
             ],
-            "@types/*": [
-                "src/types/*"
+            "@baseTypes/*": [
+                "src/base/types/*"
+            ],
+            "@classes/*": [
+                "src/base/classes/*"
+            ],
+            "@schema/*": [
+                "src/base/schema/*"
             ],
             "@interactions/*": [
                 "src/interactions/*"
             ],
             "@utils/*": [
                 "src/utils/*"
+            ],
+            "@assets/*": [
+                "src/assets/*"
             ],
         }
     },

@@ -1,11 +1,11 @@
 import { Client as DiscordClient, Collection } from 'discord.js';
-import BaseCommand from '../classes/baseCommand';
-import BaseCommandCategory from './baseCommandCategory';
-import BaseButton from '../classes/baseButton';
-import BaseSelectMenu from '../classes/baseSelectMenu';
-import { BaseUserContextMenu } from '../classes/baseUserContextMenu';
-import { BaseMessageContextMenu } from '../classes/baseMessageContextMenu ';
-import BaseAutocompleteInteraction from '../classes/baseAutocompleteInteraction';
+import BaseCommand from '@classes/baseCommand';
+import BaseCommandCategory from '@baseTypes/baseCommandCategory';
+import BaseButton from '@classes/baseButton';
+import BaseSelectMenu from '@classes/baseSelectMenu';
+import { BaseUserContextMenu } from '@classes/baseUserContextMenu';
+import { BaseMessageContextMenu } from '@classes/baseMessageContextMenu ';
+import BaseAutocompleteInteraction from '@classes/baseAutocompleteInteraction';
 
 export default class Bot {
 	client: DiscordClient<boolean>;
