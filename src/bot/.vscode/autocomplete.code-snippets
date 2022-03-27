@@ -7,7 +7,7 @@
             "import BaseAutocompleteInteraction from '@classes/baseAutocompleteInteraction';",
             "import bot from '@baseTypes/bot';",
             "",
-            "export default class ${1:Name}Autocomplete extends BaseAutocompleteInteraction {",
+            "export default class ${1:Name}AutocompleteInteraction extends BaseAutocompleteInteraction {",
             "\tconstructor() {",
             "\t\tsuper('${2:commandName}');",
             "\t}",

@@ -20,7 +20,8 @@
             "\tasync execute(bot: bot, interaction: CommandInteraction<CacheType>, options: readonly CommandInteractionOption<CacheType>[]): Promise<void> {",
             "\t\t${0://TODO: Write your code here}",
             "\t}",
-            "}"
+            "}",
+            ""
         ]
     }
 }
