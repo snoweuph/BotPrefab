@@ -1,16 +1,21 @@
-name: Eslint
+name: Eslint Bott
 on: [push, pull_request]
+
+defaults:
+  run:
+    working-directory: ./src/bot
+
 jobs:
-  build:
+  Fix Linting:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
         node-version: '16.x'
     - name: setup bot
       run: |
-        cd src/bot
         npm ci
     - name: run eslint
       run: |
-        npm run lint
+        npm run lint:fix
