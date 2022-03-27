@@ -7,7 +7,7 @@
     "build": "",
     "dev": "nodemon src/bot.ts",
     "dev:register": "ts-node src/register.ts",
-    "test": "npm run lint && npm run xyz",
+    "test": "npm run lint",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint --fix ."
   },
@@ -33,6 +33,7 @@
     "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.10.0",
     "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.2"
   }
 }

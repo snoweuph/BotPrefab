@@ -28,7 +28,7 @@ async function loadEvents(bot: Bot, dir: string) {
 	}
 }
 
-async function loadCommands(commands: Collection<string, BaseCommand>, commadCategories: Array<BaseCommandCategory>, categoryCommandsMap: Map<BaseCommandCategory, Array<BaseCommand>>, dir: string, CurrentCategory?: BaseCommandCategory) {
+async function loadCommands(commands: Collection<string, BaseCommand>, commadCategories: Array<BaseCommandCategory>, categoryCommandsMap: Map<BaseCommandCategory, Array<BaseCommand>>, dir: string, CurrentCategory?: BaseCommandCategory): Promise<number> {
 	const filePath = join(__dirname, dir);
 	const files = await fs.readdir(filePath);
 	const folders = new Array<string>();
@@ -48,8 +48,10 @@ async function loadCommands(commands: Collection<string, BaseCommand>, commadCat
 			_currentCategory = RequiredFile;
 		}
 	}
+	let code = 0;
 	for (const path of folders) {
-		await loadCommands(commands, commadCategories, categoryCommandsMap, path, _currentCategory || CurrentCategory);
+		const _code = await loadCommands(commands, commadCategories, categoryCommandsMap, path, _currentCategory || CurrentCategory);
+		if (code != 1) code = _code;
 	}
 	if (!_currentCategory && !CurrentCategory) return;
 	for (const file of commandFiles) {
@@ -64,6 +66,7 @@ async function loadCommands(commands: Collection<string, BaseCommand>, commadCat
 		if (!categoryCommandsMap.has(command.category)) categoryCommandsMap.set(command.category, new Array<BaseCommand>());
 		categoryCommandsMap.get(command.category).push(command);
 	}
+	return code;
 }
 
 async function loadButtons(buttons: Collection<string, BaseButton>, dir: string) {
