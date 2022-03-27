@@ -1,12 +1,12 @@
 import 'module-alias/register';
-import { addAlias, addAliases } from 'module-alias';
+import { addAliases } from 'module-alias';
 
 addAliases({
-    '@base': `${__dirname}/../base`,
-    "@baseTypes": `${__dirname}/../base/types`,
-    "@classes": `${__dirname}/../base/classes`,
-    "@schema": `${__dirname}/../base/schema`,
-    "@interactions": `${__dirname}/../interactions`,
-    "@utils": `${__dirname}/../utils`,
-    "@assets": `${__dirname}/../assets`,
+	'@base': `${__dirname}/../base`,
+	'@baseTypes': `${__dirname}/../base/types`,
+	'@classes': `${__dirname}/../base/classes`,
+	'@schema': `${__dirname}/../base/schema`,
+	'@interactions': `${__dirname}/../interactions`,
+	'@utils': `${__dirname}/../utils`,
+	'@assets': `${__dirname}/../assets`,
 })
