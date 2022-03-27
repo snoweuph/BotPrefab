@@ -1,0 +1,34 @@
+{
+    "SelectMenu": {
+        "prefix": "!selectMenu",
+        "scope": "javascript,typescript",
+        "body": [
+            "import { SelectMenuInteraction, CacheType, MessageSelectMenu } from 'discord.js';",
+            "import BaseSelectMenu from '@classes/baseSelectMenu';",
+            "import bot from '@baseTypes/bot';",
+            "",
+            "export default class ${1:ClassName}SelectMenu extends BaseSelectMenu {",
+            "\tconstructor() {",
+            "\t\tsuper(",
+            "\t\t\tnew MessageSelectMenu()",
+            "\t\t\t\t.setCustomId('${2:id}')",
+            "\t\t\t\t.setPlaceholder('${3:placeholder}')",
+            "\t\t\t\t.addOptions([",
+            "\t\t\t\t\t{",
+            "\t\t\t\t\t\tlabel: 'label1',",
+            "\t\t\t\t\t\tdescription: 'description1'",
+            "\t\t\t\t\t\tvalue: 'value1',",
+            "\t\t\t\t\t},",
+            "\t\t\t\t])",
+            "\t\t\t\t.setMaxValues(1)",
+            "\t\t);",
+            "\t}",
+            "",
+            "async execute(bot: bot, interaction: SelectMenuInteraction<CacheType>, values: Array<string>): Promise<void> {",
+            "\t\t${0://TODO: Write your code here}",
+            "\t}",
+            "}",
+            ""
+        ]
+    }
+}

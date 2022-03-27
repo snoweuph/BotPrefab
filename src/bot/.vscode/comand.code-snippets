@@ -5,8 +5,8 @@
         "body": [
             "import { SlashCommandBuilder } from '@discordjs/builders';",
             "import { CommandInteraction, CacheType, CommandInteractionOption } from 'discord.js';",
-            "import BaseCommand from '../../../base/classes/baseCommand';",
-            "import bot from '../../../base/types/bot';",
+            "import BaseCommand from '@classes/baseCommand';",
+            "import bot from '@baseTypes/bot';",
             "",
             "export default class ${1:Name}Command extends BaseCommand {",
             "\tconstructor() {",
@@ -18,7 +18,7 @@
             "\t}",
             "",
             "\tasync execute(bot: bot, interaction: CommandInteraction<CacheType>, options: readonly CommandInteractionOption<CacheType>[]): Promise<void> {",
-            "\t\t//TODO: Write your code here",
+            "\t\t${0://TODO: Write your code here}",
             "\t}",
             "}"
         ]
