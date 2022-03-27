@@ -1,6 +1,6 @@
 import { SelectMenuInteraction, CacheType, MessageSelectMenu } from 'discord.js';
-import BaseSelectMenu from '../../base/classes/baseSelectMenu';
-import bot from '../../base/types/bot';
+import BaseSelectMenu from '@base/classes/baseSelectMenu';
+import bot from '@base/types/bot';
 
 export default class TestSelectMenu extends BaseSelectMenu {
 

@@ -1,6 +1,6 @@
 import { AutocompleteInteraction, CacheType } from 'discord.js';
-import BaseAutocompleteInteraction from '../../base/classes/baseAutocompleteInteraction';
-import bot from '../../base/types/bot';
+import BaseAutocompleteInteraction from '@base/classes/baseAutocompleteInteraction';
+import bot from '@base/types/bot';
 
 export default class AutocompleteTestAutocompleteInteraction extends BaseAutocompleteInteraction {
 	constructor() {

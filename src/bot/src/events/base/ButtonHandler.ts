@@ -1,5 +1,5 @@
-import Bot from '../../base/types/bot';
-import BaseEvent from '../../base/classes/baseEvent';
+import Bot from '@base/types/bot';
+import BaseEvent from '@base/classes/baseEvent';
 import { ButtonInteraction } from 'discord.js';
 
 const cooldownMap = new Map<string, Map<string, number>>();

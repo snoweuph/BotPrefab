@@ -3,12 +3,12 @@ config();
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
 import { Collection } from 'discord.js';
-import BaseCommand from './base/classes/baseCommand';
-import { loadCommands, loadMessageContextMenus, loadUserContextMenus } from './base/load';
-import BaseCommandCategory from './base/types/baseCommandCategory';
+import BaseCommand from '@base/classes/baseCommand';
+import { loadCommands, loadMessageContextMenus, loadUserContextMenus } from '@base/load';
+import BaseCommandCategory from '@base/types/baseCommandCategory';
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { BaseUserContextMenu } from './base/classes/baseUserContextMenu';
-import { BaseMessageContextMenu } from './base/classes/baseMessageContextMenu ';
+import { BaseUserContextMenu } from '@base/classes/baseUserContextMenu';
+import { BaseMessageContextMenu } from '@base/classes/baseMessageContextMenu ';
 
 const Commands = new Collection<string, BaseCommand>();
 const CommadCategories = new Array<BaseCommandCategory>();

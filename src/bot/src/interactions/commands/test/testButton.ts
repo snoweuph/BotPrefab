@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType, MessageActionRow } from 'discord.js';
-import BaseCommand from '../../../base/classes/baseCommand';
-import bot from '../../../base/types/bot';
+import BaseCommand from '@base/classes/baseCommand';
+import bot from '@base/types/bot';
 import helloWorldButton from '../../buttons/helloWorld';
 
 export default class HelloButtonCommand extends BaseCommand {

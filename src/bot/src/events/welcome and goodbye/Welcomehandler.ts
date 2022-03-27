@@ -1,8 +1,8 @@
-import Bot from '../../base/types/bot';
-import BaseEvent from '../../base/classes/baseEvent';
-import StateManager from '../../base/StateManager';
-import Embds from '../../base/utils/embds';
-import EmbdType from '../../base/types/embdTypes';
+import Bot from '@base/types/bot';
+import BaseEvent from '@base/classes/baseEvent';
+import StateManager from '@base/StateManager';
+import Embds from '@base/utils/embds';
+import EmbdType from '@base/types/embdTypes';
 import Canvas, { CanvasGradient, Image } from 'canvas';
 import Path from 'path';
 import { ColorResolvable, EmbedFieldData, MessageAttachment } from 'discord.js';
@@ -22,7 +22,7 @@ export default class WelcomeHandlerEvent extends BaseEvent {
 	}
 
 	/* eslint-disable-next-line */
-    async execute(bot: Bot, ...args: any[]): Promise<void> {
+	async execute(bot: Bot, ...args: any[]): Promise<void> {
 		const guildId = args[0].guild.id;
 		if (!enableWelcomeMessageFeatures.get(guildId) || !welcomeMessageChannelIds.has(guildId)) return;
 		const welcomeChannel = args[0].guild.channels.cache.get(welcomeMessageChannelIds.get(guildId));
@@ -104,10 +104,10 @@ export default class WelcomeHandlerEvent extends BaseEvent {
 		let welcomeTitle = welcomeMessageTitles.get(guildId);
 		let welcomeContent = welcomeMessageBodys.get(guildId);
 		/* {user} a ping to the new user
-          {server} the name of the server
-          {tag} the tag of the new user
-          {count} the number of members in the server
-        */
+		  {server} the name of the server
+		  {tag} the tag of the new user
+		  {count} the number of members in the server
+		*/
 
 
 		welcomeTitle = welcomeTitle.replace('{user}', `<@!${member.id}>`).replace('{server}', currentGuild.name).replace('{tag}', member.user.tag).replace('{count}', memberCount.toString());

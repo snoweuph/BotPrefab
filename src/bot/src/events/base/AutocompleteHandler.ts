@@ -1,5 +1,5 @@
-import Bot from '../../base/types/bot';
-import BaseEvent from '../../base/classes/baseEvent';
+import Bot from '@base/types/bot';
+import BaseEvent from '@base/classes/baseEvent';
 import { AutocompleteInteraction } from 'discord.js';
 
 export default class TestEvent extends BaseEvent {

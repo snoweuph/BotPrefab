@@ -1,8 +1,8 @@
-import Bot from '../../base/types/bot';
-import BaseEvent from '../../base/classes/baseEvent';
-import StateManager from '../../base/StateManager';
+import Bot from '@base/types/bot';
+import BaseEvent from '@base/classes/baseEvent';
+import StateManager from '@base/StateManager';
 import { Connection } from 'mysql2/promise';
-import loadFromDatabase from '../../base/utils/loadFromDatabase';
+import loadFromDatabase from '@base/utils/loadFromDatabase';
 
 export default class LoadGuildsEvent extends BaseEvent {
 	connection: Connection;

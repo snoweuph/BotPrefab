@@ -1,5 +1,5 @@
-import Bot from '../../base/types/bot';
-import BaseEvent from '../../base/classes/baseEvent';
+import Bot from '@base/types/bot';
+import BaseEvent from '@base/classes/baseEvent';
 import { SelectMenuInteraction } from 'discord.js';
 
 export default class SelectMenuEvent extends BaseEvent {

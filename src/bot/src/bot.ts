@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 config();
-import Bot from './base/types/bot';
-import { loadEvents, loadCommands, loadButtons, loadSelectMenus, loadUserContextMenus, loadMessageContextMenus, loadAutocompleteInteractions } from './base/load';
+import Bot from '@base/types/bot';
+import { loadEvents, loadCommands, loadButtons, loadSelectMenus, loadUserContextMenus, loadMessageContextMenus, loadAutocompleteInteractions } from '@base/load';
 import { Client as DiscordClient, Intents } from 'discord.js';
 
 const bot = new Bot(
@@ -15,7 +15,7 @@ const bot = new Bot(
 	})
 );
 
-import StateManager from './base/StateManager';
+import StateManager from '@base/StateManager';
 
 async function main() {
 	while (typeof (StateManager.connection) == 'undefined') {

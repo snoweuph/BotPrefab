@@ -1,5 +1,5 @@
-import Bot from '../../base/types/bot';
-import BaseEvent from '../../base/classes/baseEvent';
+import Bot from '@base/types/bot';
+import BaseEvent from '@base/classes/baseEvent';
 import { ContextMenuInteraction } from 'discord.js';
 
 const userCooldownMap = new Map<string, Map<string, number>>();
@@ -11,7 +11,7 @@ export default class ContextMenuHandlerEvent extends BaseEvent {
 	}
 
 	/* eslint-disable-next-line */
-    async execute(bot: Bot, ...args: any[]): Promise<void> {
+	async execute(bot: Bot, ...args: any[]): Promise<void> {
 		const interaction: ContextMenuInteraction = args[0];
 		if (!interaction.isContextMenu()) return;
 

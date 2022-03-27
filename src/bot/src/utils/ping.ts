@@ -1,6 +1,6 @@
 import { ButtonInteraction, Client, CommandInteraction, EmbedFieldData, Message } from 'discord.js';
-import EmbdType from '../base/types/embdTypes';
-import Embeds from '../base/utils/embds';
+import EmbdType from '@base/types/embdTypes';
+import Embeds from '@base/utils/embds';
 
 async function runPing(client: Client, interaction: CommandInteraction | ButtonInteraction) {
 	const fields: Array<EmbedFieldData> = [

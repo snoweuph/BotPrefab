@@ -1,6 +1,6 @@
 import { ButtonInteraction, CacheType, MessageButton } from 'discord.js';
-import BaseButton from '../../base/classes/baseButton';
-import Bot from '../../base/types/bot';
+import BaseButton from '@base/classes/baseButton';
+import Bot from '@base/types/bot';
 
 export default class HelloWorldButtonInteraction extends BaseButton {
 	constructor() {

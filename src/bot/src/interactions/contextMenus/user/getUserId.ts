@@ -1,6 +1,6 @@
 import { UserContextMenuInteraction, CacheType } from 'discord.js';
-import { BaseUserContextMenu } from '../../../base/classes/baseUserContextMenu';
-import bot from '../../../base/types/bot';
+import { BaseUserContextMenu } from '@base/classes/baseUserContextMenu';
+import bot from '@base/types/bot';
 
 export default class GetUserIdUserContextMenu extends BaseUserContextMenu {
 

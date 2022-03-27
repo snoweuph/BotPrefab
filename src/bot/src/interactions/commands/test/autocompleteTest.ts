@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType, CommandInteractionOption } from 'discord.js';
-import BaseCommand from '../../../base/classes/baseCommand';
-import bot from '../../../base/types/bot';
+import BaseCommand from '@base/classes/baseCommand';
+import bot from '@base/types/bot';
 
 export default class AutocompleteCommand extends BaseCommand {
 	constructor() {
