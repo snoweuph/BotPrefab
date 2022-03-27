@@ -4,7 +4,7 @@ import BaseCommandCategory from '@baseTypes/baseCommandCategory';
 import BaseButton from '@classes/baseButton';
 import BaseSelectMenu from '@classes/baseSelectMenu';
 import { BaseUserContextMenu } from '@classes/baseUserContextMenu';
-import { BaseMessageContextMenu } from '@classes/baseMessageContextMenu ';
+import { BaseMessageContextMenu } from '@base/classes/baseMessageContextMenu';
 import BaseAutocompleteInteraction from '@classes/baseAutocompleteInteraction';
 
 export default class Bot {

@@ -1,5 +1,5 @@
 import { MessageContextMenuInteraction, CacheType } from 'discord.js';
-import { BaseMessageContextMenu } from '@base/classes/baseMessageContextMenu ';
+import { BaseMessageContextMenu } from '@base/classes/baseMessageContextMenu';
 import bot from '@base/types/bot';
 
 export default class GetUserIdUserContextMenu extends BaseMessageContextMenu {

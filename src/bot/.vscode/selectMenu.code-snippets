@@ -16,7 +16,7 @@
             "\t\t\t\t.addOptions([",
             "\t\t\t\t\t{",
             "\t\t\t\t\t\tlabel: 'label1',",
-            "\t\t\t\t\t\tdescription: 'description1'",
+            "\t\t\t\t\t\tdescription: 'description1',",
             "\t\t\t\t\t\tvalue: 'value1',",
             "\t\t\t\t\t},",
             "\t\t\t\t])",

@@ -9,7 +9,7 @@ import BaseCommandCategory, { isBaseCommandCategory } from '@baseTypes/baseComma
 import BaseAutocompleteInteraction from '@classes/baseAutocompleteInteraction';
 import BaseSelectMenu from '@classes/baseSelectMenu';
 import { BaseUserContextMenu } from '@classes/baseUserContextMenu';
-import { BaseMessageContextMenu } from '@classes/baseMessageContextMenu ';
+import { BaseMessageContextMenu } from '@base/classes/baseMessageContextMenu';
 
 async function loadEvents(bot: Bot, dir: string) {
 	const filePath = join(__dirname, dir);

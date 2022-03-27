@@ -9,7 +9,7 @@ import { loadCommands, loadMessageContextMenus, loadUserContextMenus } from '@ba
 import BaseCommandCategory from '@base/types/baseCommandCategory';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { BaseUserContextMenu } from '@base/classes/baseUserContextMenu';
-import { BaseMessageContextMenu } from '@base/classes/baseMessageContextMenu ';
+import { BaseMessageContextMenu } from '@base/classes/baseMessageContextMenu';
 
 const Commands = new Collection<string, BaseCommand>();
 const CommadCategories = new Array<BaseCommandCategory>();
