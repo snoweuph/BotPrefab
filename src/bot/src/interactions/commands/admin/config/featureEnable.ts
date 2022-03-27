@@ -38,14 +38,14 @@ export default class FeatureEnableCommand extends BaseCommand {
 	async execute(bot: bot, interaction: CommandInteraction<CacheType>, options: ReadonlyArray<CommandInteractionOption<CacheType>>): Promise<void> {
 		let noChanges = false;
 		switch (options[0].value) {
-			case 'enableFeatureWelcomeMessage':
-				if (enableWelcomeMessageFeatures.get(interaction.guild.id) === options[1].value) noChanges = true;
-				break;
-			case 'enableFeatureGoodbyeMessage':
-				if (enableGoodbyeMessageFeatures.get(interaction.guild.id) === options[1].value) noChanges = true;
-				break;
-			default:
-				return;
+		case 'enableFeatureWelcomeMessage':
+			if (enableWelcomeMessageFeatures.get(interaction.guild.id) === options[1].value) noChanges = true;
+			break;
+		case 'enableFeatureGoodbyeMessage':
+			if (enableGoodbyeMessageFeatures.get(interaction.guild.id) === options[1].value) noChanges = true;
+			break;
+		default:
+			return;
 		}
 
 		if (noChanges) {
