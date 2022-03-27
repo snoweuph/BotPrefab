@@ -3,7 +3,7 @@
         "prefix": "!commandCategory",
         "scope": "javascript,typescript",
         "body": [
-            "import BaseCommandCategory from '../../../base/types/baseCommandCategory';",
+            "import BaseCommandCategory from '@baseTypes/baseCommandCategory';",
             "",
             "const Category: BaseCommandCategory = {",
             "\tdisplayName: '${1:DisplayName}',",

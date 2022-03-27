@@ -1,0 +1,24 @@
+{
+    "ContextMenu": {
+        "prefix": "!contextMenu",
+        "scope": "javascript,typescript",
+        "body": [
+            "import { $1ContextMenuInteraction, CacheType } from 'discord.js';",
+            "import { Base$1ContextMenu } from '@base/classes/base$1ContextMenu';",
+            "import bot from '@base/types/bot';",
+            "",
+            "export default class ${2:ClassName}$1ContextMenu extends Base${1|User,Message|}ContextMenu {",
+            "\tconstructor() {",
+            "\t\tsuper(",
+            "\t\t\t'${3:name}',",
+            "\t\t);",
+            "\t}",
+            "",
+            "\tasync execute(bot: bot, interaction: $1ContextMenuInteraction<CacheType>): Promise<void> {",
+            "\t\t${0://TODO: Write your code here}",
+            "\t}",
+            "}",
+            ""
+        ]
+    }
+}
