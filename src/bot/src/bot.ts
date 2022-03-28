@@ -41,7 +41,7 @@ async function main() {
 	console.log(`[Index] Logged in as ${bot.client.user.tag}`);
 }
 
-bot.client.on('messageCreate', (message) => {
+bot.client.on('messageCreate', () => {
 	console.log(bot.client.shard)
 })
 

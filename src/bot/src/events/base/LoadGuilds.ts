@@ -18,7 +18,7 @@ export default class LoadGuildsEvent extends BaseEvent {
 			StateManager.connection.query(
 				`SELECT guildId FROM GuildSettings WHERE guildId = '${guild.id}'`
 			).then(result => {
-				let _result = result[0] as Array<RowDataPacket>;
+				const _result = result[0] as Array<RowDataPacket>;
 				if (!_result[0]) {
 					this.connection.query(
 						`INSERT INTO GuildSettings (guildId) VALUES('${guild.id}')`
