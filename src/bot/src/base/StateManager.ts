@@ -4,7 +4,7 @@ import Database from '@base/database';
 
 class StateManager extends EventEmitter {
 	connection: Connection;
-	constructor(opts?) {
+	constructor(opts?: any) {
 		super(opts);
 		Database.then((connection: Connection) => {
 			this.connection = connection;

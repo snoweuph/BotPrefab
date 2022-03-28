@@ -6,8 +6,8 @@ export default interface BaseCommandCategory {
     permissions: Array<PermissionResolvable>;
 }
 
-function isBaseCommandCategory(object): object is BaseCommandCategory {
-	return object.displayName !== undefined && object.uniqueId !== undefined && object.permissions !== undefined;
+function isBaseCommandCategory(object: any): object is BaseCommandCategory {
+    return object.displayName !== undefined && object.uniqueId !== undefined && object.permissions !== undefined;
 }
 
 export { isBaseCommandCategory };

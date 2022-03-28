@@ -12,7 +12,8 @@ const bot = new Bot(
 			Intents.FLAGS.GUILD_MEMBERS,
 			Intents.FLAGS.GUILD_MESSAGES,
 			Intents.FLAGS.DIRECT_MESSAGES
-		]
+		],
+		shards: [0, 1]
 	})
 );
 
@@ -39,5 +40,9 @@ async function main() {
 	await bot.client.login(process.env.DISCORD_BOT_TOKEN);
 	console.log(`[Index] Logged in as ${bot.client.user.tag}`);
 }
+
+bot.client.on('messageCreate', (message) => {
+	console.log(bot.client.shard)
+})
 
 main();

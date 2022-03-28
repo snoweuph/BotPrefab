@@ -1,8 +1,12 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "ESNext",
         "target": "ESNext",
-        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "importHelpers": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "Node",
         "esModuleInterop": true,
         "removeComments": true,
         "outDir": "./build",
