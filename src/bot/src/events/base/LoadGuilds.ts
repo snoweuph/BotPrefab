@@ -45,7 +45,7 @@ export default class LoadGuildsEvent extends BaseEvent {
 				//send all the data throug the stateManager
 				for (const field in guildRow) {
 					if (field === 'guildId') continue;
-					StateManager.emit(`${field}Fetched`, guildRow.guildId, columEncodingDefinitionMap.get(field) === 'binary' ? !!guildRow[field] : guildRow[field]); console.log(`${field}Fetched`, guildRow.guildId, columEncodingDefinitionMap.get(field) === 'binary' ? !!guildRow[field] : guildRow[field]);
+					StateManager.emit(`${field}Fetched`, guildRow.guildId, columEncodingDefinitionMap.get(field) === 'binary' ? !!guildRow[field] : guildRow[field]);
 				}
 			}
 		})
