@@ -2,7 +2,6 @@ import Bot from '@base/types/bot';
 import BaseEvent from '@base/classes/baseEvent';
 import StateManager from '@base/StateManager';
 import { Connection, RowDataPacket } from 'mysql2/promise';
-import loadFromDatabase from '@base/utils/loadFromDatabase';
 
 export default class LoadGuildsEvent extends BaseEvent {
 	connection: Connection;
@@ -26,28 +25,29 @@ export default class LoadGuildsEvent extends BaseEvent {
 				}
 			}).catch(error => { console.log(error); });
 		});
-		//settings to enable/disable features
-		loadFromDatabase(bot, 'enableFeatureWelcomeMessage', true);
-		loadFromDatabase(bot, 'enableFeatureGoodbyeMessage', true);
-		//configuration for channels
-		loadFromDatabase(bot, 'welcomeMessageChannelId');
-		loadFromDatabase(bot, 'goodbyeMessageChannelId');
 
-		//welcome message
-		loadFromDatabase(bot, 'welcomeMessageTitle');
-		loadFromDatabase(bot, 'welcomeMessageBody');
-		loadFromDatabase(bot, 'welcomeMessageColor');
-		loadFromDatabase(bot, 'welcomeMessageImageEnabled');
-		loadFromDatabase(bot, 'welcomeMessageImageUrl');
-		loadFromDatabase(bot, 'welcomeMessageImageAccentColor');
-
-		//goodbye message
-		loadFromDatabase(bot, 'goodbyeMessageTitle');
-		loadFromDatabase(bot, 'goodbyeMessageBody');
-		loadFromDatabase(bot, 'goodbyeMessageColor');
-		loadFromDatabase(bot, 'goodbyeMessageImageEnabled');
-		loadFromDatabase(bot, 'goodbyeMessageImageUrl');
-		loadFromDatabase(bot, 'goodbyeMessageImageAccentColor');
-
+		//query all settings
+		StateManager.connection.query(
+			'SELECT * FROM GuildSettings'
+		).then(result => {
+			const guildData = result[0] as Array<RowDataPacket>;
+			const columDefinitions = result[1];
+			//loop through Colum definitions to get the encoding Types so that booleans get converted to booleans from TinyInts
+			const columEncodingDefinitionMap = new Map<string, string>();
+			for (const colum of columDefinitions) {
+				// @ts-ignore
+				columEncodingDefinitionMap.set(colum.name, colum.encoding);
+			}
+			//loop trrough all data
+			for (const guildRow of guildData) {
+				//get if this guild is inside this shards cache
+				if (!bot.client.guilds.cache.has(guildRow.guildId)) continue;
+				//send all the data throug the stateManager
+				for (const field in guildRow) {
+					if (field === 'guildId') continue;
+					StateManager.emit(`${field}Fetched`, guildRow.guildId, columEncodingDefinitionMap.get(field) === 'binary' ? !!guildRow[field] : guildRow[field]); console.log(`${field}Fetched`, guildRow.guildId, columEncodingDefinitionMap.get(field) === 'binary' ? !!guildRow[field] : guildRow[field]);
+				}
+			}
+		})
 	}
 }
