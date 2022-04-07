@@ -12,8 +12,7 @@ const bot = new Bot(
 			Intents.FLAGS.GUILD_MEMBERS,
 			Intents.FLAGS.GUILD_MESSAGES,
 			Intents.FLAGS.DIRECT_MESSAGES
-		],
-		shards: [0, 1]
+		]
 	})
 );
 
