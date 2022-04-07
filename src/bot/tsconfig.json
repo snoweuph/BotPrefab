@@ -2,13 +2,14 @@
     "compilerOptions": {
         "module": "CommonJS",
         "target": "ESNext",
-        "noImplicitAny": true,
+        "noImplicitAny": false, //needs to be disabled for the dev:sharded script
         "sourceMap": true,
         "importHelpers": true,
         "forceConsistentCasingInFileNames": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
         "moduleResolution": "Node",
         "esModuleInterop": true,
-        "removeComments": true,
         "outDir": "./build",
         "baseUrl": ".",
         "paths": {

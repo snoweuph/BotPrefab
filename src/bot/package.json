@@ -4,10 +4,13 @@
   "description": "",
   "main": "bot.ts",
   "scripts": {
-    "start": "node build/bot.js",
+    "start:bot": "node build/bot.js",
+    "start:shard": "node build/sharded.js",
+    "start:reg": "node build/register.js",
     "build": "tsc  && tsc-alias",
-    "dev": "nodemon src/bot.ts",
-    "dev:register": "ts-node src/register.ts",
+    "dev:bot": "nodemon src/bot.ts",
+    "dev:shard": " NODE_OPTIONS='--require ts-node/register' nodemon src/sharded.ts",
+    "dev:reg": "ts-node src/register.ts",
     "test": "npm run lint",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint --fix ."
