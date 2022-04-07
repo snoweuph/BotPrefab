@@ -5,6 +5,7 @@
   "main": "bot.ts",
   "scripts": {
     "start": "node build/bot.js",
+    "start:sharded": "node build/sharded.js",
     "build": "tsc  && tsc-alias",
     "dev": "nodemon src/bot.ts",
     "dev:sharded": "nodemon src/sharded.ts",
