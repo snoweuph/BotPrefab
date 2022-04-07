@@ -41,8 +41,11 @@ async function main() {
 	console.log(`${prefix} Logged in as ${bot.client.user.tag}`);
 }
 
+<<<<<<< HEAD
 bot.client.on('messageCreate', () => {
 	console.log(bot.client.shard)
 })
 
+=======
+>>>>>>> dev
 main();
