@@ -16,7 +16,7 @@ export default class EmulateLeaveCommand extends BaseCommand {
 						.setName('member')
 						.setDescription('the user to emulate a leave event for')
 				),
-			2000
+			3 * 1000
 		);
 	}
 

@@ -16,7 +16,7 @@ export default class EmulateJoinCommand extends BaseCommand {
 						.setName('member')
 						.setDescription('the user to emulate a join event for')
 				),
-			2000
+			3 * 1000
 		);
 	}
 

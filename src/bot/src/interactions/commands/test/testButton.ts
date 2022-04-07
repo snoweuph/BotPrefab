@@ -10,6 +10,7 @@ export default class HelloButtonCommand extends BaseCommand {
 			new SlashCommandBuilder()
 				.setName('hellobutton')
 				.setDescription('sends a simple button for testing'),
+			5 * 1000
 		);
 	}
 
