@@ -35,7 +35,8 @@ export default class LoadGuildsEvent extends BaseEvent {
 			//loop through Colum definitions to get the encoding Types so that booleans get converted to booleans from TinyInts
 			const columEncodingDefinitionMap = new Map<string, string>();
 			for (const colum of columDefinitions) {
-				// @ts-ignore
+				// eslint-disable-next-line
+				// @ts-ignore -> the typecompletion is wrong for some reason
 				columEncodingDefinitionMap.set(colum.name, colum.encoding);
 			}
 			//loop trrough all data

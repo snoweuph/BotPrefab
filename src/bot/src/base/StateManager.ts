@@ -5,10 +5,6 @@ import Database from '@base/database';
 
 class StateManager extends EventEmitter {
 	connection: Connection;
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
 	/* eslint-disable-next-line */
 	constructor(opts?: any) {
 		super(opts);
