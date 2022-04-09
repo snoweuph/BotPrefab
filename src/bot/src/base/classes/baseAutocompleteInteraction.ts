@@ -10,10 +10,10 @@ export default abstract class BaseAutocompleteInteraction {
 		this.commandName = commandName;
 	}
 	/**
-	 * This function is called when the Autocomplete for the specified command is triggered.
+	 * This Function is called when the Autocomplete for the specified Command is triggered.
 	 * @remarks Please use Async if possible.
 	 * @param bot - The Bot Object itself {@link Bot} that stores a lot of useful data.
-	 * @param interaction - The interaction that is being executed.
+	 * @param interaction - The Interaction that is being executed.
 	 */
 	abstract execute(bot: Bot, interaction: AutocompleteInteraction<CacheType>): Promise<void>;
 }

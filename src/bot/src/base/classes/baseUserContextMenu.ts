@@ -6,9 +6,9 @@ import BaseContextMenu from '@classes/baseContextMenu';
 
 export abstract class BaseUserContextMenu extends BaseContextMenu {
 	/**
-	 * @param name - The name of the context menu. This is used to identify the context menu. only lowercase letters, numbers, and underscores are allowed.
+	 * @param name - The Name of the Context Menu. This is used to identify the Context Menu. only lowercase letters, numbers, and underscores are allowed.
 	 * @param cooldown - The cooldown of the context menu in milliseconds.
-	 * @param permissions - An array of permissions that are required to use the context menu.
+	 * @param permissions - An Array of permissions that are required to use the Context Menu.
 	 */
 	constructor(name: string, cooldown?: number, permissions?: Array<PermissionResolvable>) {
 		super(
@@ -21,10 +21,10 @@ export abstract class BaseUserContextMenu extends BaseContextMenu {
 		);
 	}
 	/**
-	 * This Function will be called when the context menu is executed.
+	 * This Function will be called when the Context Menu is executed.
 	 * @remarks Please use Async if possible.
-	 * @param bot - The Bot Object itself {@link Bot} that stores a lot of useful information.
-	 * @param interaction - The interaction that is being executed.
+	 * @param bot - The Bot Object itself {@link Bot} that stores a lot of useful data.
+	 * @param interaction - The Interaction that is being executed.
 	 */
 	abstract execute(bot: Bot, interaction: UserContextMenuInteraction<CacheType>): Promise<void>;
 }

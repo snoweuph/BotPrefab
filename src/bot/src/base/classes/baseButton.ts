@@ -5,11 +5,11 @@ export default abstract class BaseButton {
 	button: MessageButton;
 	id: string;
 	cooldown: number;
-	permissions: PermissionResolvable[];
+	permissions: Array<PermissionResolvable>;
 	/**
 	 * @param button - The Button itself, it's a new {@link MessageButton}.
 	 * @param cooldown - The Cooldown of the Button in Milliseconds.
-	 * @param permissions - A Array of Permissions that are required to use the button.
+	 * @param permissions - A Array of Permissions that are required to use the Button.
 	 */
 	constructor(button: MessageButton, cooldown?: number, permissions?: Array<PermissionResolvable>) {
 		this.button = button;
@@ -20,8 +20,8 @@ export default abstract class BaseButton {
 	/**
 	 * This Function will be called when the Button is pressed.
 	 * @remarks Please use Async if possible.
-	 * @param bot - The Bot Object itself {@link Bot} that stores a lot of useful information.
-	 * @param interaction - The interaction that is being executed.
+	 * @param bot - The Bot Object itself {@link Bot} that stores a lot of useful data.
+	 * @param interaction - The Interaction that is being executed.
 	 */
 	abstract execute(bot: Bot, interaction: ButtonInteraction<CacheType>): Promise<void>;
 }
