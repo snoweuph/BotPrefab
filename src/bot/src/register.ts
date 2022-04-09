@@ -17,8 +17,9 @@ const CommandsToCategoryMap = new Map<BaseCommandCategory, Array<BaseCommand>>()
 const UserContextMenus = new Collection<string, BaseUserContextMenu>();
 const MessageContextMenus = new Collection<string, BaseMessageContextMenu>();
 //cant use RESTPostAPIApplicationCommandsJSONBody here because discord js version is nbot exacly the same as discord js rest version
-const _commands = Array();
+const _commands = [];
 //cant use RESTPostAPIApplicationCommandsJSONBody here because discord js version is nbot exacly the same as discord js rest version
+/* eslint-disable-next-line */
 const _commandsGuildMap = new Map<string, Array<any>>();
 
 (async () => {
