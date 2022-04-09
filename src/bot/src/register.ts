@@ -98,4 +98,5 @@ const _commandsGuildMap = new Map<string, Array<any>>();
 	} catch (error) {
 		console.error(error);
 	}
+	process.exit(0);
 })();
