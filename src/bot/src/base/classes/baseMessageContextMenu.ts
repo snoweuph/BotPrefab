@@ -17,8 +17,7 @@ export abstract class BaseMessageContextMenu extends BaseContextMenu {
 		);
 	}
 
-	isUserContextMenu(): boolean { return false; }
-	isMessageContextMenu(): boolean { return true; }
+
 
 	abstract execute(bot: Bot, interaction: MessageContextMenuInteraction<CacheType>): Promise<void>;
 }

@@ -1,3 +1,4 @@
+import ContextMenuTypes from '@base/types/ContextMenuTypes';
 import { ContextMenuCommandBuilder } from '@discordjs/builders';
 import { PermissionResolvable } from 'discord.js';
 
@@ -19,5 +20,5 @@ export default abstract class BaseContextMenu {
 	/**
 	 * This is used to Differentiate between the different Context Menus.
 	 */
-	abstract ContextMenuType(): boolean;
+	abstract ContextMenuType(): ContextMenuTypes;
 }
