@@ -30,8 +30,8 @@ const _commandsGuildMap = new Map<string, Array<any>>();
 	await loadMessageContextMenus(MessageContextMenus, '../interactions/contextMenus');
 	console.log('[Register] Loaded Message Context Menus');
 	//initilizing array if in dev mode
-	if (process.env.Environment == 'dev' && process.env.DISCORD_BOT_TEST_GUILD_ID) {
-		_commandsGuildMap.set(process.env.DISCORD_BOT_TEST_GUILD_ID, []);
+	if (process.env.Environment == 'dev' && process.env.DISCORD_BOT_DEV_GUILD_ID) {
+		_commandsGuildMap.set(process.env.DISCORD_BOT_DEV_GUILD_ID, []);
 	}
 	//Modifying the Options for the Help Command (Could do it on Runtime, but Precomputed is better)
 	for (const command of Commands) {
@@ -50,8 +50,8 @@ const _commandsGuildMap = new Map<string, Array<any>>();
 					.addChoices(options)
 			);
 		}
-		if (process.env.Environment == 'dev' && process.env.DISCORD_BOT_TEST_GUILD_ID) {
-			_commandsGuildMap.get(process.env.DISCORD_BOT_TEST_GUILD_ID).push(command[1].data);
+		if (process.env.Environment == 'dev' && process.env.DISCORD_BOT_DEV_GUILD_ID) {
+			_commandsGuildMap.get(process.env.DISCORD_BOT_DEV_GUILD_ID).push(command[1].data);
 			continue;
 		}
 		if (command[1].guilds.length > 0) {

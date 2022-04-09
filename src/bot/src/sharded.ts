@@ -9,6 +9,7 @@ const manager = new discord.ShardingManager('./src/bot.ts', {
 });
 
 manager.on('shardCreate', (shard: Shard) => {
-	console.log(`[Manager] Launched shard ${shard.id}`);
+	console.log(`[Manager] Launching shard ${shard.id}`);
 })
+
 manager.spawn();
