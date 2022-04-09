@@ -14,7 +14,7 @@ export default interface BaseCommandCategory {
  */
 /* eslint-disable-next-line */
 function isBaseCommandCategory(object: any): object is BaseCommandCategory {
-    return object.displayName !== undefined && object.uniqueId !== undefined && object.permissions !== undefined;
+	return object.displayName !== undefined && object.uniqueId !== undefined && object.permissions !== undefined;
 }
 
 export { isBaseCommandCategory };

@@ -1,4 +1,3 @@
-import ContextMenuTypes from '@base/types/ContextMenuTypes';
 import { ContextMenuCommandBuilder } from '@discordjs/builders';
 import { PermissionResolvable } from 'discord.js';
 
