@@ -74,22 +74,15 @@ const _commandsGuildMap = new Map<string, Array<any>>();
 	try {
 		console.log('[Register] Started refreshing Commands');
 		/* eslint-disable-next-line */
-		const result = await rest.put(
+		await rest.put(
 			Routes.applicationCommands(process.env.DISCORD_BOT_ID),
 			{ body: _commands },
 		) as Array<unknown>;
-		/*result.forEach((command) => {
-			//search for command in _command
-			if (Commands.find((c) => c.data.name === command.name).category == 'admin') {
-				//TODO: add all commands that are inside the admin category to a list (ids) then make a put reqest to make them admin only
-			}
-		});
-		*/
 		for (const guildId of _commandsGuildMap.keys()) {
 			const guildCommands = _commandsGuildMap.get(guildId);
 			if (!guildCommands) continue;
 			/* eslint-disable-next-line */
-			const result = await rest.put(
+			await rest.put(
 				Routes.applicationGuildCommands(process.env.DISCORD_BOT_ID, guildId),
 				{ body: guildCommands },
 			) as Array<unknown>;
