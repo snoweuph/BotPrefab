@@ -1,4 +1,4 @@
-import { ButtonInteraction, CacheType, MessageButton, PermissionResolvable } from 'discord.js';
+import { ButtonInteraction, CacheType, MessageButton, PermissionResolvable, ActivitiesOptions } from 'discord.js';
 import Bot from '@baseTypes/bot';
 
 export default abstract class BaseButton {
