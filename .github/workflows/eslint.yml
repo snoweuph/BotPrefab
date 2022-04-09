@@ -18,4 +18,4 @@ jobs:
         npm ci
     - name: run eslint
       run: |
-        npm run lint:fix
+        npm run lint
