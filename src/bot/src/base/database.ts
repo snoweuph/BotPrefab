@@ -1,4 +1,6 @@
 import mysql from 'mysql2/promise';
+import { config } from 'dotenv';
+config();
 /**
  * @returns The connection to the database.
  */
