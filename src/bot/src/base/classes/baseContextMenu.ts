@@ -16,9 +16,4 @@ export default abstract class BaseContextMenu {
 		this.cooldown = cooldown || 0;
 		this.permissions = permissions || [];
 	}
-
-	/**
-	 * This is used to Differentiate between the different Context Menus.
-	 */
-	abstract ContextMenuType(): ContextMenuTypes;
 }

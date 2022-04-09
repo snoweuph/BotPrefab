@@ -17,7 +17,5 @@ export abstract class BaseMessageContextMenu extends BaseContextMenu {
 		);
 	}
 
-
-
 	abstract execute(bot: Bot, interaction: MessageContextMenuInteraction<CacheType>): Promise<void>;
 }
