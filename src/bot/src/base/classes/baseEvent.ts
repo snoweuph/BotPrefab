@@ -4,7 +4,7 @@ import Bot from '@baseTypes/bot';
 export default abstract class BaseEvent {
 	event: keyof ClientEvents;
 	/**
-	 * @param event The Event to listen for. it must be a key of {@link ClientEvents}
+	 * @param event - The Event to listen for. it must be a key of {@link ClientEvents}.
 	 */
 	constructor(event: keyof ClientEvents) {
 		this.event = event;

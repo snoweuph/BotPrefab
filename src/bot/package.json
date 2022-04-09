@@ -33,13 +33,14 @@
     "mysql2": "^2.3.3"
   },
   "devDependencies": {
+    "@swc/core": "^1.2.164",
+    "@swc/helpers": "^0.3.8",
     "@types/events": "^3.0.0",
     "@types/module-alias": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
-    "@swc/core": "^1.2.164",
-    "@swc/helpers": "^0.3.8",
     "eslint": "^8.10.0",
+    "eslint-plugin-tsdoc": "^0.2.16",
     "nodemon": "^2.0.15",
     "ts-node": "^10.7.0",
     "tsc-alias": "^1.6.5",

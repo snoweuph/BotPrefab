@@ -13,7 +13,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "eslint-plugin-tsdoc"
     ],
     "ignorePatterns": [
         "build/**/*",
@@ -37,6 +38,7 @@
             {
                 "default": "generic"
             }
-        ]
+        ],
+        "tsdoc/syntax": "error"
     }
 }

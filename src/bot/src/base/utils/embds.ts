@@ -16,8 +16,8 @@ class Embds {
 			.setDescription(message);
 	}
 	/**
-	 * This will build a medium sized embed with the exact same structure as the {@link short short embed.}.
-	 * @param type - a enum of the {@link EmbdTypes | embed types} that are used to get a equal color pallet with embeds. 
+	 * This will build a medium sized embed with the exact same structure as the {@link short | short embed}.
+	 * @param type - a enum of the {@link EmbdTypes | embed types} that are used to get a equal color pallet with embeds.
 	 * @param title - the title of the embed.
 	 * @param fields - an array of {@link EmbedFieldData | embed fields} that will be added to the embed.
 	 * @param thumbnail - the thumbnail of the embed.
