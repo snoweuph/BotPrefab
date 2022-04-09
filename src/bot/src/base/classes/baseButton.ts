@@ -1,11 +1,11 @@
-import { ButtonInteraction, CacheType, MessageButton, PermissionResolvable, ActivitiesOptions } from 'discord.js';
+import { ButtonInteraction, CacheType, MessageButton, PermissionResolvable } from 'discord.js';
 import Bot from '@baseTypes/bot';
 
 export default abstract class BaseButton {
 	button: MessageButton;
 	id: string;
 	cooldown: number;
-	permissions: Array<PermissionResolvable>;
+	permissions: PermissionResolvable[];
 	/**
 	 * @param button - The Button itself, it's a new {@link MessageButton}.
 	 * @param cooldown - The Cooldown of the Button in Milliseconds.
