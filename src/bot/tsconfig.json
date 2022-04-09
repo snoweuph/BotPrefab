@@ -2,7 +2,7 @@
     "compilerOptions": {
         "module": "CommonJS",
         "target": "ESNext",
-        "noImplicitAny": false, //needs to be disabled for the dev:sharded script
+        "noImplicitAny": true, //needs to be disabled for the dev:sharded script
         "sourceMap": true,
         "importHelpers": true,
         "forceConsistentCasingInFileNames": true,
@@ -35,6 +35,9 @@
                 "src/assets/*"
             ],
         }
+    },
+    "ts-node": {
+        "swc": true
     },
     "tsc-alias": {
         "replacers": {
