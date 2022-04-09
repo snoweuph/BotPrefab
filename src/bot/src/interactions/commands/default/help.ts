@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType, CommandInteractionOption, EmbedFieldData } from 'discord.js';
 import BaseCommand from '@base/classes/baseCommand';
 import bot from '@base/types/bot';
-import EmbdType from '@base/types/embdTypes';
+import EmbdTypes from '@base/types/embdTypes';
 import Embds from '@base/utils/embds';
 
 export default class HelpCommand extends BaseCommand {
@@ -37,7 +37,7 @@ export default class HelpCommand extends BaseCommand {
 			});
 		}
 		const embed = await Embds.medium(
-			EmbdType.NORMAL,
+			EmbdTypes.NORMAL,
 			`Help *-> ${category.displayName}*`,
 			fields,
 			bot.client.user.avatarURL()

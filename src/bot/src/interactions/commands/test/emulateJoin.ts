@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType, CommandInteractionOption, GuildMember } from 'discord.js';
 import BaseCommand from '@base/classes/baseCommand';
 import bot from '@base/types/bot';
-import EmbdType from '@base/types/embdTypes';
+import EmbdTypes from '@base/types/embdTypes';
 import Embds from '@base/utils/embds';
 
 export default class EmulateJoinCommand extends BaseCommand {
@@ -30,7 +30,7 @@ export default class EmulateJoinCommand extends BaseCommand {
 			userMention = `<@!${options[0].user.id}>`;
 		}
 		const embd = await Embds.short(
-			EmbdType.SUCCESS,
+			EmbdTypes.SUCCESS,
 			'**Emulated join event**',
 			`Successfully emulated a join event for ${userMention}`
 		)

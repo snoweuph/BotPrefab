@@ -5,7 +5,7 @@ import BaseCommand from '@base/classes/baseCommand';
 import bot from '@base/types/bot';
 import StateManager from '@base/StateManager';
 import Embds from '@base/utils/embds';
-import EmbdType from '@base/types/embdTypes';
+import EmbdTypes from '@base/types/embdTypes';
 
 const goodbyeMessageChannelIds = new Map<string, string>();
 const goodbyeMessageTitles = new Map<string, string>();
@@ -109,96 +109,96 @@ export default class GoodbyeMessageCommand extends BaseCommand {
 		let isNewValue = true;
 		let variableName: string;
 		switch (options[0].name) {
-		case 'channel':
-			newValue = options[0].options[0].value as string;
-			if (goodbyeMessageChannelIds.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbyeMessageChannelId';
-			}
-			break;
-		case 'title':
-			newValue = options[0].options[0].value as string;
-			if (newValue.length > 128) newValue = newValue.substring(0, 128);
-			if (goodbyeMessageTitles.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbyeMessageTitle';
-			}
-			break;
-		case 'body':
-			newValue = options[0].options[0].value as string;
-			if (newValue.length > 2048) newValue = newValue.substring(0, 2048);
-			if (goodbyeMessageBodys.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbyeMessageBody';
-			}
-			break;
-		case 'color':
-			newValue = options[0].options[0].value as string;
-			if (newValue.length !== 7 || newValue.charAt(0) !== '#') {
-				const embd = await Embds.short(
-					EmbdType.WARNING,
-					'**The Value Could Not Be Changed**',
-					'The value provided isnt in the right format, please use #000000'
-				);
-				interaction.reply({ ephemeral: true, embeds: [embd] });
-				return;
-			}
-			if (goodbyeMessageColors.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbyeMessageColor';
-			}
-			break;
-		case 'image-enabled':
-			newValue = options[0].options[0].value as boolean;
-			if (goodbyeMessageImageEnableds.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbyeMessageImageEnabled';
-			}
-			break;
-		case 'image-url':
-			newValue = options[0].options[0].value as string;
-			if (!newValue.startsWith('http') && !newValue.endsWith('.png') && newValue !== 'default') {
-				const embd = await Embds.short(
-					EmbdType.WARNING,
-					'**The Value Could Not Be Changed**',
-					'The value provided isnt in the right format, please use a valid url'
-				);
-				interaction.reply({ ephemeral: true, embeds: [embd] });
-				return;
-			}
-			if (newValue.length > 512) newValue = newValue.substring(0, 512);
-			if (goodbyeMessageImageUrls.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbyeMessageImageUrl';
-			}
-			break;
-		case 'image-accent-color':
-			newValue = options[0].options[0].value as string;
-			if ((newValue.length !== 7 || newValue.charAt(0) !== '#') && newValue !== 'rainbow') {
-				const embd = await Embds.short(
-					EmbdType.WARNING,
-					'**The Value Could Not Be Changed**',
-					'The value provided isnt in the right format, please use #000000'
-				);
-				interaction.reply({ ephemeral: true, embeds: [embd] });
-				return;
-			}
-			if (goodbyeMessageImageAccentColors.get(interaction.guild.id) === newValue) {
-				isNewValue = false;
-			} else {
-				variableName = 'goodbyeMessageImageAccentColor';
-			}
-			break;
+			case 'channel':
+				newValue = options[0].options[0].value as string;
+				if (goodbyeMessageChannelIds.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbyeMessageChannelId';
+				}
+				break;
+			case 'title':
+				newValue = options[0].options[0].value as string;
+				if (newValue.length > 128) newValue = newValue.substring(0, 128);
+				if (goodbyeMessageTitles.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbyeMessageTitle';
+				}
+				break;
+			case 'body':
+				newValue = options[0].options[0].value as string;
+				if (newValue.length > 2048) newValue = newValue.substring(0, 2048);
+				if (goodbyeMessageBodys.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbyeMessageBody';
+				}
+				break;
+			case 'color':
+				newValue = options[0].options[0].value as string;
+				if (newValue.length !== 7 || newValue.charAt(0) !== '#') {
+					const embd = await Embds.short(
+						EmbdTypes.WARNING,
+						'**The Value Could Not Be Changed**',
+						'The value provided isnt in the right format, please use #000000'
+					);
+					interaction.reply({ ephemeral: true, embeds: [embd] });
+					return;
+				}
+				if (goodbyeMessageColors.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbyeMessageColor';
+				}
+				break;
+			case 'image-enabled':
+				newValue = options[0].options[0].value as boolean;
+				if (goodbyeMessageImageEnableds.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbyeMessageImageEnabled';
+				}
+				break;
+			case 'image-url':
+				newValue = options[0].options[0].value as string;
+				if (!newValue.startsWith('http') && !newValue.endsWith('.png') && newValue !== 'default') {
+					const embd = await Embds.short(
+						EmbdTypes.WARNING,
+						'**The Value Could Not Be Changed**',
+						'The value provided isnt in the right format, please use a valid url'
+					);
+					interaction.reply({ ephemeral: true, embeds: [embd] });
+					return;
+				}
+				if (newValue.length > 512) newValue = newValue.substring(0, 512);
+				if (goodbyeMessageImageUrls.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbyeMessageImageUrl';
+				}
+				break;
+			case 'image-accent-color':
+				newValue = options[0].options[0].value as string;
+				if ((newValue.length !== 7 || newValue.charAt(0) !== '#') && newValue !== 'rainbow') {
+					const embd = await Embds.short(
+						EmbdTypes.WARNING,
+						'**The Value Could Not Be Changed**',
+						'The value provided isnt in the right format, please use #000000'
+					);
+					interaction.reply({ ephemeral: true, embeds: [embd] });
+					return;
+				}
+				if (goodbyeMessageImageAccentColors.get(interaction.guild.id) === newValue) {
+					isNewValue = false;
+				} else {
+					variableName = 'goodbyeMessageImageAccentColor';
+				}
+				break;
 		}
 		if (!isNewValue) {
 			const embd = await Embds.short(
-				EmbdType.WARNING,
+				EmbdTypes.WARNING,
 				'**The Value Could Not Be Changed**',
 				`The value is already set to ${newValue}`
 			);
@@ -209,7 +209,7 @@ export default class GoodbyeMessageCommand extends BaseCommand {
 		try {
 			StateManager.connection.query(query, [newValue, interaction.guild.id]);
 			const embd = await Embds.short(
-				EmbdType.SUCCESS,
+				EmbdTypes.SUCCESS,
 				'**The Value Was Changed**',
 				`The value was changed to ${newValue}`
 			);
@@ -218,7 +218,7 @@ export default class GoodbyeMessageCommand extends BaseCommand {
 		} catch (error) {
 			console.log(error);
 			const embd = await Embds.short(
-				EmbdType.ERROR,
+				EmbdTypes.ERROR,
 				'**The Value Could Not Be Changed**',
 				`An unexpected error occured while trying to change the value to ${newValue}`
 			);

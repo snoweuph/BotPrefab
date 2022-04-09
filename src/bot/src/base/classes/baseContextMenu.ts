@@ -19,9 +19,5 @@ export default abstract class BaseContextMenu {
 	/**
 	 * This is used to Differentiate between the different Context Menus.
 	 */
-	abstract isUserContextMenu(): boolean;
-	/**
-	 * This is used to Differentiate between the different Context Menus.
-	 */
-	abstract isMessageContextMenu(): boolean;
+	abstract ContextMenuType(): boolean;
 }

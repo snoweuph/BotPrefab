@@ -1,14 +1,14 @@
 import { EmbedFieldData, MessageEmbed } from 'discord.js';
-import EmbdType from '@baseTypes/embdTypes';
+import EmbdTypes from '@baseTypes/embdTypes';
 
 class Embds {
-	static async short(type: EmbdType, title: string, message: string): Promise<MessageEmbed> {
+	static async short(type: EmbdTypes, title: string, message: string): Promise<MessageEmbed> {
 		return new MessageEmbed()
 			.setColor(type)
 			.setTitle(title)
 			.setDescription(message);
 	}
-	static async medium(type: EmbdType, title: string, fields: Array<EmbedFieldData>, thumbnail?: string, img?: string, timestamp?: boolean): Promise<MessageEmbed> {
+	static async medium(type: EmbdTypes, title: string, fields: Array<EmbedFieldData>, thumbnail?: string, img?: string, timestamp?: boolean): Promise<MessageEmbed> {
 		const Embed = new MessageEmbed()
 			.setColor(type)
 			.setTitle(title)

@@ -3,7 +3,7 @@ import { CommandInteraction, CacheType, CommandInteractionOption } from 'discord
 import BaseCommand from '@base/classes/baseCommand';
 import StateManager from '@base/StateManager';
 import bot from '@base/types/bot';
-import EmbdType from '@base/types/embdTypes';
+import EmbdTypes from '@base/types/embdTypes';
 import Embds from '@base/utils/embds';
 
 const enableWelcomeMessageFeatures = new Map<string, boolean>();
@@ -38,19 +38,19 @@ export default class FeatureEnableCommand extends BaseCommand {
 	async execute(bot: bot, interaction: CommandInteraction<CacheType>, options: ReadonlyArray<CommandInteractionOption<CacheType>>): Promise<void> {
 		let noChanges = false;
 		switch (options[0].value) {
-		case 'enableFeatureWelcomeMessage':
-			if (enableWelcomeMessageFeatures.get(interaction.guild.id) === options[1].value) noChanges = true;
-			break;
-		case 'enableFeatureGoodbyeMessage':
-			if (enableGoodbyeMessageFeatures.get(interaction.guild.id) === options[1].value) noChanges = true;
-			break;
-		default:
-			return;
+			case 'enableFeatureWelcomeMessage':
+				if (enableWelcomeMessageFeatures.get(interaction.guild.id) === options[1].value) noChanges = true;
+				break;
+			case 'enableFeatureGoodbyeMessage':
+				if (enableGoodbyeMessageFeatures.get(interaction.guild.id) === options[1].value) noChanges = true;
+				break;
+			default:
+				return;
 		}
 
 		if (noChanges) {
 			const embd = await Embds.short(
-				EmbdType.WARNING,
+				EmbdTypes.WARNING,
 				`**Not ${options[1].value ? 'Enabled' : 'Disabled'} Feature ${options[0].value}**`,
 				`The feature is already ${options[1].value ? 'Enabled' : 'Disabled'}`,
 			);
@@ -64,7 +64,7 @@ export default class FeatureEnableCommand extends BaseCommand {
 			);
 			StateManager.emit(`${options[0].value}Fetched`, interaction.guild.id, options[1].value);
 			const embd = await Embds.short(
-				EmbdType.SUCCESS,
+				EmbdTypes.SUCCESS,
 				`**${options[1].value ? 'Enabled' : 'Disabled'} Feature ${options[0].value}**`,
 				`Succesfully ${options[1].value ? 'Enabled' : 'Disabled'}!`
 			);
@@ -72,7 +72,7 @@ export default class FeatureEnableCommand extends BaseCommand {
 		} catch (error) {
 			console.log(error);
 			const embd = await Embds.short(
-				EmbdType.ERROR,
+				EmbdTypes.ERROR,
 				`**Not ${options[1].value ? 'Enabled' : 'Disabled'} Feature ${options[0].value}**`,
 				'There was some unexpected error during the process, please try again later. if the problem persists, please contact the developer.'
 			);

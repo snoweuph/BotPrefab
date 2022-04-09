@@ -3,7 +3,7 @@ import { CommandInteraction, CacheType, CommandInteractionOption, EmbedFieldData
 import BaseCommand from '@classes/baseCommand';
 import bot from '@baseTypes/bot';
 import Embds from '@base/utils/embds';
-import EmbdType from '@base/types/embdTypes';
+import EmbdTypes from '@base/types/embdTypes';
 
 export default class AvatarCommand extends BaseCommand {
 	constructor() {
@@ -32,7 +32,7 @@ export default class AvatarCommand extends BaseCommand {
 			}
 		]
 		const embed = await Embds.medium(
-			EmbdType.NORMAL,
+			EmbdTypes.NORMAL,
 			`Avatar of ${user.username}${user.discriminator}`,
 			fields,
 			`${baseURL}${user.id}/${user.avatar}.png${params}`
