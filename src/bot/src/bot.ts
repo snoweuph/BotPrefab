@@ -15,7 +15,7 @@ const bot = new Bot(
 		]
 	})
 );
-process.env.DISCORD_BOT_SHARD = bot.client.shard ? bot.client.shard.ids.toString() : 'single';
+if (bot.client.shard) process.env.DISCORD_BOT_SHARD = bot.client.shard.ids.toString();
 const prefix = process.env.DISCORD_BOT_SHARD ? `[Index:${process.env.DISCORD_BOT_SHARD}]: ` : '[Index]: ';
 
 import StateManager from '@base/StateManager';
