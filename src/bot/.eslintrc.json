@@ -18,6 +18,7 @@
     ],
     "ignorePatterns": [
         "build/**/*",
+        "docs/**/*",
         "node_modules/**/*"
     ],
     "rules": {
