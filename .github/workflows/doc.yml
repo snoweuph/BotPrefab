@@ -24,6 +24,8 @@ jobs:
         npm run build:doc
     - name: commit
       run: |
+        git config --global user.name "Doc Builder"
+        git config --global user.email "<>"
         git config --global user.key "$DEPLOY_KEY"
         git add docs -f
         git status
