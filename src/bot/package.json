@@ -8,6 +8,7 @@
     "start:shard": "node build/sharded.js",
     "start:reg": "node build/register.js",
     "build": "tsc  && tsc-alias",
+    "build:doc": "typedoc",
     "dev:bot": "nodemon src/bot.ts",
     "dev:shard": "NODE_OPTIONS='--require ts-node/register' nodemon src/sharded.ts",
     "dev:reg": "ts-node src/register.ts",
@@ -44,6 +45,7 @@
     "nodemon": "^2.0.15",
     "ts-node": "^10.7.0",
     "tsc-alias": "^1.6.5",
+    "typedoc": "^0.22.15",
     "typescript": "^4.6.2"
   }
 }
