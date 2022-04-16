@@ -2,6 +2,9 @@
 
 build/
 
+# docs
+docs/
+
 # Logs
 logs
 *.log
