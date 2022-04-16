@@ -68,7 +68,7 @@
             "src/base/database.ts"
         ],
         "name": "Discord Bot Prefab",
-        "out": "./docs"
+        "out": "../../docs"
     },
     "include": [
         "src/**/*"
