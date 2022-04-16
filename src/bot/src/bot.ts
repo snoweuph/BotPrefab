@@ -15,6 +15,8 @@ const bot = new Bot(
 		]
 	})
 );
+if (bot.client.shard) process.env.DISCORD_BOT_SHARD = bot.client.shard.ids.toString();
+const prefix = process.env.DISCORD_BOT_SHARD ? `[Index:${process.env.DISCORD_BOT_SHARD}]: ` : '[Index]: ';
 
 import StateManager from '@base/StateManager';
 
@@ -23,21 +25,21 @@ async function main() {
 		await new Promise(r => setTimeout(r, 500));
 	}
 	await loadEvents(bot, '../events');
-	console.log('[Index] Loaded events');
+	console.log(`${prefix}Loaded events`);
 	await loadCommands(bot.commands, bot.commandCategories, bot.categoryCommandsMap, '../interactions/commands');
-	console.log('[Index] Loaded commands');
+	console.log(`${prefix}Loaded commands`);
 	await loadButtons(bot.buttons, '../interactions/buttons');
-	console.log('[Index] Loaded buttons');
+	console.log(`${prefix}Loaded buttons`);
 	await loadSelectMenus(bot.selectMenus, '../interactions/selectMenus');
-	console.log('[Index] Loaded select menus');
+	console.log(`${prefix}Loaded select menus`);
 	await loadUserContextMenus(bot.userContextMenus, '../interactions/contextMenus');
-	console.log('[Index] Loaded user context menus');
+	console.log(`${prefix}Loaded user context menus`);
 	await loadMessageContextMenus(bot.messageContextMenus, '../interactions/contextMenus');
-	console.log('[Index] Loaded message context menus');
+	console.log(`${prefix}Loaded message context menus`);
 	await loadAutocompleteInteractions(bot.autocompleteInteractions, '../interactions/autocomplete');
-	console.log('[Index] Loaded autocomplete interactions');
+	console.log(`${prefix}Loaded autocomplete interactions`);
 	await bot.client.login(process.env.DISCORD_BOT_TOKEN);
-	console.log(`[Index] Logged in as ${bot.client.user.tag}`);
+	console.log(`${prefix}Logged in as ${bot.client.user.tag}`);
 }
 
 main();

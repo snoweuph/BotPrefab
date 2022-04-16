@@ -1,10 +1,15 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "CommonJS",
         "target": "ESNext",
-        "moduleResolution": "node",
+        "noImplicitAny": true, //needs to be disabled for the dev:sharded script
+        "sourceMap": true,
+        "importHelpers": true,
+        "forceConsistentCasingInFileNames": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "Node",
         "esModuleInterop": true,
-        "removeComments": true,
         "outDir": "./build",
         "baseUrl": ".",
         "paths": {
@@ -30,6 +35,40 @@
                 "src/assets/*"
             ],
         }
+    },
+    "ts-node": {
+        "swc": true
+    },
+    "tsc-alias": {
+        "replacers": {
+            "base-url": {
+                "enabled": false
+            }
+        }
+    },
+    "typedocOptions": {
+        "entryPoints": [
+            "src/bot.ts",
+            "src/register.ts",
+            "src/sharded.ts",
+            "src/base/classes/baseAutocompleteInteraction.ts",
+            "src/base/classes/baseButton.ts",
+            "src/base/classes/baseCommand.ts",
+            "src/base/classes/baseContextMenu.ts",
+            "src/base/classes/baseEvent.ts",
+            "src/base/classes/baseMessageContextMenu.ts",
+            "src/base/classes/baseSelectMenu.ts",
+            "src/base/classes/baseUserContextMenu.ts",
+            "src/base/types/baseCommandCategory.ts",
+            "src/base/types/bot.ts",
+            "src/base/types/embdTypes.ts",
+            "src/base/utils/embds.ts",
+            "src/base/load.ts",
+            "src/base/StateManager.ts",
+            "src/base/database.ts"
+        ],
+        "name": "Discord Bot Prefab",
+        "out": "./docs"
     },
     "include": [
         "src/**/*"

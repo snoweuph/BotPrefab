@@ -1,5 +1,5 @@
 import { ButtonInteraction, Client, CommandInteraction, EmbedFieldData, Message } from 'discord.js';
-import EmbdType from '@base/types/embdTypes';
+import EmbdTypes from '@base/types/embdTypes';
 import Embeds from '@base/utils/embds';
 
 async function runPing(client: Client, interaction: CommandInteraction | ButtonInteraction) {
@@ -14,7 +14,7 @@ async function runPing(client: Client, interaction: CommandInteraction | ButtonI
 		},
 	];
 	const embed = await Embeds.medium(
-		EmbdType.NORMAL,
+		EmbdTypes.NORMAL,
 		'Pong!',
 		fields,
 		null,

@@ -16,6 +16,9 @@ export default class AutocompleteCommand extends BaseCommand {
 						.setRequired(true)
 						.setAutocomplete(true)
 				),
+			1 * 1000,
+			[],
+			['858677659400011776']
 		);
 	}
 

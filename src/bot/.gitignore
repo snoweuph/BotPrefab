@@ -1,6 +1,8 @@
 # ignore everything in the build folder 
-
 build/
+
+# ignore the docs folder
+docs/
 
 # Logs
 logs

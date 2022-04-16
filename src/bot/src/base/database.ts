@@ -1,5 +1,9 @@
 import mysql from 'mysql2/promise';
-
+import { config } from 'dotenv';
+config();
+/**
+ * @returns The connection to the database.
+ */
 export default mysql.createConnection({
 	host: process.env.DISCORD_BOT_DB_HOST ? process.env.DISCORD_BOT_DB_HOST : 'localhost',
 	port: +process.env.DISCORD_BOT_DB_PORT ? +process.env.DISCORD_BOT_DB_PORT : 3306,
