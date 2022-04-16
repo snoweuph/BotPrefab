@@ -24,6 +24,7 @@ jobs:
         npm run build:doc
     - name: comit
       run: |
+        git config --gloobal user.key "$DEPLOY_KEY"
         git add docs -f
         git status
         git commit -m "Update auto-generated documentation"
