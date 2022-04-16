@@ -2,7 +2,7 @@ import Bot from '@base/types/bot';
 import BaseEvent from '@base/classes/baseEvent';
 import StateManager from '@base/StateManager';
 import Embds from '@base/utils/embds';
-import EmbdType from '@base/types/embdTypes';
+import EmbdTypes from '@base/types/embdTypes';
 import Canvas, { CanvasGradient, Image } from 'canvas';
 import Path from 'path';
 import { ColorResolvable, EmbedFieldData, MessageAttachment } from 'discord.js';
@@ -121,7 +121,7 @@ export default class GoodbyeHandlerEvent extends BaseEvent {
 		]
 
 		const embd = await Embds.medium(
-			EmbdType.NORMAL,
+			EmbdTypes.NORMAL,
 			'Goodbye!',
 			fields,
 			null,

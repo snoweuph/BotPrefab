@@ -6,7 +6,10 @@ import BaseSelectMenu from '@classes/baseSelectMenu';
 import { BaseUserContextMenu } from '@classes/baseUserContextMenu';
 import { BaseMessageContextMenu } from '@base/classes/baseMessageContextMenu';
 import BaseAutocompleteInteraction from '@classes/baseAutocompleteInteraction';
-
+/**
+ * The base Bot element that stores all the information about the bot.
+ * and all the commands, categories, buttons, etc.
+ */
 export default class Bot {
 	client: DiscordClient<boolean>;
 	commands: Collection<string, BaseCommand>;

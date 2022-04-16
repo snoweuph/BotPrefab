@@ -16,6 +16,7 @@ export default class AddNewGuildEvent extends BaseEvent {
 			await this.connection.query(
 				`INSERT INTO GuildSettings (guildId) VALUES('${args[0].id}')`
 			);
+			//TODO: add new discord server to cached guilds
 		} catch (error) {
 			if (error.code == 'ER_DUP_ENTRY') return;
 			console.error(error);

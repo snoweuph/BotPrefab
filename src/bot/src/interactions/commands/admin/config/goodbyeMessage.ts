@@ -5,7 +5,7 @@ import BaseCommand from '@base/classes/baseCommand';
 import bot from '@base/types/bot';
 import StateManager from '@base/StateManager';
 import Embds from '@base/utils/embds';
-import EmbdType from '@base/types/embdTypes';
+import EmbdTypes from '@base/types/embdTypes';
 
 const goodbyeMessageChannelIds = new Map<string, string>();
 const goodbyeMessageTitles = new Map<string, string>();
@@ -99,7 +99,8 @@ export default class GoodbyeMessageCommand extends BaseCommand {
 								.setDescription('should be in hex format #000000, use \'rainbow\' for a rainbow gradient')
 								.setRequired(true)
 						)
-				)
+				),
+			3 * 1000
 		);
 	}
 
@@ -138,7 +139,7 @@ export default class GoodbyeMessageCommand extends BaseCommand {
 			newValue = options[0].options[0].value as string;
 			if (newValue.length !== 7 || newValue.charAt(0) !== '#') {
 				const embd = await Embds.short(
-					EmbdType.WARNING,
+					EmbdTypes.WARNING,
 					'**The Value Could Not Be Changed**',
 					'The value provided isnt in the right format, please use #000000'
 				);
@@ -163,7 +164,7 @@ export default class GoodbyeMessageCommand extends BaseCommand {
 			newValue = options[0].options[0].value as string;
 			if (!newValue.startsWith('http') && !newValue.endsWith('.png') && newValue !== 'default') {
 				const embd = await Embds.short(
-					EmbdType.WARNING,
+					EmbdTypes.WARNING,
 					'**The Value Could Not Be Changed**',
 					'The value provided isnt in the right format, please use a valid url'
 				);
@@ -181,7 +182,7 @@ export default class GoodbyeMessageCommand extends BaseCommand {
 			newValue = options[0].options[0].value as string;
 			if ((newValue.length !== 7 || newValue.charAt(0) !== '#') && newValue !== 'rainbow') {
 				const embd = await Embds.short(
-					EmbdType.WARNING,
+					EmbdTypes.WARNING,
 					'**The Value Could Not Be Changed**',
 					'The value provided isnt in the right format, please use #000000'
 				);
@@ -197,7 +198,7 @@ export default class GoodbyeMessageCommand extends BaseCommand {
 		}
 		if (!isNewValue) {
 			const embd = await Embds.short(
-				EmbdType.WARNING,
+				EmbdTypes.WARNING,
 				'**The Value Could Not Be Changed**',
 				`The value is already set to ${newValue}`
 			);
@@ -208,7 +209,7 @@ export default class GoodbyeMessageCommand extends BaseCommand {
 		try {
 			StateManager.connection.query(query, [newValue, interaction.guild.id]);
 			const embd = await Embds.short(
-				EmbdType.SUCCESS,
+				EmbdTypes.SUCCESS,
 				'**The Value Was Changed**',
 				`The value was changed to ${newValue}`
 			);
@@ -217,7 +218,7 @@ export default class GoodbyeMessageCommand extends BaseCommand {
 		} catch (error) {
 			console.log(error);
 			const embd = await Embds.short(
-				EmbdType.ERROR,
+				EmbdTypes.ERROR,
 				'**The Value Could Not Be Changed**',
 				`An unexpected error occured while trying to change the value to ${newValue}`
 			);

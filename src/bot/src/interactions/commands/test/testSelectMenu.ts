@@ -10,6 +10,7 @@ export default class TestSelectMenuCommand extends BaseCommand {
 			new SlashCommandBuilder()
 				.setName('testselectmenu')
 				.setDescription('sends a simple select menu for testing'),
+			5 * 1000
 		);
 	}
 

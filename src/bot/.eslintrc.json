@@ -13,7 +13,12 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "eslint-plugin-tsdoc"
+    ],
+    "ignorePatterns": [
+        "build/**/*",
+        "node_modules/**/*"
     ],
     "rules": {
         "indent": [
@@ -33,6 +38,7 @@
             {
                 "default": "generic"
             }
-        ]
+        ],
+        "tsdoc/syntax": "error"
     }
 }

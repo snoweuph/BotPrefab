@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType, CommandInteractionOption, GuildMember } from 'discord.js';
 import BaseCommand from '@base/classes/baseCommand';
 import bot from '@base/types/bot';
-import EmbdType from '@base/types/embdTypes';
+import EmbdTypes from '@base/types/embdTypes';
 import Embds from '@base/utils/embds';
 
 export default class EmulateLeaveCommand extends BaseCommand {
@@ -16,7 +16,7 @@ export default class EmulateLeaveCommand extends BaseCommand {
 						.setName('member')
 						.setDescription('the user to emulate a leave event for')
 				),
-			2000
+			3 * 1000
 		);
 	}
 
@@ -30,7 +30,7 @@ export default class EmulateLeaveCommand extends BaseCommand {
 			userMention = `<@!${options[0].user.id}>`;
 		}
 		const embd = await Embds.short(
-			EmbdType.SUCCESS,
+			EmbdTypes.SUCCESS,
 			'**Emulated leave event**',
 			`Successfully emulated a leave event for ${userMention}`
 		)

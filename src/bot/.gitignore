@@ -1,8 +1,11 @@
 # ignore everything in the build folder 
-
 build/
 
+<<<<<<< HEAD
 # docs
+=======
+# ignore the docs folder
+>>>>>>> f28c58a20ca0dbfbeeb9e2e948e01ad6ea1b028a
 docs/
 
 # Logs

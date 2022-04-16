@@ -22,9 +22,12 @@ jobs:
     - name: build
       run: |
         npm run build:doc
+<<<<<<< HEAD
     - name: comit
       run: |
         git add docs -f
         git status
         git commit -m "Update auto-generated documentation"
         git push
+=======
+>>>>>>> f28c58a20ca0dbfbeeb9e2e948e01ad6ea1b028a
