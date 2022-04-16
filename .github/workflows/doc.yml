@@ -30,4 +30,4 @@ jobs:
         git add docs -f
         git status
         git commit -m "Update auto-generated documentation"
-        git push  origin doc
+        git push doc
