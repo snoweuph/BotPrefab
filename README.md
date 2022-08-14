@@ -1,9 +1,8 @@
-New Version is in Dev
-
+Deprecated
 ## Using
 
 - Typescript
-- Discord.js
-- Next.js
+- Discord.js v13
+ - Next.js
 - Express
 - Sass
